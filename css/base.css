@@ -121,8 +121,11 @@ body:before {
 h1, h2, h3, h4, h5, h6 {
   font-weight: normal; }
 
-.hidden {
+.hidden, .hide {
   display: none; }
+
+.show {
+  display: inherit; }
 
 .col-1 {
   position: relative;
@@ -155,9 +158,6 @@ h1, h2, h3, h4, h5, h6 {
           display: table;
           height: 0px;
           clear: both; } }
-  @media screen and (max-width: 480px) {
-    .col-1 img {
-      max-width: 100%; } }
 
 .col-2 {
   position: relative;
@@ -190,9 +190,6 @@ h1, h2, h3, h4, h5, h6 {
           display: table;
           height: 0px;
           clear: both; } }
-  @media screen and (max-width: 480px) {
-    .col-2 img {
-      max-width: 100%; } }
 
 .col-3 {
   position: relative;
@@ -225,9 +222,6 @@ h1, h2, h3, h4, h5, h6 {
           display: table;
           height: 0px;
           clear: both; } }
-  @media screen and (max-width: 480px) {
-    .col-3 img {
-      max-width: 100%; } }
 
 .col-4 {
   position: relative;
@@ -260,9 +254,6 @@ h1, h2, h3, h4, h5, h6 {
           display: table;
           height: 0px;
           clear: both; } }
-  @media screen and (max-width: 480px) {
-    .col-4 img {
-      max-width: 100%; } }
 
 .col-5 {
   position: relative;
@@ -274,9 +265,6 @@ h1, h2, h3, h4, h5, h6 {
   @media screen and (max-width: 480px) {
     .col-5 {
       width: 100%; } }
-  @media screen and (max-width: 480px) {
-    .col-5 img {
-      max-width: 100%; } }
 
 .col-6 {
   position: relative;
@@ -309,9 +297,6 @@ h1, h2, h3, h4, h5, h6 {
           display: table;
           height: 0px;
           clear: both; } }
-  @media screen and (max-width: 480px) {
-    .col-6 img {
-      max-width: 100%; } }
 
 .col-7 {
   position: relative;
@@ -323,9 +308,6 @@ h1, h2, h3, h4, h5, h6 {
   @media screen and (max-width: 480px) {
     .col-7 {
       width: 100%; } }
-  @media screen and (max-width: 480px) {
-    .col-7 img {
-      max-width: 100%; } }
 
 .col-8 {
   position: relative;
@@ -337,9 +319,6 @@ h1, h2, h3, h4, h5, h6 {
   @media screen and (max-width: 480px) {
     .col-8 {
       width: 100%; } }
-  @media screen and (max-width: 480px) {
-    .col-8 img {
-      max-width: 100%; } }
 
 .col-9 {
   position: relative;
@@ -351,9 +330,6 @@ h1, h2, h3, h4, h5, h6 {
   @media screen and (max-width: 480px) {
     .col-9 {
       width: 100%; } }
-  @media screen and (max-width: 480px) {
-    .col-9 img {
-      max-width: 100%; } }
 
 .col-10 {
   position: relative;
@@ -365,9 +341,6 @@ h1, h2, h3, h4, h5, h6 {
   @media screen and (max-width: 480px) {
     .col-10 {
       width: 100%; } }
-  @media screen and (max-width: 480px) {
-    .col-10 img {
-      max-width: 100%; } }
 
 .col-11 {
   position: relative;
@@ -379,9 +352,6 @@ h1, h2, h3, h4, h5, h6 {
   @media screen and (max-width: 480px) {
     .col-11 {
       width: 66%; } }
-  @media screen and (max-width: 480px) {
-    .col-11 img {
-      max-width: 100%; } }
 
 .col-12 {
   position: relative;
@@ -414,10 +384,10 @@ h1, h2, h3, h4, h5, h6 {
           display: table;
           height: 0px;
           clear: both; } }
-  @media screen and (max-width: 480px) {
-    .col-12 img {
-      max-width: 100%; } }
 
+@media screen and (max-width: 768px) {
+  img {
+    max-width: 100%; } }
 .debug {
   border: solid 1px green; }
   @media screen and (min-width: 769px) and (max-width: 960px) {
@@ -496,9 +466,28 @@ body {
   margin-bottom: 1em;
   font-size: .8em;
   padding: .5em 1em;
+  color: #5f6674;
+  text-shadow: 0 0 0 transparent, 0px 1px 0px rgba(255, 255, 255, 0.5);
+  background: #e7e8eb;
+  background-image: -webkit-linear-gradient(top, white 0%, #e7e8eb 100%);
+  background-image: -moz-linear-gradient(top, white 0%, #e7e8eb 100%);
+  background-image: -ms-linear-gradient(top, white 0%, #e7e8eb 100%);
+  background-image: -o-linear-gradient(top, white 0%, #e7e8eb 100%);
+  background-image: -linear-gradient(top, white 0%, #e7e8eb 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(white), to(#e7e8eb));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#FFFFFFFF, EndColorStr=#FFE7E8EB);
   -webkit-border-radius: 0.5em;
   -moz-border-radius: 0.5em;
   border-radius: 0.5em; }
   @media screen and (min-width: 769px) and (max-width: 960px) {
     .flow {
       padding: .5em; } }
+  @media screen and (max-width: 768px) {
+    .flow {
+      font-family: "Palatino", "Palatino Lynotype", times, georgia, serif;
+      font-style: italic;
+      font-weight: normal;
+      padding: .4em;
+      -webkit-border-radius: 0.3em;
+      -moz-border-radius: 0.3em;
+      border-radius: 0.3em; } }

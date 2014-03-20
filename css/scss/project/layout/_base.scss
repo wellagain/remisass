@@ -25,10 +25,18 @@ body {
 	margin-bottom: 1em;
 	font-size: .8em;
 	padding: .5em 1em;
+	@include color(lighten($black, 30%));
+
+	@include gradient($white, lighten($black, 80%));
 
 	@include rounded(.5em);
 
 	@include breakpoint(normal) {
 		padding: .5em;
+	}
+	@include breakpoint(devices) {
+		@include em-font;
+		padding: .4em;
+		@include rounded(.3em);
 	}
 }
