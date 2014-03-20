@@ -3,6 +3,8 @@
 $columns:			12;
 $margin-bit:		2%;
 
+
+// calculated size
 $size-bit:			(100% - ($columns - 1) * $margin-bit) / $columns;
 
 

@@ -1,7 +1,10 @@
+// text-shadow
+
 @mixin text-shadow($params) {
     text-shadow: $params;
 }
 
+// automatically places a text-shadow on a text
 @mixin color($color, $force: false) {
     @if $force == true {
          color:$color !important;

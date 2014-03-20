@@ -1,3 +1,5 @@
+// simple transition
+
 @mixin transition($delay: .3s, $property: all, $timing: linear) {
     $value: $property $delay $timing;
     @include prefixize('transition', $value, 'webkit');
