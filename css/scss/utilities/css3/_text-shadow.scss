@@ -1,0 +1,24 @@
+@mixin text-shadow($params) {
+    text-shadow: $params;
+}
+
+@mixin color($color, $force: false) {
+    @if $force == true {
+         color:$color !important;
+    }
+    @else {
+        color:$color;
+    }
+    @if lightness($color) > 60% {
+    	@include text-shadow((
+			0 0 0 transparent,
+			0px -1px 0px rgba(0,0,0,.5)
+		));
+    }
+    @else {
+    	@include text-shadow((
+			0 0 0 transparent,
+			0px 1px 0px rgba(255,255,255,.5)
+		));
+    }
+}

@@ -1,0 +1,68 @@
+@mixin clearfix {
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+        height:0px;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+@mixin clearafter {
+    &:after {
+        content: " ";
+        display: table;
+        height:0px;
+        clear: both;
+    }
+}
+
+@mixin clear($side: both) {
+	clear: $side;
+}
+
+@mixin float(
+		$side: left,
+		$display: inline
+	) {
+	display: unquote($display);
+	float: unquote($side);
+}
+
+@mixin inline-block($align: top) {
+    display: inline-block;
+    vertical-align: $align;
+}
+
+@mixin inline-block-no-margin {
+    @include inline-block;
+    margin-right: -.31em;
+}
+
+@mixin table-cell {
+    display: table-cell;
+    vertical-align: top;
+}
+
+@mixin debug {
+
+    border: solid 1px green;
+
+    @include breakpoint(normal) {
+        border: solid 1px purple;
+    }
+    @include breakpoint(small) {
+        border: solid 1px blue;
+    }
+    @include breakpoint(mobile) {
+       border: solid 1px red;
+    }
+}
+
+@mixin column($count, $gap) {
+    $prefixes: webkit moz;
+    @include prefixize('column-count', $count, $prefixes);
+    @include prefixize('column-gap', $gap, $prefixes);
+}

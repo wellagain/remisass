@@ -1,0 +1,6 @@
+// Browserize box-shadow
+
+@mixin box-shadow($params) {
+    $prefixes: webkit moz;
+    @include prefixize('box-shadow', $params, $prefixes);
+}

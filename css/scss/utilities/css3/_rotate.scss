@@ -1,0 +1,7 @@
+// Browserize box-shadow
+
+@mixin rotate($params) {
+    $prefixes: webkit moz ms o;
+    @include prefixize('transform-origin', 50% 50%, $prefixes);
+    @include prefixize('transform', rotate($params), $prefixes);
+}

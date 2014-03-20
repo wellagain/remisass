@@ -1,0 +1,25 @@
+@mixin position(
+        $position: relative,
+        $coordinates: auto auto auto auto
+    ) {
+
+    $top: nth($coordinates, 1);
+    $right: nth($coordinates, 2);
+    $bottom: nth($coordinates, 3);
+    $left: nth($coordinates, 4);
+
+    position: $position;
+
+    @if $top != auto {
+        top: $top;
+    }
+    @if $right != auto {
+        right: $right;
+    }
+    @if $bottom != auto {
+        bottom: $bottom;
+    }
+    @if $left != auto {
+        left: $left;
+    }
+}

@@ -1,0 +1,11 @@
+// grid parameters
+
+$columns:			12;
+$margin-bit:		2%;
+
+$size-bit:			(100% - ($columns - 1) * $margin-bit) / $columns;
+
+
+// colors
+$black: 			rgba(26,28,32,1);
+$white: 			rgba(255,255,255,1);

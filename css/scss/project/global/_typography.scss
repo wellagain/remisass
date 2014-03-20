@@ -1,0 +1,17 @@
+@mixin em_font {
+	font-family:   "Palatino", "Palatino Lynotype", times, georgia, serif;
+	font-style:    italic;
+	font-weight:   normal;
+}
+
+@mixin nonunderlined {
+	text-decoration: none;
+}
+
+@mixin italics {
+	@include em_font;
+	font-size:1em;
+	line-height:1.4em;
+	text-transform:lowercase;
+	text-decoration:none;
+}
