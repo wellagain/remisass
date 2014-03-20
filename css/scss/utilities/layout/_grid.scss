@@ -1,52 +1,68 @@
 @mixin grid-item($nth) {
-	$item-per-column: $columns / $nth;
-	$width: $size-bit * $nth + $margin-bit * ($nth - 1);
 
+	// calculating how many items can be fit into a row
+	$item-per-column: $columns / $nth;
+	$small-item-per-column: $item-per-column / 2;
+	$mobile-item-per-column: $item-per-column / 4;
+
+	// determine how big is a sibling of big paired blocks
+	$companion-nth: $columns - $nth;
+
+	// calculate different sizes for regular, tablet and mobile view.
+	$width: $size-bit * $nth + $margin-bit * ($nth - 1);
+	$small-width: $size-bit * $nth * 2 + $margin-bit * ($nth * 2 - 1);
+	$mobile-width: $size-bit * $nth * 4 + $margin-bit * ($nth * 4 - 1);
+	$small-companion-width: $size-bit * $companion-nth * 2 + $margin-bit * ($companion-nth * 2 - 1);
+	$mobile-companion-width: $size-bit * $companion-nth * 4 + $margin-bit * ($companion-nth * 4 - 1);
+
+
+	// set an item width (this is the only one IE8 will ever accept)
 	width: $width;
 
+
+	// if several items of the same class can fill a row without remainder
 	@if ($item-per-column == round($columns / $nth)) {
+
+		// start from a new row
 		&:nth-of-type(#{$item-per-column}n+#{$item-per-column}) {
 			margin-right: 0;
 			@include clearafter;
 		}
-		@include breakpoint(small) {
-			$small-item-per-column: $item-per-column / 2;
-			$small-width: $size-bit * $nth * 2 + $margin-bit * ($nth * 2 - 1);
 
+		@include breakpoint(small) {
+			// for tablet view, bigger than half a row items forced to fill whole row
 			@if ($small-width > 50%) {
 				width: 100%;
 			}
 			@else {
 				width: $small-width;
 			}
-
+			// start from a new row
 			&:nth-of-type(#{$small-item-per-column}n+#{$small-item-per-column}) {
 				margin-right: 0;
 				@include clearafter;
 			}
 		}
 		@include breakpoint(mobile) {
-			$mobile-item-per-column: $item-per-column / 4;
-			$mobile-width: $size-bit * $nth * 4 + $margin-bit * ($nth * 4 - 1);
-
+			// for mobile view, bigger than half a row items forced to fill whole row
 			@if ($mobile-width > 50%) {
 				width: 100%;
 			}
 			@else {
 				width: $mobile-width;
 			}
-
+			// start from a new row
 			&:nth-of-type(#{$mobile-item-per-column}n+#{$mobile-item-per-column}) {
 				margin-right: 0;
 				@include clearafter;
 			}
 		}
 	}
+	// if several items of the same class cannot fill a row without remainder, calculate its likeliest compainion width and fill the space
 	@else {
 		@include breakpoint(small) {
-			$left: $columns - $nth;
-			$companion-width: $size-bit * $left * 2 + $margin-bit * ($left * 2 - 1);
-			$small-width: 100% - $margin-bit - $companion-width;
+			$small-width: 100% - $margin-bit - $small-companion-width;
+			// make sure those items whose companion are forced to fill whole row also fill the row
 			@if ($small-width + $margin-bit < 50%) {
 				width: 100%;
 			}
@@ -55,24 +71,20 @@
 			}
 		}
 		@include breakpoint(mobile) {
-			$left: $columns - $nth;
-			$companion-width: $size-bit * $left * 4 + $margin-bit * ($left * 4 - 1);
-			$small-width: 100% - $margin-bit - $companion-width;
-			@if ($small-width + $margin-bit < 50%) {
+			// make sure those items whose companion are forced to fill whole row also fill the row
+			$mobile-width: 100% - $margin-bit - $mobile-companion-width;
+			@if ($mobile-width + $margin-bit < 50%) {
 				width: 100%;
 			}
 			@else {
-				width: $small-width;
+				width: $mobile-width;
 			}
-		}
-	}
-	@include breakpoint(mobile) {
-		img {
-			max-width: 100%;
 		}
 	}
 }
 
+
+// compile grid classes col-1, col-2... until col-N, where N is number of columns
 @for $i from 1 to $columns+1 {
 	.col-#{$i} {
 		position: relative;
@@ -81,3 +93,9 @@
 	}
 }
 
+// images in grid system should not exceed it's container
+@include breakpoint(devices) {
+	img {
+		max-width: 100%;
+	}
+}
