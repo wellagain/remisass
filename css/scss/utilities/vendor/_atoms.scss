@@ -1,3 +1,4 @@
+// if a block has some floated childs, make sure it's automatically clear after itself
 @mixin clearfix {
     &:before,
     &:after {
@@ -10,6 +11,7 @@
     }
 }
 
+// automatic clear after an element that is floated
 @mixin clearafter {
     &:after {
         content: " ";
@@ -19,10 +21,12 @@
     }
 }
 
+// simple clear
 @mixin clear($side: both) {
 	clear: $side;
 }
 
+// simple floating
 @mixin float(
 		$side: left,
 		$display: inline
@@ -31,25 +35,36 @@
 	float: unquote($side);
 }
 
+// simple inline-block
 @mixin inline-block($align: top) {
     display: inline-block;
     vertical-align: $align;
 }
 
+// an inline block with IE8 support
+@mixin inline-block-ie($align: top) {
+    display: inline-block;
+    vertical-align: $align;
+    zoom: 1;
+    *display: inline;
+    *vertical-align: auto;
+}
+
+// inline-block that has no gap after it
 @mixin inline-block-no-margin {
     @include inline-block;
     margin-right: -.31em;
 }
 
+// simple table-cell
 @mixin table-cell {
     display: table-cell;
     vertical-align: top;
 }
 
+// adds responsice colored border to an element
 @mixin debug {
-
     border: solid 1px green;
-
     @include breakpoint(normal) {
         border: solid 1px purple;
     }
@@ -61,6 +76,7 @@
     }
 }
 
+// simple columns
 @mixin column($count, $gap) {
     $prefixes: webkit moz;
     @include prefixize('column-count', $count, $prefixes);

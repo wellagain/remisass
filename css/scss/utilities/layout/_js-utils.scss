@@ -1,5 +1,8 @@
 // hidden
 
-.hidden {
+.hidden, .hide {
     display: none;
+}
+.show {
+	display: inherit;
 }
