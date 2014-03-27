@@ -1,18 +1,6 @@
 .debug {
 	@include debug;
 }
-// grid helpers
-.flow-container {
-	@include clearfix;
-}
-.flow {
-	display: block;
-	float: left;
-}
-.last {
-	margin-right: 0 !important;
-	@include clearafter;
-}
 
 // normalizing button styles
 @mixin buttonormalize(

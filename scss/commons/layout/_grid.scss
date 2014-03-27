@@ -1,8 +1,11 @@
+$columns: 12 !default;
+
 @mixin grid-item($nth) {
 
 	// calculating how many items can be fit into a row
 	$item-per-column: $columns / $nth;
 	$small-item-per-column: $item-per-column / 2;
+	$small-alternative-item-per-column: $item-per-column / 3;
 	$mobile-item-per-column: $item-per-column / 4;
 
 	// determine how big is a sibling of big paired blocks
@@ -22,7 +25,6 @@
 
 	// if several items of the same class can fill a row without remainder
 	@if ($item-per-column == round($columns / $nth)) {
-
 		// start from a new row
 		&:nth-of-type(#{$item-per-column}n+#{$item-per-column}) {
 			margin-right: 0;
@@ -31,17 +33,26 @@
 
 		@include breakpoint(small) {
 			// for tablet view, bigger than half a row items forced to fill whole row
-			@if ($small-width > 50%) {
-				width: 100%;
+			@if ($width < 32%) {
+				width: $small-width;
+				&:nth-of-type(#{$small-item-per-column}n+#{$small-item-per-column}) {
+					margin-right: 0;
+					@include clearafter;
+				}
+			}
+
+			@else if ($width >= 32% and $width < 75%){
+				width: 49%;
+				&:nth-of-type(2n+2) {
+					margin-right: 0;
+					@include clearafter;
+				}
 			}
 			@else {
-				width: $small-width;
+				width: 100%;
 			}
 			// start from a new row
-			&:nth-of-type(#{$small-item-per-column}n+#{$small-item-per-column}) {
-				margin-right: 0;
-				@include clearafter;
-			}
+
 		}
 		@include breakpoint(mobile) {
 			// for mobile view, bigger than half a row items forced to fill whole row
@@ -98,4 +109,17 @@
 	img {
 		max-width: 100%;
 	}
+}
+
+// grid helpers
+.flow-container {
+	@include clearfix;
+}
+.flow {
+	display: block;
+	float: left;
+}
+.last {
+	margin-right: 0 !important;
+	@include clearafter;
 }

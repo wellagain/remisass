@@ -236,10 +236,10 @@ h1, h2, h3, h4, h5, h6 {
       clear: both; }
   @media screen and (min-width: 481px) and (max-width: 768px) {
     .col-4 {
-      width: 100%; }
-      .col-4:nth-of-type(1.5n+1.5) {
+      width: 49%; }
+      .col-4:nth-of-type(2n+2) {
         margin-right: 0; }
-        .col-4:nth-of-type(1.5n+1.5):after {
+        .col-4:nth-of-type(2n+2):after {
           content: " ";
           display: table;
           height: 0px;
@@ -279,10 +279,10 @@ h1, h2, h3, h4, h5, h6 {
       clear: both; }
   @media screen and (min-width: 481px) and (max-width: 768px) {
     .col-6 {
-      width: 100%; }
-      .col-6:nth-of-type(1n+1) {
+      width: 49%; }
+      .col-6:nth-of-type(2n+2) {
         margin-right: 0; }
-        .col-6:nth-of-type(1n+1):after {
+        .col-6:nth-of-type(2n+2):after {
           content: " ";
           display: table;
           height: 0px;
@@ -366,14 +366,7 @@ h1, h2, h3, h4, h5, h6 {
       clear: both; }
   @media screen and (min-width: 481px) and (max-width: 768px) {
     .col-12 {
-      width: 100%; }
-      .col-12:nth-of-type(0.5n+0.5) {
-        margin-right: 0; }
-        .col-12:nth-of-type(0.5n+0.5):after {
-          content: " ";
-          display: table;
-          height: 0px;
-          clear: both; } }
+      width: 100%; } }
   @media screen and (max-width: 480px) {
     .col-12 {
       width: 100%; }
@@ -388,18 +381,6 @@ h1, h2, h3, h4, h5, h6 {
 @media screen and (max-width: 768px) {
   img {
     max-width: 100%; } }
-.debug {
-  border: solid 1px green; }
-  @media screen and (min-width: 769px) and (max-width: 960px) {
-    .debug {
-      border: solid 1px purple; } }
-  @media screen and (min-width: 481px) and (max-width: 768px) {
-    .debug {
-      border: solid 1px blue; } }
-  @media screen and (max-width: 480px) {
-    .debug {
-      border: solid 1px red; } }
-
 .flow-container:before, .flow-container:after {
   content: " ";
   display: table;
@@ -418,6 +399,18 @@ h1, h2, h3, h4, h5, h6 {
     display: table;
     height: 0px;
     clear: both; }
+
+.debug {
+  border: solid 1px green; }
+  @media screen and (min-width: 769px) and (max-width: 960px) {
+    .debug {
+      border: solid 1px purple; } }
+  @media screen and (min-width: 481px) and (max-width: 768px) {
+    .debug {
+      border: solid 1px blue; } }
+  @media screen and (max-width: 480px) {
+    .debug {
+      border: solid 1px red; } }
 
 body {
   width: 100%;
