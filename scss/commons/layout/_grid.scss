@@ -43,6 +43,12 @@ $columns: 12 !default;
 
 			@else if ($width >= 32% and $width < 75%){
 				width: 49%;
+				&:nth-of-type(#{$item-per-column}n+#{$item-per-column}) {
+					margin-right: $margin-bit;
+					&:after {
+						clear:none;
+					}
+				}
 				&:nth-of-type(2n+2) {
 					margin-right: 0;
 					@include clearafter;

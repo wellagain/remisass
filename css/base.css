@@ -237,6 +237,10 @@ h1, h2, h3, h4, h5, h6 {
   @media screen and (min-width: 481px) and (max-width: 768px) {
     .col-4 {
       width: 49%; }
+      .col-4:nth-of-type(3n+3) {
+        margin-right: 2%; }
+        .col-4:nth-of-type(3n+3):after {
+          clear: none; }
       .col-4:nth-of-type(2n+2) {
         margin-right: 0; }
         .col-4:nth-of-type(2n+2):after {
@@ -280,6 +284,10 @@ h1, h2, h3, h4, h5, h6 {
   @media screen and (min-width: 481px) and (max-width: 768px) {
     .col-6 {
       width: 49%; }
+      .col-6:nth-of-type(2n+2) {
+        margin-right: 2%; }
+        .col-6:nth-of-type(2n+2):after {
+          clear: none; }
       .col-6:nth-of-type(2n+2) {
         margin-right: 0; }
         .col-6:nth-of-type(2n+2):after {
