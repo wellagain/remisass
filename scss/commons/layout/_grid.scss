@@ -1,4 +1,5 @@
 $columns: 12 !default;
+$media: screen !default;
 
 @mixin grid-item($nth) {
 
@@ -31,70 +32,72 @@ $columns: 12 !default;
 			@include clearafter;
 		}
 
-		@include breakpoint(small) {
-			// for tablet view, bigger than half a row items forced to fill whole row
-			@if ($width < 32%) {
-				width: $small-width;
-				&:nth-of-type(#{$small-item-per-column}n+#{$small-item-per-column}) {
-					margin-right: 0;
-					@include clearafter;
-				}
-			}
-
-			@else if ($width >= 32% and $width < 75%){
-				width: 49%;
-				&:nth-of-type(#{$item-per-column}n+#{$item-per-column}) {
-					margin-right: $margin-bit;
-					&:after {
-						clear:none;
+		@if $media == screen {
+			@include breakpoint(small) {
+				// for tablet view, bigger than half a row items forced to fill whole row
+				@if ($width < 32%) {
+					width: $small-width;
+					&:nth-of-type(#{$small-item-per-column}n+#{$small-item-per-column}) {
+						margin-right: 0;
+						@include clearafter;
 					}
 				}
-				&:nth-of-type(2n+2) {
+
+				@else if ($width >= 32% and $width < 75%){
+					width: 49%;
+					&:nth-of-type(#{$item-per-column}n+#{$item-per-column}) {
+						margin-right: $margin-bit;
+						&:after {
+							clear:none;
+						}
+					}
+					&:nth-of-type(2n+2) {
+						margin-right: 0;
+						@include clearafter;
+					}
+				}
+				@else {
+					width: 100%;
+				}
+			}
+			@include breakpoint(mobile) {
+				// for mobile view, bigger than half a row items forced to fill whole row
+				@if ($mobile-width > 50%) {
+					width: 100%;
+				}
+				@else {
+					width: $mobile-width;
+				}
+				// start from a new row
+				&:nth-of-type(#{$mobile-item-per-column}n+#{$mobile-item-per-column}) {
 					margin-right: 0;
 					@include clearafter;
 				}
-			}
-			@else {
-				width: 100%;
-			}
-			// start from a new row
-
-		}
-		@include breakpoint(mobile) {
-			// for mobile view, bigger than half a row items forced to fill whole row
-			@if ($mobile-width > 50%) {
-				width: 100%;
-			}
-			@else {
-				width: $mobile-width;
-			}
-			// start from a new row
-			&:nth-of-type(#{$mobile-item-per-column}n+#{$mobile-item-per-column}) {
-				margin-right: 0;
-				@include clearafter;
 			}
 		}
 	}
 	// if several items of the same class cannot fill a row without remainder, calculate its likeliest compainion width and fill the space
 	@else {
-		@include breakpoint(small) {
-			$small-width: 100% - $margin-bit - $small-companion-width;
-			// make sure those items whose companion are forced to fill whole row also fill the row
-			@if ($small-width + $margin-bit < 50%) {
-				width: 100%;
+		@if $media == screen {
+			@include breakpoint(small) {
+				$small-width: 100% - $margin-bit - $small-companion-width;
+				// make sure those items whose companion are forced to fill whole row also fill the row
+				@if ($small-width + $margin-bit < 50%) {
+					width: 100%;
+				}
+				@else {
+					width: $small-width;
+				}
 			}
-			@else {
-				width: $small-width;
-			}
-		}
-		@include breakpoint(mobile) {
-			// make sure those items whose companion are forced to fill whole row also fill the row
-			$mobile-width: 100% - $margin-bit - $mobile-companion-width;
-			@if ($mobile-width + $margin-bit < 50%) {
-				width: 100%;
-			}
-			@else {
-				width: $mobile-width;
+			@include breakpoint(mobile) {
+				// make sure those items whose companion are forced to fill whole row also fill the row
+				$mobile-width: 100% - $margin-bit - $mobile-companion-width;
+				@if ($mobile-width + $margin-bit < 50%) {
+					width: 100%;
+				}
+				@else {
+					width: $mobile-width;
+				}
 			}
 		}
 	}
@@ -107,15 +110,18 @@ $columns: 12 !default;
 		position: relative;
 		margin-right: $margin-bit;
 		@include grid-item($i);
+		// images in grid system should not exceed it's container
+		@if $media == screen {
+			@include breakpoint(devices) {
+				img {
+					max-width: 100%;
+				}
+			}
+		}
 	}
 }
 
-// images in grid system should not exceed it's container
-@include breakpoint(devices) {
-	img {
-		max-width: 100%;
-	}
-}
+
 
 // grid helpers
 .flow-container {
@@ -128,4 +134,10 @@ $columns: 12 !default;
 .last {
 	margin-right: 0 !important;
 	@include clearafter;
+	& + * {
+		clear:both;
+	}
+}
+.full {
+	width: 100%;
 }

@@ -2,12 +2,13 @@
 
 body {
 	width: 100%;
-	margin: 1em 0 0;
-	padding: 0;
+	margin: 0;
+	padding: 0 0 2em;
+	@include debug;
+	@include normal-font;
 }
 
 .wrap {
-	padding: 0;
 	@include breakpoint(normal) {
 		padding: 0 5%;
 	}
@@ -18,25 +19,93 @@ body {
 		padding: 0 1em;
 	}
 }
-@include centered-content(80%);
+@include centered-content(80%, $max-page-width);
 
+a {
+	@include color($col-link);
+	&:visited {
+		color: darken(desaturate($col-link, 55%), 5%);
+	}
+	&:hover, &:active {
+		color: lighten($col-link, 10%);
+	}
+}
+
+h1 {
+	@include em-font;
+	font-size: 2em;
+	line-height: .8em;
+	margin: .5em 0 .2em;
+	@include breakpoint(normal) {
+		font-size: 1.8em;
+	}
+	@include breakpoint(devices) {
+		font-size: 1.5em;
+	}
+}
+
+h2 {
+	font-size: 1em;
+	margin: -.5em 0 0;
+	color: lighten($black, 30%);
+	@include breakpoint(devices) {
+		margin-top: 0;
+	}
+}
+
+.element {
+	padding: 2em 0 1em;
+	@include breakpoint(normal) {
+		padding: 1em 0 .5em;
+	}
+	@include breakpoint(devices) {
+		padding: .5em 0;
+	}
+	@include breakpoint(widescreen) {
+		padding: .5em 0;
+	}
+}
 
 .flow {
 	margin-bottom: 1em;
 	font-size: .8em;
-	padding: .5em 1em;
-	@include color(lighten($black, 30%));
+	padding: 1em;
 
-	@include gradient($white, lighten($black, 80%));
-
+	@include em-font;
 	@include rounded(.5em);
 
+	@include breakpoint(widescreen) {
+		padding: .5em 1em;
+	}
 	@include breakpoint(normal) {
 		padding: .5em;
 	}
 	@include breakpoint(devices) {
-		@include em-font;
 		padding: .4em;
 		@include rounded(.3em);
 	}
 }
+
+
+@for $i from 1 to $columns+1 {
+	$color-from: darken($white, $i*8);
+	$color-to: lighten($black, 100-$i*8);
+	.col-#{$i} {
+		@include gradient($color-from, $color-to);
+		@include box-shadow((
+			0 0 0 1px transparentize(darken($color-to, 40%), .8) inset
+		));
+
+		@if lightness($color-to) >80% {
+			@include color(lighten($black, 30%));
+		}
+		@else {
+			@include color($white);
+		}
+	}
+}
+
+
+
+
+

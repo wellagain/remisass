@@ -1,3 +1,9 @@
+// normal sans-serif
+@mixin normal_font {
+	font-family:   "Helvetica", Arial, sans-serif;
+	font-weight:   normal;
+}
+
 // pretty italic
 @mixin em_font {
 	font-family:   "Palatino", "Palatino Lynotype", times, georgia, serif;
