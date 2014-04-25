@@ -1,13 +1,11 @@
 a {
-  color: $link-normal;
-
-  &:visited {
-    color: $link-visited;
-  }
-
-  &:hover {
-    color: $link-hover;
-  }
+	@include color($col-link);
+	&:visited {
+		color: darken(desaturate($col-link, 55%), 5%);
+	}
+	&:hover, &:active {
+		color: lighten($col-link, 10%);
+	}
 }
 
 p {
@@ -15,10 +13,26 @@ p {
   margin-bottom: 1em;
 }
 
-h1, h2 {
-  font-family: Georgia, serif;
-  font-weight:normal;
-  line-height: 1.1em;
+h1 {
+	@include em-font;
+	font-size: 2em;
+	line-height: .8em;
+	margin: .5em 0 .2em;
+	@include breakpoint(normal) {
+		font-size: 1.8em;
+	}
+	@include breakpoint(devices) {
+		font-size: 1.5em;
+	}
+}
+
+h2 {
+	font-size: 1em;
+	margin: -.5em 0 0;
+	color: lighten($black, 30%);
+	@include breakpoint(devices) {
+		margin-top: 0;
+	}
 }
 
 ul {
@@ -36,4 +50,8 @@ ul {
 			padding-left: 1.5em;
 		}
 	}
+}
+
+.debug {
+	@include debug;
 }

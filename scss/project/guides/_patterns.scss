@@ -1,7 +1,3 @@
-.debug {
-	@include debug;
-}
-
 // normalizing button styles
 @mixin buttonormalize(
 		$font-size: 1em,

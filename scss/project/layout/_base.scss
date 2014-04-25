@@ -21,16 +21,6 @@ body {
 }
 @include centered-content(80%, $max-page-width);
 
-a {
-	@include color($col-link);
-	&:visited {
-		color: darken(desaturate($col-link, 55%), 5%);
-	}
-	&:hover, &:active {
-		color: lighten($col-link, 10%);
-	}
-}
-
 h1 {
 	@include em-font;
 	font-size: 2em;
