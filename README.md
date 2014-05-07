@@ -1,7 +1,8 @@
 miresass
 ========
 
-Minimalistic responsive grid sass framework
+Minimalistic responsive grid sass framework for modern browsers
+(@media and :nth-of-type support is requred)
 
 See <a href="http://work.wellagain.lt/miresass/">demo page</a> for visual representation
 

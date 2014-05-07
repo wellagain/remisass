@@ -131,6 +131,9 @@ $media: screen !default;
 	display: block;
 	float: left;
 }
+.inblock {
+	@include inline-block;
+}
 .last {
 	margin-right: 0 !important;
 	@include clearafter;
