@@ -1,11 +1,13 @@
 // simple 2 colors gradient
+// use:
+// @include gradient($black, $gray, '../img/texture.png', top);
 
 @mixin gradient(
         $color1,
         $color2,
         $image: false,
         $direction: top,
-        $webkit-direction: top
+        $webkit-direction: $direction
     ) {
     $prefixes: webkit-linear moz-linear ms-linear o-linear linear;
     $value: $direction, $color1 0%, $color2 100%;

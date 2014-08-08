@@ -1,4 +1,6 @@
 // Browserize border-radius
+// use:
+// @include rounded(1em);
 
 @mixin rounded($radius, $side: false) {
     $prefixes: webkit moz;

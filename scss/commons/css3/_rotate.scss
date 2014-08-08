@@ -1,4 +1,6 @@
-// Browserize box-shadow
+// Rotation
+// use:
+// @include rotate(90deg);
 
 @mixin rotate($params) {
     $prefixes: webkit moz ms o;

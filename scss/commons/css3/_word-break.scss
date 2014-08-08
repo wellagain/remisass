@@ -1,4 +1,6 @@
 // break words in the middle if it's length exceed container's width
+// use:
+// @include word-break;
 
 @mixin word-break {
 	-ms-word-break: break-all;

@@ -1,8 +1,11 @@
 // an one-liner for position and z-index
+// use:
+// @include position(absolute, 0 auto auto 0, 999)
 
 @mixin position(
         $position: relative,
-        $coordinates: auto auto auto auto
+        $coordinates: auto auto auto auto,
+        $zindex: auto
     ) {
 
     $top: nth($coordinates, 1);
@@ -23,5 +26,8 @@
     }
     @if $left != auto {
         left: $left;
+    }
+    @if $zindex != auto {
+        z-index: $zindex;
     }
 }

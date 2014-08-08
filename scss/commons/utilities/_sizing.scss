@@ -1,4 +1,7 @@
 // an one-liner for width, min-width and max-width
+// use:
+// @include width(100%, 500px, 1200px);
+
 @mixin width(
         $size:auto,
         $min:auto,
@@ -15,7 +18,11 @@
     }
 }
 
+
 // an one-liner for height, min-height and max-height
+// use:
+// @include width(100%, 100px, 600px);
+
 @mixin height(
         $size:auto,
         $min:auto,

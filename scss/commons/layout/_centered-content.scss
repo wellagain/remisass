@@ -1,4 +1,6 @@
 // An element withing wrap container is centered and has it's own width
+// use:
+// @include centered-content(100%, 650px, 1200px);
 
 @mixin centered-content(
         $element-width,

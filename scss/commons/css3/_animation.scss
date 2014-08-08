@@ -1,0 +1,40 @@
+// Animation keyframe definition
+// use:
+// @include keyframe(jump) {
+//     from {
+//         top: 2em;
+//     }
+//     to {
+//         top: 0;
+//     }
+// }
+
+@mixin keyframe($animation_name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }
+
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+
+// Animation
+// use:
+// @include animation(1s, 20s, jump, infinite, normal, ease-in-out);
+
+@mixin animation($delay, $duration, $animation, $count: 1, $direction: alternate, $timing: linear) {
+    $prefixes: webkit moz;
+    @include prefixize('animation-delay', $delay, $prefixes);
+    @include prefixize('animation-duration', $duration, $prefixes);
+    @include prefixize('animation-name', $animation, $prefixes);
+    @include prefixize('animation-iteration-count', $count, $prefixes);
+    @include prefixize('animation-direction', $direction, $prefixes);
+    @include prefixize('animation-fill-mode', forwards, $prefixes);
+    @include prefixize('animation-timing-function', $timing, $prefixes);
+}

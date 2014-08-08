@@ -1,4 +1,6 @@
 // based on compass sticky-footer
+// use:
+// @include sticky-footer(310px, ".container", ".push", ".footer");
 
 @mixin sticky-footer(
 		$footer-height,
