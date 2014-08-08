@@ -1,12 +1,8 @@
 // Animation keyframe definition
 // use:
 // @include keyframe(jump) {
-//     from {
-//         top: 2em;
-//     }
-//     to {
-//         top: 0;
-//     }
+//     from { top: 2em; }
+//     to { top: 0; }
 // }
 
 @mixin keyframe($animation_name) {
