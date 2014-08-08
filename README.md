@@ -1,10 +1,10 @@
-miresass
+remisass
 ========
 
-Minimalistic responsive grid sass framework for modern browsers
+Responsive Minimalistic grid sass framework for modern browsers
 (@media and :nth-of-type support is requred)
 
-See <a href="http://work.wellagain.lt/miresass/">demo page</a> for visual representation
+See <a href="http://work.wellagain.lt/remisass/">demo page</a> for visual representation
 
 
 Do not edit .css files directly. They all are compiled by ruby from SASS (.scss) files (SASS 3.3.2 version).
