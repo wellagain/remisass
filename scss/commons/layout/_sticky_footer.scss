@@ -27,4 +27,9 @@
 		position: relative;
 		height: $footer-height;
 	}
+	@include breakpoint(devices) {
+		#{$footer-selector} {
+			height: auto;
+		}
+	}
 }

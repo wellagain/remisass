@@ -1,13 +1,12 @@
 // based on html5doctor.com Reset Stylesheet
 @import "commons/utilities/_browserizing";
 
-html {
+html, body {
     margin:0;
     padding:0;
     border:0;
 }
 
-body,
 div,
 span,
 object,
@@ -121,6 +120,10 @@ button {
     outline: none;
     -webkit-border-fit:border !important;
     -webkit-appearance: none;
+
+    &:focus {
+        outline: 0;
+    }
 }
 
 button::-moz-focus-inner {
