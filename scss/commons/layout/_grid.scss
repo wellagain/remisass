@@ -3,23 +3,49 @@
 $columns: 12 !default;
 $media: screen !default;
 
+
+
+// basic width calculations
+@function normal-width($number) {
+	@return $size-bit * $number + $margin-bit * ($number - 1);
+}
+
+@function small-width($number) {
+	@return $size-bit * $number * 2 + $margin-bit * ($number * 2 - 1);
+}
+
+@function small-companion-width($number) {
+	// determine how big is a sibling of big paired blocks
+	$companion: $columns - $number;
+	@return $size-bit * $companion * 2 + $margin-bit * ($companion * 2 - 1);
+}
+
+@function mobile-width($number) {
+	@return $size-bit * $number * 4 + $margin-bit * ($number * 4 - 1);
+}
+
+@function mobile-companion-width($number) {
+	// determine how big is a sibling of big paired blocks
+	$companion: $columns - $number;
+	@return $size-bit * $companion * 4 + $margin-bit * ($companion * 4 - 1);
+}
+
+
 @mixin grid-item($nth) {
 
 	// calculating how many items can be fit into a row
 	$item-per-column: $columns / $nth;
 	$small-item-per-column: $item-per-column / 2;
-	$small-alternative-item-per-column: $item-per-column / 3;
 	$mobile-item-per-column: $item-per-column / 4;
 
-	// determine how big is a sibling of big paired blocks
-	$companion-nth: $columns - $nth;
+
 
 	// calculate different sizes for regular, tablet and mobile view.
-	$width: $size-bit * $nth + $margin-bit * ($nth - 1);
-	$small-width: $size-bit * $nth * 2 + $margin-bit * ($nth * 2 - 1);
-	$mobile-width: $size-bit * $nth * 4 + $margin-bit * ($nth * 4 - 1);
-	$small-companion-width: $size-bit * $companion-nth * 2 + $margin-bit * ($companion-nth * 2 - 1);
-	$mobile-companion-width: $size-bit * $companion-nth * 4 + $margin-bit * ($companion-nth * 4 - 1);
+	$width: normal-width($nth);
+	$small-width:  small-width($nth);
+	$mobile-width: mobile-width($nth);
+	$small-companion-width: small-companion-width($nth);
+	$mobile-companion-width: mobile-companion-width($nth);
 
 
 	// set an item width (this is the only one IE8 will ever accept)
@@ -29,9 +55,8 @@ $media: screen !default;
 	// if several items of the same class can fill a row without remainder
 	@if ($item-per-column == round($columns / $nth)) {
 		// start from a new row
-		&:nth-of-type(#{$item-per-column}n+#{$item-per-column}) {
+		&:nth-of-type(#{$item-per-column}n+#{$item-per-column}), &:last-child {
 			margin-right: 0;
-			@include clearafter;
 		}
 
 		@if $media == screen {
@@ -41,7 +66,6 @@ $media: screen !default;
 					width: $small-width;
 					&:nth-of-type(#{$small-item-per-column}n+#{$small-item-per-column}) {
 						margin-right: 0;
-						@include clearafter;
 					}
 				}
 
@@ -55,7 +79,6 @@ $media: screen !default;
 					}
 					&:nth-of-type(2n+2) {
 						margin-right: 0;
-						@include clearafter;
 					}
 				}
 				@else {
@@ -73,7 +96,6 @@ $media: screen !default;
 				// start from a new row
 				&:nth-of-type(#{$mobile-item-per-column}n+#{$mobile-item-per-column}) {
 					margin-right: 0;
-					@include clearafter;
 				}
 			}
 		}
@@ -102,47 +124,28 @@ $media: screen !default;
 				}
 			}
 		}
-	}
-}
 
-
-// compile grid classes col-1, col-2... until col-N, where N is number of columns
-@for $i from 1 to $columns+1 {
-	.col-#{$i} {
-		position: relative;
-		margin-right: $margin-bit;
-		@include grid-item($i);
-		// images in grid system should not exceed it's container
-		@if $media == screen {
-			@include breakpoint(devices) {
-				img {
-					max-width: 100%;
-				}
-			}
+		&:last-child {
+			margin-right: 0;
 		}
 	}
 }
 
 
-
-// grid helpers
-.flow-container {
-	@include clearfix;
-}
-.flow {
-	display: block;
-	float: left;
-}
-.inblock {
-	@include inline-block;
-}
-.last {
-	margin-right: 0 !important;
-	@include clearafter;
-	& + * {
-		clear:both;
+// make silent grid classes col-1, col-2... until col-N, where N is number of columns
+@for $i from 1 to $columns+1 {
+	%col-#{$i} {
+		@extend %column;
+		@include grid-item($i);
 	}
 }
-.full {
-	width: 100%;
+
+%column {
+	position: relative;
+	margin-right: calc(#{$margin-bit} - .35em);
+}
+
+// grid helpers
+%inblock {
+	@include inline-block(top);
 }
