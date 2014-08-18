@@ -1,0 +1,14 @@
+// a BEM element
+@mixin element($name) {
+  @at-root &__#{$name} {
+      @content;
+    }
+}
+
+// the BEM modifier
+@mixin modifier($name) {
+  @at-root &--#{$name} {
+    @content;
+  }
+}
+
