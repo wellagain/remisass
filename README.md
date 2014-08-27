@@ -7,7 +7,7 @@ Responsive Minimalistic grid sass framework for modern browsers
 See <a href="http://work.wellagain.lt/remisass/">demo page</a> for visual representation
 
 
-Do not edit .css files directly. They all are compiled by ruby from SASS (.scss) files (SASS 3.3.2 version).
+Do not edit .css files directly. They all are compiled by ruby from SASS (.scss) files (SASS 3.4.1 version recommended).
 
 
 Use sass watch in **scss** folder instead:
