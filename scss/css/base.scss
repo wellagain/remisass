@@ -1,8 +1,11 @@
 @import "commons/utilities/browserizing";
 @import "commons/utilities/sizing";
 @import "commons/utilities/positioning";
-@import "commons/utilities/atoms";
+@import "commons/utilities/display";
+@import "commons/utilities/floating";
 @import "commons/utilities/bem";
+@import "commons/utilities/debug";
+
 @import "project/guides/swatches";
 @import "project/guides/responsive";
 
@@ -12,6 +15,7 @@
 @import "commons/css3/gradient";
 @import "commons/css3/transition";
 @import "commons/css3/word-break";
+@import "commons/css3/columns";
 
 @import "commons/layout/reset";
 @import "commons/layout/js-utils";

@@ -1,0 +1,51 @@
+// An one-liner for inline-block
+// use:
+// @include inline-block(bottom);
+
+@mixin inline-block($align: top) {
+    display: inline-block;
+    vertical-align: $align;
+}
+
+
+// An one-liner for inline-block with IE7- support
+// use:
+// @include inline-block-ie(middle);
+
+@mixin inline-block-ie($align: top) {
+    display: inline-block;
+    vertical-align: $align;
+    zoom: 1;
+    *display: inline;
+    *vertical-align: $align;
+}
+
+
+// An one-liner for inline-block with gap fix
+// use:
+// @include inline-block-no-margin;
+
+@mixin inline-block-no-margin {
+    @include inline-block;
+    margin-right: -.31em;
+}
+
+
+// An one-liner for table-cell
+// use:
+// @include table-cell;
+
+@mixin table-cell($align: top) {
+    display: table-cell;
+    vertical-align: $align;
+}
+
+// Push text out of visibility
+// use:
+// @include hidden-text;
+
+@mixin hidden-text {
+    text-indent: 1000%;
+    white-space: nowrap;
+    overflow: hidden;
+}

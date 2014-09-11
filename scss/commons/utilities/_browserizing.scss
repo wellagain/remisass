@@ -1,4 +1,4 @@
-// Making prefixes for needed browsers only
+// Making vendor prefixes for needed browsers only
 // use:
 // @include prefixize('animation-delay', 5s, 'webkit');
 
@@ -15,7 +15,7 @@ $default-prefixes: webkit moz ms o;
 }
 
 
-// Reseting to box-sizing
+// Reseting to box-sizing: border-box
 // use:
 // @include normalize;
 
@@ -25,7 +25,7 @@ $default-prefixes: webkit moz ms o;
 }
 
 
-// Fixing flickering
+// Fixing flickering on transitions and animations
 // use:
 // @include antiflickr;
 
