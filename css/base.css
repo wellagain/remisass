@@ -1,35 +1,24 @@
-.test {
-  size-list: "(min-width:1668px) and (max-width:2000px)" 12 6.5%, "(min-width:1334px) and (max-width:1667px)" 6 15%, "(min-width:1001px) and (max-width:1333px)" 4 23.5%, "(min-width:668px) and (max-width:1000px)" 3 32%, "(min-width:334px) and (max-width:667px)" 2 49%, "(min-width:0) and (max-width:333px)" 1 100%;
-  breakpoint-number: 6;
-  breakpoints: 333px, 667px, 1000px, 1333px, 1667px, 2000px;
-  query: "(min-width:0) and (max-width:333px)", "(min-width:334px) and (max-width:667px)", "(min-width:668px) and (max-width:1000px)", "(min-width:1001px) and (max-width:1333px)", "(min-width:1334px) and (max-width:1667px)", "(min-width:1668px) and (max-width:2000px)"; }
-
-@media screen and (min-width: 1668px) and (max-width: 2000px) {
+@media screen and (min-width: 1441px) and (max-width: 1800px) {
   .s-1-12 {
-    width: 6.5%; }
-    .s-1-12:nth-of-type(12n+12), .s-1-12:last-child {
+    width: 4.375%; }
+    .s-1-12:nth-of-type(16n+16), .s-1-12:last-child {
       margin-right: 0; } }
-@media screen and (min-width: 1334px) and (max-width: 1667px) {
+@media screen and (min-width: 1081px) and (max-width: 1440px) {
   .s-1-12 {
-    width: 15%; }
-    .s-1-12:nth-of-type(6n+6), .s-1-12:last-child {
+    width: 10.75%; }
+    .s-1-12:nth-of-type(8n+8), .s-1-12:last-child {
       margin-right: 0; } }
-@media screen and (min-width: 1001px) and (max-width: 1333px) {
+@media screen and (min-width: 721px) and (max-width: 1080px) {
   .s-1-12 {
     width: 23.5%; }
     .s-1-12:nth-of-type(4n+4), .s-1-12:last-child {
       margin-right: 0; } }
-@media screen and (min-width: 668px) and (max-width: 1000px) {
-  .s-1-12 {
-    width: 32%; }
-    .s-1-12:nth-of-type(3n+3), .s-1-12:last-child {
-      margin-right: 0; } }
-@media screen and (min-width: 334px) and (max-width: 667px) {
+@media screen and (min-width: 361px) and (max-width: 720px) {
   .s-1-12 {
     width: 49%; }
     .s-1-12:nth-of-type(2n+2), .s-1-12:last-child {
       margin-right: 0; } }
-@media screen and (min-width: 0) and (max-width: 333px) {
+@media screen and (min-width: 0) and (max-width: 360px) {
   .s-1-12 {
     width: 100%; }
     .s-1-12:nth-of-type(1n+1), .s-1-12:last-child {
@@ -38,32 +27,27 @@
 .s-1-12 {
   border: solid 1px red;
   margin-right: 2%; }
-  @media screen and (min-width: 1668px) and (max-width: 2000px) {
+  @media screen and (min-width: 1441px) and (max-width: 1800px) {
     .s-1-12 .s-1-12 {
-      width: 6.5%; }
-      .s-1-12 .s-1-12:nth-of-type(12n+12), .s-1-12 .s-1-12:last-child {
+      width: 4.375%; }
+      .s-1-12 .s-1-12:nth-of-type(16n+16), .s-1-12 .s-1-12:last-child {
         margin-right: 0; } }
-  @media screen and (min-width: 1334px) and (max-width: 1667px) {
+  @media screen and (min-width: 1081px) and (max-width: 1440px) {
     .s-1-12 .s-1-12 {
-      width: 15%; }
-      .s-1-12 .s-1-12:nth-of-type(6n+6), .s-1-12 .s-1-12:last-child {
+      width: 10.75%; }
+      .s-1-12 .s-1-12:nth-of-type(8n+8), .s-1-12 .s-1-12:last-child {
         margin-right: 0; } }
-  @media screen and (min-width: 1001px) and (max-width: 1333px) {
+  @media screen and (min-width: 721px) and (max-width: 1080px) {
     .s-1-12 .s-1-12 {
       width: 23.5%; }
       .s-1-12 .s-1-12:nth-of-type(4n+4), .s-1-12 .s-1-12:last-child {
         margin-right: 0; } }
-  @media screen and (min-width: 668px) and (max-width: 1000px) {
-    .s-1-12 .s-1-12 {
-      width: 32%; }
-      .s-1-12 .s-1-12:nth-of-type(3n+3), .s-1-12 .s-1-12:last-child {
-        margin-right: 0; } }
-  @media screen and (min-width: 334px) and (max-width: 667px) {
+  @media screen and (min-width: 361px) and (max-width: 720px) {
     .s-1-12 .s-1-12 {
       width: 49%; }
       .s-1-12 .s-1-12:nth-of-type(2n+2), .s-1-12 .s-1-12:last-child {
         margin-right: 0; } }
-  @media screen and (min-width: 0) and (max-width: 333px) {
+  @media screen and (min-width: 0) and (max-width: 360px) {
     .s-1-12 .s-1-12 {
       width: 100%; }
       .s-1-12 .s-1-12:nth-of-type(1n+1), .s-1-12 .s-1-12:last-child {
@@ -201,19 +185,7 @@ body:before {
 h1, h2, h3, h4, h5, h6 {
   font-weight: normal; }
 
-.grid__content {
-  border: solid 1px #00ac65; }
-  @media screen and (min-width: 768px) and (max-width: 990px) {
-    .grid__content {
-      border: solid 1px #b268db; } }
-  @media screen and (min-width: 480px) and (max-width: 767px) {
-    .grid__content {
-      border: solid 1px #318f8f; } }
-  @media screen and (max-width: 479px) {
-    .grid__content {
-      border: solid 1px #e9662c; } }
-  @media screen and (min-width: 991px) and (max-height: 680px) {
-    .grid__content {
-      border: solid 1px #ebaf3c; } }
+.grid__content .s-1-12 {
+  margin-top: 1em; }
 
 /*# sourceMappingURL=base.css.map */

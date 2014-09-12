@@ -4,7 +4,7 @@
 
 $columns: 12 !default;
 $media: screen !default;
-$max-scren: 2000px;
+$max-screen: 2000px !default;
 
 
 
@@ -89,7 +89,7 @@ $max-scren: 2000px;
 $grid-columns: grid-column-count($columns);						// how many columns in a row?
 $size: reverse(column-size($grid-columns));						// what is the size of a column?
 $breakpoint-number: length($grid-columns);						// how many breakpoints?
-$resolutions: breakpoints($max-scren, $breakpoint-number);		// in which resolution is it?
+$resolutions: breakpoints($max-screen, $breakpoint-number);		// in which resolution is it?
 $media-query: reverse(form-media-query($resolutions));					// what are media queries
 
 // join all values in array
@@ -118,16 +118,16 @@ $size-list: zip($media-query, $grid-columns, $size);
 }
 
 
+// .test {
+// 	size-list: $size-list;
+// 	breakpoint-number: $breakpoint-number;
+// 	breakpoints: breakpoints($max-screen, $breakpoint-number);
+
+// 	query: form-media-query($resolutions);
+// }
 
 
-.test {
-	size-list: $size-list;
-	breakpoint-number: $breakpoint-number;
-	breakpoints: breakpoints($max-scren, $breakpoint-number);
-
-	query: form-media-query($resolutions);
-}
-
+//testing
 
 @include grid(".s-1-12");
 
