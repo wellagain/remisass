@@ -1,151 +1,295 @@
+@import "commons/utilities/math";
+
 // These styles are compiled into a grid class system
 
 $columns: 12 !default;
 $media: screen !default;
+$max-scren: 2000px;
 
 
 
-// basic width calculations
-@function normal-width($number) {
-	@return $size-bit * $number + $margin-bit * ($number - 1);
-}
+// Returns a list of column number per row for given column count
+// e.g. if there's 12 columns in a row, list is 12 6 3 2 1
+// use:
+// grid-column-count($columns)
 
-@function small-width($number) {
-	@return $size-bit * $number * 2 + $margin-bit * ($number * 2 - 1);
-}
+@function grid-column-count($number) {
+ 	$result: ();
 
-@function small-companion-width($number) {
-	// determine how big is a sibling of big paired blocks
-	$companion: $columns - $number;
-	@return $size-bit * $companion * 2 + $margin-bit * ($companion * 2 - 1);
-}
-
-@function mobile-width($number) {
-	@return $size-bit * $number * 4 + $margin-bit * ($number * 4 - 1);
-}
-
-@function mobile-companion-width($number) {
-	// determine how big is a sibling of big paired blocks
-	$companion: $columns - $number;
-	@return $size-bit * $companion * 4 + $margin-bit * ($companion * 4 - 1);
-}
-
-
-@mixin grid-item($nth) {
-
-	// calculating how many items can be fit into a row
-	$item-per-column: $columns / $nth;
-	$small-item-per-column: $item-per-column / 2;
-	$mobile-item-per-column: $item-per-column / 4;
-
-
-
-	// calculate different sizes for regular, tablet and mobile view.
-	$width: normal-width($nth);
-	$small-width:  small-width($nth);
-	$mobile-width: mobile-width($nth);
-	$small-companion-width: small-companion-width($nth);
-	$mobile-companion-width: mobile-companion-width($nth);
-
-
-	// set an item width (this is the only one IE8 will ever accept)
-	width: $width;
-
-
-	// if several items of the same class can fill a row without remainder
-	@if ($item-per-column == round($columns / $nth)) {
-		// start from a new row
-		&:nth-of-type(#{$item-per-column}n+#{$item-per-column}), &:last-child {
-			margin-right: 0;
+	@for $i from 1 through $number {
+		$val: $number / $i;
+		@if is-integer($val) == true {
+			$result: append($result, $val, comma);
 		}
+	}
 
-		@if $media == screen {
-			@include breakpoint(small) {
-				// for tablet view, bigger than half a row items forced to fill whole row
-				@if ($width < 32%) {
-					width: $small-width;
-					&:nth-of-type(#{$small-item-per-column}n+#{$small-item-per-column}) {
-						margin-right: 0;
-					}
-				}
+	@return $result;
+}
 
-				@else if ($width >= 32% and $width < 75%){
-					width: 49%;
-					&:nth-of-type(#{$item-per-column}n+#{$item-per-column}) {
-						margin-right: $margin-bit;
-						&:after {
-							clear:none;
-						}
-					}
-					&:nth-of-type(2n+2) {
-						margin-right: 0;
-					}
-				}
-				@else {
-					width: 100%;
-				}
-			}
-			@include breakpoint(mobile) {
-				// for mobile view, bigger than half a row items forced to fill whole row
-				@if ($mobile-width > 50%) {
-					width: 100%;
-				}
-				@else {
-					width: $mobile-width;
-				}
-				// start from a new row
-				&:nth-of-type(#{$mobile-item-per-column}n+#{$mobile-item-per-column}) {
+
+// reverse a list (http://hugogiraudel.com/2013/08/08/advanced-sass-list-functions/)
+@function reverse($list, $recursive: false) {
+   $result: ();
+
+   @for $i from length($list)*-1 through -1 {
+      @if type-of(nth($list, abs($i))) == list and $recursive {
+        $result: append($result, reverse(nth($list, abs($i)), $recursive));
+      }
+
+      @else {
+        $result: append($result, nth($list, abs($i)));
+      }
+   }
+
+   @return $result;
+}
+
+// Basic width calculator
+@function calc-width($nth) {
+	@return $size-bit * $nth + $margin-bit * ($nth - 1);
+}
+
+// calculate widths
+@function column-size($list) {
+	$result: ();
+	@each $item in $list {
+		$width: calc-width($item);
+		$result: append($result, $width, comma);
+	}
+
+	@return $result;
+}
+
+@function breakpoints($maxsize, $breakpoints) {
+ 	$result: ();
+ 	$bit: $maxsize / $breakpoints;
+	@for $i from 1 through $breakpoints {
+		$val: round($bit * $i);
+		$result: append($result, $val, comma);
+	}
+	@return $result;
+}
+
+@function form-media-query($list) {
+	$result: ();
+	$lower-bound: 0;
+
+	@each $item in $list {
+
+		$text: "(min-width:" + $lower-bound + ") and (max-width:" + $item + ")";
+		$lower-bound: $item + 1px;
+
+		$result: append($result, $text, comma);
+	}
+
+	@return $result;
+
+}
+
+$grid-columns: grid-column-count($columns);						// how many columns in a row?
+$size: reverse(column-size($grid-columns));						// what is the size of a column?
+$breakpoint-number: length($grid-columns);						// how many breakpoints?
+$resolutions: breakpoints($max-scren, $breakpoint-number);		// in which resolution is it?
+$media-query: reverse(form-media-query($resolutions));					// what are media queries
+
+// join all values in array
+$size-list: zip($media-query, $grid-columns, $size);
+
+
+@mixin grid(
+			$object: unquote(".s-1-12")
+	) {
+	 #{$object} {
+		@each $item in $size-list {
+
+			$query: unquote( nth($item, 1));
+			$nth: nth($item, 2);
+			$size: nth($item, 3);
+
+			@media screen and #{$query} {
+				width: $size;
+
+				&:nth-of-type(#{$nth}n+#{$nth}), &:last-child {
 					margin-right: 0;
 				}
 			}
 		}
 	}
-	// if several items of the same class cannot fill a row without remainder, calculate its likeliest compainion width and fill the space
-	@else {
-		@if $media == screen {
-			@include breakpoint(small) {
-				$small-width: 100% - $margin-bit - $small-companion-width;
-				// make sure those items whose companion are forced to fill whole row also fill the row
-				@if ($small-width + $margin-bit < 50%) {
-					width: 100%;
-				}
-				@else {
-					width: $small-width;
-				}
-			}
-			@include breakpoint(mobile) {
-				// make sure those items whose companion are forced to fill whole row also fill the row
-				$mobile-width: 100% - $margin-bit - $mobile-companion-width;
-				@if ($mobile-width + $margin-bit < 50%) {
-					width: 100%;
-				}
-				@else {
-					width: $mobile-width;
-				}
-			}
-		}
-
-		&:last-child {
-			margin-right: 0;
-		}
-	}
 }
 
 
-// make silent grid classes col-1, col-2... until col-N, where N is number of columns
-@for $i from 1 to $columns+1 {
-	%col-#{$i} {
-		@extend %column;
-		@include grid-item($i);
-	}
+
+
+.test {
+	size-list: $size-list;
+	breakpoint-number: $breakpoint-number;
+	breakpoints: breakpoints($max-scren, $breakpoint-number);
+
+	query: form-media-query($resolutions);
 }
 
-%column {
-	position: relative;
-	margin-right: calc(#{$margin-bit} - .35em);
+
+@include grid(".s-1-12");
+
+
+.s-1-12 {
+	border: solid 1px red;
+	@extend %column;
+	margin-right: $margin-bit;
+	@include grid;
 }
+
+
+// @for $i from 1 through $columns {
+// 	.col-#{$i} {
+// 		@extend %column;
+// 		@extend %s-1-#{$i} !optional;
+// 	}
+// }
+
+
+
+
+
+
+// @function small-width($number) {
+// 	@return $size-bit * $number * 2 + $margin-bit * ($number * 2 - 1);
+// }
+
+// @function small-companion-width($number) {
+// 	// determine how big is a sibling of big paired blocks
+// 	$companion: $columns - $number;
+// 	@return $size-bit * $companion * 2 + $margin-bit * ($companion * 2 - 1);
+// }
+
+// @function mobile-width($number) {
+// 	@return $size-bit * $number * 4 + $margin-bit * ($number * 4 - 1);
+// }
+
+// @function mobile-companion-width($number) {
+// 	// determine how big is a sibling of big paired blocks
+// 	$companion: $columns - $number;
+// 	@return $size-bit * $companion * 4 + $margin-bit * ($companion * 4 - 1);
+// }
+
+
+// @mixin grid-item($nth) {
+
+// 	// calculating how many items can be fit into a row
+// 	$item-per-column: $columns / $nth;
+// 	$small-item-per-column: $item-per-column / 2;
+// 	$mobile-item-per-column: $item-per-column / 4;
+
+
+
+// 	// calculate different sizes for regular, tablet and mobile view.
+// 	$width: normal-width($nth);
+// 	$small-width:  small-width($nth);
+// 	$mobile-width: mobile-width($nth);
+// 	$small-companion-width: small-companion-width($nth);
+// 	$mobile-companion-width: mobile-companion-width($nth);
+
+
+// 	// set an item width (this is the only one IE8 will ever accept)
+// 	width: $width;
+
+
+// 	// if several items of the same class can fill a row without remainder
+// 	@if ($item-per-column == round($columns / $nth)) {
+// 		// start from a new row
+// 		&:nth-of-type(#{$item-per-column}n+#{$item-per-column}), &:last-child {
+// 			margin-right: 0;
+// 		}
+
+// 		@if $media == screen {
+// 			@include breakpoint(small) {
+// 				// for tablet view, bigger than half a row items forced to fill whole row
+// 				@if ($width < 32%) {
+// 					width: $small-width;
+// 					&:nth-of-type(#{$small-item-per-column}n+#{$small-item-per-column}) {
+// 						margin-right: 0;
+// 					}
+// 				}
+
+// 				@else if ($width >= 32% and $width < 75%){
+// 					width: 49%;
+// 					&:nth-of-type(#{$item-per-column}n+#{$item-per-column}) {
+// 						margin-right: $margin-bit;
+// 						&:after {
+// 							clear:none;
+// 						}
+// 					}
+// 					&:nth-of-type(2n+2) {
+// 						margin-right: 0;
+// 					}
+// 				}
+// 				@else {
+// 					width: 100%;
+// 				}
+// 			}
+// 			@include breakpoint(mobile) {
+// 				// for mobile view, bigger than half a row items forced to fill whole row
+// 				@if ($mobile-width > 50%) {
+// 					width: 100%;
+// 				}
+// 				@else {
+// 					width: $mobile-width;
+// 				}
+// 				// start from a new row
+// 				&:nth-of-type(#{$mobile-item-per-column}n+#{$mobile-item-per-column}) {
+// 					margin-right: 0;
+// 				}
+// 			}
+// 		}
+// 	}
+// 	// if several items of the same class cannot fill a row without remainder, calculate its likeliest compainion width and fill the space
+// 	@else {
+// 		@if $media == screen {
+// 			@include breakpoint(small) {
+// 				$small-width: 100% - $margin-bit - $small-companion-width;
+// 				// make sure those items whose companion are forced to fill whole row also fill the row
+// 				@if ($small-width + $margin-bit < 50%) {
+// 					width: 100%;
+// 				}
+// 				@else {
+// 					width: $small-width;
+// 				}
+// 			}
+// 			@include breakpoint(mobile) {
+// 				// make sure those items whose companion are forced to fill whole row also fill the row
+// 				$mobile-width: 100% - $margin-bit - $mobile-companion-width;
+// 				@if ($mobile-width + $margin-bit < 50%) {
+// 					width: 100%;
+// 				}
+// 				@else {
+// 					width: $mobile-width;
+// 				}
+// 			}
+// 		}
+
+// 		&:last-child {
+// 			margin-right: 0;
+// 		}
+// 	}
+// }
+
+
+// // make silent grid classes col-1, col-2... until col-N, where N is number of columns
+// @for $i from 1 to $columns+1 {
+// 	%col-#{$i} {
+// 		@extend %column;
+// 		@include grid-item($i);
+// 	}
+// }
+
 
 // grid helpers
 %inblock {
 	@include inline-block(top);
+}
+
+%column {
+	@extend %inblock;
+	position: relative;
+	margin-right: calc(#{$margin-bit} - .35em);
 }

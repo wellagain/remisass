@@ -1,0 +1,8 @@
+@function is-integer($number) {
+	@if round($number) == $number {
+		@return true;
+	}
+	@else {
+		@return false;
+	}
+}

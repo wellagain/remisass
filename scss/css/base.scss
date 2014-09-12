@@ -7,6 +7,7 @@
 @import "commons/utilities/debug";
 
 @import "project/guides/swatches";
+@import "commons/layout/grid";
 @import "project/guides/responsive";
 
 @import "commons/css3/box-shadow";
@@ -18,13 +19,18 @@
 @import "commons/css3/columns";
 
 @import "commons/layout/reset";
-@import "commons/layout/js-utils";
-@import "commons/layout/grid";
-@import "commons/layout/centered-content";
-@import "commons/layout/sticky_footer";
+// @import "commons/layout/js-utils";
 
-@import "project/guides/typography";
-@import "project/guides/patterns";
+// @import "commons/layout/centered-content";
+// @import "commons/layout/sticky_footer";
 
-@import "project/layout/elements";
-@import "project/layout/base";
+// @import "project/guides/typography";
+// @import "project/guides/patterns";
+
+// @import "project/layout/elements";
+// @import "project/layout/base";
+
+
+.grid__content {
+	@include debug;
+}
