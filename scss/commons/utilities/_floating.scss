@@ -3,15 +3,16 @@
 // @include clearfix;
 
 @mixin clearfix {
-    &:before,
-    &:after {
-        content: " ";
-        display: table;
-        height:0px;
-    }
-    &:after {
-        clear: both;
-    }
+  &:before,
+  &:after {
+    display: table;
+    height: 0;
+    content: ' ';
+  }
+
+  &:after {
+    clear: both;
+  }
 }
 
 // automatic clear after an element that is floated
@@ -19,12 +20,12 @@
 // @include clearafter;
 
 @mixin clearafter {
-    &:after {
-        content: " ";
-        display: table;
-        height:0px;
-        clear: both;
-    }
+  &:after {
+    display: table;
+    clear: both;
+    height: 0;
+    content: ' ';
+  }
 }
 
 // An one-liner for clearing
@@ -32,7 +33,7 @@
 // @include clear;
 
 @mixin clear($side: both) {
-	clear: $side;
+  clear: $side;
 }
 
 // An one-liner for floating
@@ -40,9 +41,9 @@
 // @include float(left);
 
 @mixin float(
-		$side: left,
-		$display: inline
-	) {
-	display: unquote($display);
-	float: unquote($side);
+  $side: left,
+  $display: inline
+  ) {
+  display: unquote($display);
+  float: unquote($side);
 }

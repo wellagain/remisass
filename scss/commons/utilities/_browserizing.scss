@@ -3,15 +3,17 @@
 // @include prefixize('animation-delay', 5s, 'webkit');
 
 $default-prefixes: webkit moz ms o;
+
 @mixin prefixize(
-		$property,
-		$value,
-		$prefixes: $default-prefixes
-	) {
-    @each $prefix in $prefixes {
-        -#{$prefix}-#{$property}: #{$value};
-    }
-    #{$property}: #{$value};
+  $property,
+  $value,
+  $prefixes: $default-prefixes
+  ) {
+  @each $prefix in $prefixes {
+    -#{$prefix}-#{$property}: #{$value};
+  }
+
+  #{$property}: #{$value};
 }
 
 
@@ -20,8 +22,9 @@ $default-prefixes: webkit moz ms o;
 // @include normalize;
 
 @mixin normalize {
-    $prefixes: webkit moz;
-    @include prefixize('box-sizing', border-box, $prefixes);
+  $prefixes: webkit moz;
+
+  @include prefixize('box-sizing', border-box, $prefixes);
 }
 
 
@@ -30,6 +33,7 @@ $default-prefixes: webkit moz ms o;
 // @include antiflickr;
 
 @mixin antiflickr {
-    $prefixes: webkit moz ms;
-    @include prefixize('backface-visibility', 'hidden', $prefixes);
+  $prefixes: webkit moz ms;
+
+  @include prefixize('backface-visibility', 'hidden', $prefixes);
 }

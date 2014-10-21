@@ -1,35 +1,39 @@
 // based on compass sticky-footer
 // use:
-// @include sticky-footer(310px, ".container", ".push", ".footer");
+// @include sticky-footer(310px, '.container', '.push', '.footer');
 
 @mixin sticky-footer(
-		$footer-height,
-		$root-selector: unquote("#root"),
-		$root-footer-selector: unquote("#root-footer"),
-		$footer-selector: unquote("#footer")
-	) {
-	html, body {
-		height: 100%;
-	}
-	#{$root-selector} {
-		clear: both;
-		min-height: 100%;
-		height: auto !important;
-		height: 100%;
-		margin-bottom: -$footer-height;
+  $footer-height,
+  $root-selector: unquote('#root'),
+  $root-footer-selector: unquote('#root-footer'),
+  $footer-selector: unquote('#footer')
+  ) {
+  html,
+  body {
+    height: 100%;
+  }
 
-		#{$root-footer-selector} {
-			height: $footer-height;
-		}
-	}
-	#{$footer-selector} {
-		clear: both;
-		position: relative;
-		height: $footer-height;
-	}
-	@include breakpoint(devices) {
-		#{$footer-selector} {
-			height: auto;
-		}
-	}
+  #{$root-selector} {
+    clear: both;
+    margin-bottom: -$footer-height;
+    height: auto !important;
+    height: 100%;
+    min-height: 100%;
+
+    #{$root-footer-selector} {
+      height: $footer-height;
+    }
+  }
+
+  #{$footer-selector} {
+    position: relative;
+    clear: both;
+    height: $footer-height;
+  }
+
+  @include breakpoint(devices) {
+    #{$footer-selector} {
+      height: auto;
+    }
+  }
 }

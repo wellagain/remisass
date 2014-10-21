@@ -1,59 +1,64 @@
 // your basic layout styles here, like
 
 body {
-	width: 100%;
-	margin: 0;
-	padding: 0 0 2em;
-	@include debug;
-	@include normal-font;
+  margin: 0;
+  padding: 0 0 2em;
+  width: 100%;
+  @include debug;
+  @include normal-font;
 }
 
 a {
-	@include color($col-link);
-	&:visited {
-		color: darken(desaturate($col-link, 55%), 5%);
-	}
-	&:hover, &:active {
-		color: lighten($col-link, 10%);
-	}
+  @include color($col-link);
+
+  &:visited {
+    color: darken(desaturate($col-link, 55%), 5%);
+  }
+
+  &:hover,
+  &:active {
+    color: lighten($col-link, 10%);
+  }
 }
 
 p {
-  line-height:1.5em;
   margin-bottom: 1em;
+  line-height: 1.5em;
 }
 
-.header, .grid, .footer {
-	@extend %wrap;
+.header,
+.grid,
+.footer {
+  @extend %wrap;
 
-	@include element(content) {
-		@extend %element;
-	}
+  @include element(content) {
+    @extend %element;
+  }
 
-	@include element(title) {
+  @include element(title) {
 
-		@extend %title;
-		@include modifier(subtitle) {
-			@extend %subtitle;
-		}
-	}
+    @extend %title;
+
+    @include modifier(subtitle) {
+      @extend %subtitle;
+    }
+  }
 }
 
-@include centered-content(80%, $max-page-width, ".header", ".header__content");
-@include centered-content(80%, $max-page-width, ".grid", ".grid__content");
-@include centered-content(80%, $max-page-width, ".footer", ".footer__content");
+@include centered-content(80%, $max-page-width, '.header', '.header__content');
+@include centered-content(80%, $max-page-width, '.grid', '.grid__content');
+@include centered-content(80%, $max-page-width, '.footer', '.footer__content');
 
 
 @for $i from 1 to $columns+1 {
-	.col-#{$i} {
-		@extend %inblock;
-		@extend %col-#{$i};
-		@extend %block;
-		@extend %block-skin;
-	}
+  .col-#{$i} {
+    @extend %inblock;
+    @extend %col-#{$i};
+    @extend %block;
+    @extend %block-skin;
+  }
 }
 
 .debug {
-	@include debug;
+  @include debug;
 }
-

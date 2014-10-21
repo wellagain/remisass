@@ -1,17 +1,23 @@
 // based on html5doctor.com Reset Stylesheet
-@import "commons/utilities/_browserizing";
+@import 'commons/utilities/_browserizing';
 
-html, body {
-    margin:0;
-    padding:0;
-    border:0;
+html,
+body {
+  margin: 0;
+  border: 0;
+  padding: 0;
 }
 
 div,
 span,
 object,
 iframe,
-h1, h2, h3, h4, h5, h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 p,
 blockquote,
 pre,
@@ -25,71 +31,81 @@ dfn,
 em,
 img,
 q,
-dl, dt, dd,
-ol, ul, li,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
 fieldset,
 form,
 label,
 legend,
 caption,
-table, tbody, tfoot, thead,
-tr, th, td,
+table,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
 article,
 aside,
 dialog,
 figure,
-header, footer,
+header,
+footer,
 hgroup,
 nav,
 section {
-    margin:0;
-    padding:0;
-    border:0;
-    vertical-align:baseline;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  vertical-align: baseline;
 }
 
 table {
-    border-collapse:collapse;
-    border-spacing:0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 caption,
 th,
 td {
-    text-align:left;
-    font-weight:normal;
-    float:none !important;
+  float: none !important;
+  text-align: left;
+  font-weight: normal;
 }
 
 table,
 th,
 td {
-    vertical-align:top;
+  vertical-align: top;
 }
 
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-    content:'';
+  content: '';
 }
 
 blockquote,
 q {
-    quotes:none;
+  quotes: none;
 
 }
 
 a img {
-    border:none;
+  border: 0;
 }
 
 :focus {
-    outline:0;
+  outline: 0;
 }
 
 * {
-    @include normalize;
+  @include normalize;
 }
 
 article,
@@ -105,40 +121,46 @@ nav,
 section,
 dialog
 {
-    display:block;
+  display: block;
 
 }
 
 input,
 select {
-    vertical-align:middle;
+  vertical-align: middle;
 }
 
 button {
-    width: auto;
-    overflow: visible;
-    outline: none;
-    -webkit-border-fit:border !important;
-    -webkit-appearance: none;
+  outline: none;
+  width: auto;
+  -webkit-border-fit: border !important;
+  -webkit-appearance: none;
+  overflow: visible;
 
-    &:focus {
-        outline: 0;
-    }
+  &:focus {
+    outline: 0;
+  }
 }
 
 button::-moz-focus-inner {
-    border: 0;
-    padding: 0;
-    margin:0;
+  margin: 0;
+  border: 0;
+  padding: 0;
 }
 
 body:before {
-	content:"";
-	height:100%;
-	float:left;
-	width:0;
-	margin-top:-32767px;
+  float: left;
+  margin-top: -32767px;
+  width: 0;
+  height: 100%;
+  content: '';
 }
-h1, h2, h3, h4, h5, h6 {
-    font-weight:normal;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
 }

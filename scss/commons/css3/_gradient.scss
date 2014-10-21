@@ -3,41 +3,50 @@
 // @include gradient($black, $gray, '../img/texture.png', top);
 
 @mixin gradient(
-        $color1,
-        $color2,
-        $image: false,
-        $direction: top,
-        $webkit-direction: $direction
-    ) {
-    $prefixes: webkit-linear moz-linear ms-linear o-linear linear;
-    $value: $direction, $color1 0%, $color2 100%;
+  $color1,
+  $color2,
+  $image: false,
+  $direction: top,
+  $webkit-direction: $direction
+  ) {
+  $prefixes: webkit-linear moz-linear ms-linear o-linear linear;
+  $value: $direction, $color1 0%, $color2 100%;
 
-    @if $direction == top {
-        $webkit-direction: "left top, left bottom";
-    }
-    @else if $direction == bottom {
-        $webkit-direction: "left bottom, left top";
-    }
-    @else if $direction == left {
-        $webkit-direction: "left top, right top";
-    }
-    @else if $direction == right {
-        $webkit-direction: "right top, left top";
+  @if $direction == top {
+    $webkit-direction: 'left top, left bottom';
+
+  }
+  @else if $direction == bottom {
+    $webkit-direction: 'left bottom, left top';
+
+  }
+  @else if $direction == left {
+    $webkit-direction: 'left top, right top';
+
+  }
+  @else if $direction == right {
+    $webkit-direction: 'right top, left top';
+  }
+
+  @if $image == false {
+    background: $color2;
+
+    @each $prefix in $prefixes {
+      background-image: -#{$prefix}-gradient($value);
     }
 
-    @if $image == false {
-        background: $color2;
-        @each $prefix in $prefixes {
-            background-image: -#{$prefix}-gradient($value);
-        }
-        background-image: -webkit-gradient(linear, #{$webkit-direction}, from($color1), to($color2));
+    background-image: -webkit-gradient(linear, #{$webkit-direction}, from($color1), to($color2));
+
+  }
+  @else {
+    background: url($image), $color2;
+
+    @each $prefix in $prefixes {
+      background-image: url($image), -#{$prefix}-gradient($value);
     }
-    @else {
-        background: url($image), $color2;
-        @each $prefix in $prefixes {
-            background-image: url($image), -#{$prefix}-gradient($value);
-        }
-        background-image: url($image), -webkit-gradient(linear, #{$webkit-direction}, from($color1), to($color2));
-    }
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#{ie-hex-str($color1)}, EndColorStr=#{ie-hex-str($color2)});
+
+    background-image: url($image), -webkit-gradient(linear, #{$webkit-direction}, from($color1), to($color2));
+  }
+
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#{ie-hex-str($color1)}, EndColorStr=#{ie-hex-str($color2)});
 }

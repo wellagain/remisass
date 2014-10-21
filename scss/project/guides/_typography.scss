@@ -1,16 +1,17 @@
 // normal sans-serif
-@mixin normal_font {
-	font-family:   "Helvetica", Arial, sans-serif;
-	font-weight:   normal;
+@mixin normal-font {
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-weight: normal;
 }
 
 // pretty italic
-@mixin em_font {
-	font-family:   "Palatino", "Palatino Lynotype", times, georgia, serif;
-	font-style:    italic;
-	font-weight:   normal;
+@mixin em-font {
+  font-family: 'Palatino', 'Palatino Lynotype', times, georgia, serif;
+  font-style: italic;
+  font-weight: normal;
 }
+
 // simple non-underiliner
 @mixin nonunderlined {
-	text-decoration: none;
+  text-decoration: none;
 }

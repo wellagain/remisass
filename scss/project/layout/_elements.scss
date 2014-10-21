@@ -1,85 +1,96 @@
 %small-padding-top-bottom {
-	padding: .5em 0;
+  padding: .5em 0;
 }
 
 
 %wrap {
-	@include breakpoint(normal) {
-		padding: 0 5%;
-	}
-	@include breakpoint(small) {
-		padding: 0 2em;
-	}
-	@include breakpoint(mobile) {
-		padding: 0 1em;
-	}
+  @include breakpoint(normal) {
+    padding: 0 5%;
+  }
+
+  @include breakpoint(small) {
+    padding: 0 2em;
+  }
+
+  @include breakpoint(mobile) {
+    padding: 0 1em;
+  }
 }
 
 %element {
-	@include clearfix;
-	padding: 2em 0 1em;
-	@include breakpoint(normal) {
-		padding: 1em 0 .5em;
-	}
-	@include breakpoint(devices) {
-		padding: .5em 0;
-	}
-	@include breakpoint(widescreen) {
-		padding: .5em 0;
-	}
+  @include clearfix;
+  padding: 2em 0 1em;
+
+  @include breakpoint(normal) {
+    padding: 1em 0 .5em;
+  }
+
+  @include breakpoint(devices) {
+    padding: .5em 0;
+  }
+
+  @include breakpoint(widescreen) {
+    padding: .5em 0;
+  }
 }
 
 %title {
-	@include em-font;
-	font-size: 2em;
-	line-height: .8em;
-	margin: .5em 0 .2em;
-	@include breakpoint(normal) {
-		font-size: 1.8em;
-	}
-	@include breakpoint(devices) {
-		font-size: 1.5em;
-	}
+  @include em-font;
+  margin: .5em 0 .2em;
+  line-height: .8em;
+  font-size: 2em;
+
+  @include breakpoint(normal) {
+    font-size: 1.8em;
+  }
+
+  @include breakpoint(devices) {
+    font-size: 1.5em;
+  }
 }
 
 %subtitle {
-	font-size: 1em;
-	margin: -.5em 0 0;
-	color: lighten($black, 30%);
-	@include breakpoint(devices) {
-		margin-top: 0;
-	}
+  margin: -.5em 0 0;
+  color: lighten($black, 30%);
+  font-size: 1em;
+
+  @include breakpoint(devices) {
+    margin-top: 0;
+  }
 }
 
 %block-skin {
-	@include em-font;
-	@include rounded(.5em);
+  @include em-font;
+  @include rounded(.5em);
 
-	$color-from: darken($white, 8);
-	$color-to: lighten($black, 100-8);
+  $color-from: darken($white, 8);
+  $color-to: lighten($black, 100-8);
 
-	@include gradient($color-from, $color-to);
-	@include box-shadow((
-		0 0 0 1px transparentize(darken($color-to, 40%), .8) inset
-	));
+  @include gradient($color-from, $color-to);
 
-	@include color(lighten($black, 30%));
+  @include box-shadow((
+    0 0 0 1px transparentize(darken($color-to, 40%), .8) inset
+  ));
 
-	@include breakpoint(widescreen) {
-		padding: .5em 1em;
-	}
-	@include breakpoint(normal) {
-		padding: .5em;
-	}
-	@include breakpoint(devices) {
-		padding: .4em;
-		@include rounded(.3em);
-	}
+  @include color(lighten($black, 30%));
+
+  @include breakpoint(widescreen) {
+    padding: .5em 1em;
+  }
+
+  @include breakpoint(normal) {
+    padding: .5em;
+  }
+
+  @include breakpoint(devices) {
+    padding: .4em;
+    @include rounded(.3em);
+  }
 }
 
 %block {
-	margin-bottom: 1em;
-	font-size: .8em;
-	padding: 1em;
-	@extend %block-skin;
+  @extend %block-skin;
+  margin-bottom: 1em;
+  padding: 1em;
+  font-size: .8em;
 }

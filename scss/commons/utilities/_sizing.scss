@@ -3,19 +3,21 @@
 // @include width(100%, 500px, 1200px);
 
 @mixin width(
-        $size:auto,
-        $min:auto,
-        $max:auto
-    ) {
-    @if $size != auto {
-        width: $size;
-    }
-    @if $min != auto {
-        min-width: $min;
-    }
-    @if $max != auto {
-        max-width: $max;
-    }
+  $size:auto,
+  $min:auto,
+  $max:auto
+  ) {
+  @if $size != auto {
+    width: $size;
+  }
+
+  @if $min != auto {
+    min-width: $min;
+  }
+
+  @if $max != auto {
+    max-width: $max;
+  }
 }
 
 
@@ -24,17 +26,19 @@
 // @include width(100%, 100px, 600px);
 
 @mixin height(
-        $size:auto,
-        $min:auto,
-        $max:auto
-    ) {
-    @if $size != auto {
-        height: $size;
-    }
-    @if $min != auto {
-        min-height: $min;
-    }
-    @if $max != auto {
-        max-height: $max;
-    }
+  $size:auto,
+  $min:auto,
+  $max:auto
+  ) {
+  @if $size != auto {
+    height: $size;
+  }
+
+  @if $min != auto {
+    min-height: $min;
+  }
+
+  @if $max != auto {
+    max-height: $max;
+  }
 }

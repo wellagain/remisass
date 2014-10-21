@@ -3,11 +3,14 @@
 // @include rounded(1em);
 
 @mixin rounded($radius, $side: false) {
-    $prefixes: webkit moz;
-    @if $side == false {
-        @include prefixize('border-radius', $radius, $prefixes);
-    }
-    @else {
-        @include prefixize(border- + $side + -radius, $radius, $prefixes);
-    }
+  $prefixes: webkit moz;
+
+  @if $side == false {
+    @include prefixize('border-radius', $radius, $prefixes);
+
+  }
+  @else {
+    @include prefixize(border- + $side + -radius, $radius, $prefixes);
+  }
+
 }

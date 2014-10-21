@@ -3,31 +3,36 @@
 // @include centered-content(100%, 650px, 1200px);
 
 @mixin centered-content(
-        $element-width,
-        $max-element-width: $element-width,
-        $wrapper: unquote(".wrap"),
-        $element: unquote(".element")
-        ) {
-    #{$wrapper} {
-        width: 100%;
-        text-align: center;
-    }
-    #{$element} {
-        @include width($element-width, 0, $max-element-width);
-        margin: 0 auto;
-        text-align: left;
+  $element-width,
+  $max-element-width: $element-width,
+  $wrapper: unquote('.wrap'),
+  $element: unquote('.element')
+  ) {
 
-        @include breakpoint(normal) {
-            width: 100%;
-            max-width: none;
-        }
-        @include breakpoint(small) {
-            width: 100%;
-            max-width: none;
-        }
-        @include breakpoint(mobile) {
-            width: 100%;
-            max-width: none;
-        }
+  #{$wrapper} {
+    width: 100%;
+    text-align: center;
+  }
+
+  #{$element} {
+    margin: 0 auto;
+    text-align: left;
+
+    @include width($element-width, 0, $max-element-width);
+
+    @include breakpoint(normal) {
+      width: 100%;
+      max-width: none;
     }
+
+    @include breakpoint(small) {
+      width: 100%;
+      max-width: none;
+    }
+
+    @include breakpoint(mobile) {
+      width: 100%;
+      max-width: none;
+    }
+  }
 }
