@@ -1,8 +1,8 @@
 // a BEM element
 @mixin element($name) {
   @at-root &__#{$name} {
-      @content;
-    }
+    @content;
+  }
 }
 
 // the BEM modifier
