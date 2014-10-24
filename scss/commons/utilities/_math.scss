@@ -1,3 +1,4 @@
+// check if a number is integer
 @function is-integer($number) {
   @if round($number) == $number {
     @return true;
@@ -5,4 +6,34 @@
   @else {
     @return false;
   }
+}
+
+// reverse a list (http://hugogiraudel.com/2013/08/08/advanced-sass-list-functions/)
+@function reverse($list, $recursive: false) {
+  $result: ();
+  @for $i from length($list)*-1 through -1 {
+    @if type-of(nth($list, abs($i))) == list and $recursive {
+      $result: append($result, reverse(nth($list, abs($i)), $recursive));
+    }
+    @else {
+      $result: append($result, nth($list, abs($i)));
+    }
+  }
+
+  @return $result;
+}
+
+// calculate all integer dividers of an integer
+@function get-dividers($number) {
+  $result: ();
+
+  @for $i from 1 through $number {
+    $val: $number / $i;
+
+    @if is-integer($val) == true {
+      $result: append($result, $val, comma);
+    }
+  }
+
+  @return $result;
 }

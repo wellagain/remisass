@@ -1,6 +1,6 @@
 // grid parameters
 
-$columns:                   16;
+$columns:                   12;
 $margin-bit:                2%;
 $max-screen:                1800px;
 
@@ -8,15 +8,16 @@ $max-screen:                1800px;
 // calculated size
 $size-bit:                  (100% - ($columns - 1) * $margin-bit) / $columns;
 $max-page-width:            1300px;
+$inline-block-gap:          .32em;
 
 // colors
-$black:                     rgba(26,28,32,1);
-$white:                     rgba(255,255,255,1);
-$col-link:                  rgba(0,136,193,1);
+$black:                     rgba(26, 28, 32, 1);
+$white:                     rgba(255, 255, 255, 1);
+$col-link:                  rgba(0, 136, 193, 1);
 
 
-$col-debug-wide:            rgba(0,172,101,1);
-$col-debug-normal:          rgba(178,104,219,1);
-$col-debug-small:           rgba(49,143,143,1);
-$col-debug-mobile:          rgba(233,102,44,1);
-$col-debug-widescreen:      rgba(235,175,60,1);
+$col-debug-wide:            rgba(0, 172, 101, 1);
+$col-debug-normal:          rgba(178, 104, 219, 1);
+$col-debug-small:           rgba(49, 143, 143, 1);
+$col-debug-mobile:          rgba(233, 102, 44, 1);
+$col-debug-widescreen:      rgba(235, 175, 60, 1);

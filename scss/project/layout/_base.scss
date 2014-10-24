@@ -50,13 +50,77 @@ p {
 @include centered-content(80%, $max-page-width, '.footer', '.footer__content');
 
 
-@for $i from 1 to $columns+1 {
-  .col-#{$i} {
-    @extend %inblock;
-    @extend %col-#{$i};
-    @extend %block;
-    @extend %block-skin;
-  }
+.s-1 {
+  @extend %grid-column;
+  @extend %eqsize-1;
+  @extend %block;
+}
+
+.s-2 {
+  @extend %grid-column;
+  @extend %eqsize-2;
+  @extend %block;
+}
+
+.s-3 {
+  @extend %grid-column;
+  @extend %eqsize-3;
+  @extend %block;
+}
+
+.s-4 {
+  @extend %grid-column;
+  @extend %eqsize-4;
+  @extend %block;
+}
+
+.s-5 {
+  @extend %grid-first-item;
+  @extend %grid-column;
+  @extend %size-5;
+  @extend %block;
+}
+
+.s-6 {
+  @extend %grid-column;
+  @extend %eqsize-6;
+  @extend %block;
+}
+
+.s-7 {
+  @extend %grid-column;
+  @extend %size-7;
+  @extend %block;
+}
+
+.s-8 {
+  @extend %grid-column;
+  @extend %size-8;
+  @extend %block;
+}
+
+.s-9 {
+  @extend %grid-column;
+  @extend %size-9;
+  @extend %block;
+}
+
+.s-10 {
+  @extend %grid-column;
+  @extend %size-10;
+  @extend %block;
+}
+
+.s-11 {
+  @extend %grid-column;
+  @extend %size-11;
+  @extend %block;
+}
+
+.s-12 {
+  @extend %grid-column;
+  @extend %eqsize-12;
+  @extend %block;
 }
 
 .debug {
