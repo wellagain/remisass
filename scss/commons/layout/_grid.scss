@@ -42,33 +42,43 @@ $list: zip($grid-columns, $sizes, reverse(get-dividers($columns)));             
     $nth: nth($item, 1);                          // determining N, column .s-N is 1/N of 100%
     $size: nth($item, 2);                         // asigning size
     $name: nth($item, 3);
-    $normal-size: 1;                              // size for normal screens
-    $small-size: 1;                               // size for small screens
     $alt-number: get-dividers($nth);              // if a column is small, determine, how can it be divided for other screens
-    $columns-in-normal-screen: 1;
-    $columns-in-small-screen: 1;
 
     %eqsize-#{$name} {
+      @extend %grid-column;
       width: $size;
       @include clearing($nth);
 
-      @include breakpoint(normal) {
-        @if length($alt-number) >=2 {
-          $columns-in-normal-screen: nth($alt-number, 2);
-          $normal-size: calc-width($columns / $columns-in-normal-screen);
+      @if $size < 20% {
+        @include breakpoint(normal) {
+          @if length($alt-number) >=2 {
+            $columns-in-normal-screen: nth($alt-number, 2);
+            $normal-size: calc-width($columns / $columns-in-normal-screen);
 
-          width: $normal-size;
-          @include clearing($columns-in-normal-screen);
+            width: $normal-size;
+            @include clearing($columns-in-normal-screen);
+          }
+        }
+        @include breakpoint(small) {
+          @if length($alt-number) >=3 {
+            $columns-in-small-screen: nth($alt-number, 3);
+            $small-size: calc-width($columns / $columns-in-small-screen);
+
+            width: $small-size;
+            @include clearing($columns-in-small-screen);
+          }
         }
       }
 
-      @include breakpoint(small) {
-        @if length($alt-number) >=3 {
-          $columns-in-small-screen: nth($alt-number, 3);
-          $small-size: calc-width($columns / $columns-in-small-screen);
+      @elseif $size < 40% {
+        @include breakpoint(small) {
+          @if length($alt-number) >=3 {
+            $columns-in-small-screen: nth($alt-number, 3);
+            $small-size: calc-width($columns / $columns-in-small-screen);
 
-          width: $small-size;
-          @include clearing($columns-in-small-screen);
+            width: $small-size;
+            @include clearing($columns-in-small-screen);
+          }
         }
       }
     }
