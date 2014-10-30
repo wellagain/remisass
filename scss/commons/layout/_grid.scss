@@ -1,124 +1,131 @@
 @import 'commons/utilities/math';
 
-// Returns a list of column number per row for given column count
-// e.g. if there's 12 columns in a row, list is 12 6 3 2 1
-// use:
-// grid-column-count($columns)
-
-
+// define clearing after columns rules
+//
 @mixin clearing($nth) {
-  &:nth-of-type(#{$nth}n+1) {
-    margin-left: 0;
+  &:nth-of-type(#{$nth}n+#{$nth}) {
+    margin-right: 0;
   }
 }
 
-// Basic width calculator
+
+// define margin setting rules
+//
+@mixin marginify($size) {
+  // if column is full width, no margin required;
+  @if $size == 100 {
+    margin-right: 0;
+  }
+  @elseif $size > 57 {
+    margin-right: 0;
+  }
+  @else {
+    margin-right: calc(#{$margin-bit} - #{$inline-block-gap});
+  }
+
+  &:last-of-type,
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+// Basic grid width calculator
+//
 @function calc-width($nth) {
   @return $size-bit * $nth + $margin-bit * ($nth - 1);
 }
 
-// calculate widths
-@function column-sizes($list) {
-  $result: ();
-
-  @each $item in $list {
-    $width: calc-width($item);
-    $result: append($result, $width, comma);
-  }
-
-  @return $result;
+// Calculate width and margins for grid column
+//
+@mixin custom-size-column($number) {
+  $width: calc-width($number);
+  width: $width;
+  @include marginify($width);
 }
 
 
+// Your grid settings
 $columns: 12 !default;
-$grid-columns: get-dividers($columns);            // how many columns in each row? e.g. 12, 6, 4, 3, 2, 1;
-$sizes: reverse(column-sizes($grid-columns));     // what is the size of each column? e.g. 6.5% 15% 23.5% 32% 49% 100%;
-$list: zip($grid-columns, $sizes, reverse(get-dividers($columns)));                // combining an array. e.g. 12 6.5%, 6 15%, 4 23.5%, 3 32%, 2 49%, 1 100%;
+
+// Calculate how many equal columns can fit in each row? e.g. 12, 6, 4, 3, 2, 1;
+$grid-columns: get-dividers($columns);
 
 
-@mixin equal-columns-responsified($array) {
-  @each $item in $array {
+// Generate placeholders for all columns
+//
+@for $i from 1 through $columns {
+  // check, if column size is among dividers
+  $index: index($grid-columns, $i);
 
-    $nth: nth($item, 1);                          // determining N, column .s-N is 1/N of 100%
-    $size: nth($item, 2);                         // asigning size
-    $name: nth($item, 3);
-    $alt-number: get-dividers($nth);              // if a column is small, determine, how can it be divided for other screens
+  %s-#{$i}-#{$columns} {
+    @extend %grid-column;
 
-    %eqsize-#{$name} {
-      @extend %grid-column;
-      width: $size;
-      @include clearing($nth);
+    // if column is irregular size (is not among dividers), calculate it's size
+    @if $index == null {
+      @include custom-size-column($i);
+    }
 
-      @if $size < 20% {
-        @include breakpoint(normal) {
-          @if length($alt-number) >=2 {
-            $columns-in-normal-screen: nth($alt-number, 2);
-            $normal-size: calc-width($columns / $columns-in-normal-screen);
+    // if column is of regular size, define it's sizes, and clearing rules
+    //
+    @else {
+      // defining normal size and clearing rules
+      //
+      $in-a-row: $columns / $i;                       // for 1/12 column: 12
 
-            width: $normal-size;
-            @include clearing($columns-in-normal-screen);
-          }
-        }
-        @include breakpoint(small) {
-          @if length($alt-number) >=3 {
-            $columns-in-small-screen: nth($alt-number, 3);
-            $small-size: calc-width($columns / $columns-in-small-screen);
+      @include custom-size-column($i);
+      @include clearing($in-a-row);
 
-            width: $small-size;
-            @include clearing($columns-in-small-screen);
-          }
-        }
+      // calculate sizes for normal and small screen sizes
+      //
+      $column-dividers: get-dividers($in-a-row);      // for 1/12 column: 12, 6, 4, 3, 2, 1;
+      $dividers-count: length($column-dividers);      // for 1/12 column: 6;
+      $normal-in-a-row: null;
+      $small-in-a-row: null;
+
+      @if $dividers-count > 2 {
+        $normal-in-a-row:  nth($column-dividers, 2);
+        $small-in-a-row:  nth($column-dividers, 3);
+      }
+      @elseif $dividers-count == 2 {
+        $normal-in-a-row:  nth($column-dividers, 1);
+        $small-in-a-row:  nth($column-dividers, 2);
+      }
+      @else {
+        $normal-in-a-row: nth($column-dividers, 1);
+        $small-in-a-row:  nth($column-dividers, 1);
       }
 
-      @elseif $size < 40% {
-        @include breakpoint(small) {
-          @if length($alt-number) >=3 {
-            $columns-in-small-screen: nth($alt-number, 3);
-            $small-size: calc-width($columns / $columns-in-small-screen);
+      // assigning sizes and clearing rules
 
-            width: $small-size;
-            @include clearing($columns-in-small-screen);
-          }
-        }
+      @include breakpoint(normal) {
+        $normal-width: $columns / $normal-in-a-row;
+        @include custom-size-column($normal-width);
+        @include clearing($normal-in-a-row);
+      }
+
+      @include breakpoint(small) {
+        $small-width: $columns / $small-in-a-row;
+        @include custom-size-column($small-width);
+        @include clearing($small-in-a-row);
       }
     }
   }
 }
 
-@mixin custom-size-column($number) {
-  width: calc-width($number);
-}
-
-// implementation
-@include equal-columns-responsified($list);
-
-@for $i from 1 to $columns+1 {
-  %size-#{$i} {
-    @include custom-size-column($i);
-  }
-}
-
 // grid helpers
-%margin-fix {
-  margin-right: - $inline-block-gap;
-  margin-left: $margin-bit;
-}
 
-%column {
-  @include inline-block(top);
-  position: relative;
+%last {
+  margin-right: 0 !important;
 }
 
 %grid-column {
-  @extend %column;
-  @extend %margin-fix;
+  @include inline-block(top);
+  position: relative;
 
   @include breakpoint(mobile) {
-    margin-left: 0 !important;
+    margin-right: 0 !important;
     width: 100%;
   }
 }
 
-%grid-first-item {
-  margin-left: 0 !important;
-}
+

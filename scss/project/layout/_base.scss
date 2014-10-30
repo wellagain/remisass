@@ -51,75 +51,72 @@ p {
 
 
 .s-1 {
-  @extend %grid-column;
-  @extend %eqsize-1;
+  @extend %s-1-12;
   @extend %block;
+
+  // @include breakpoint(normal) {
+  //   @extend %s-2-12;
+  // }
+  // @include breakpoint(small) {
+  //   @extend %s-3-12;
+  // }
+  // @include breakpoint(mobile) {
+  //   @extend %s-12-12;
+  // }
 }
 
 .s-2 {
-  @extend %grid-column;
-  @extend %eqsize-2;
+  @extend %s-2-12;
   @extend %block;
 }
 
 .s-3 {
-  @extend %grid-column;
-  @extend %eqsize-3;
+  @extend %s-3-12;
   @extend %block;
 }
 
 .s-4 {
-  @extend %grid-column;
-  @extend %eqsize-4;
+  @extend %s-4-12;
   @extend %block;
 }
 
 .s-5 {
-  @extend %grid-first-item;
-  @extend %grid-column;
-  @extend %size-5;
+  @extend %s-5-12;
   @extend %block;
 }
 
 .s-6 {
-  @extend %grid-column;
-  @extend %eqsize-6;
+  @extend %s-6-12;
   @extend %block;
 }
 
 .s-7 {
-  @extend %grid-column;
-  @extend %size-7;
+  @extend %s-7-12;
   @extend %block;
 }
 
 .s-8 {
-  @extend %grid-column;
-  @extend %size-8;
+  @extend %s-8-12;
   @extend %block;
 }
 
 .s-9 {
-  @extend %grid-column;
-  @extend %size-9;
+  @extend %s-9-12;
   @extend %block;
 }
 
 .s-10 {
-  @extend %grid-column;
-  @extend %size-10;
+  @extend %s-10-12;
   @extend %block;
 }
 
 .s-11 {
-  @extend %grid-column;
-  @extend %size-11;
+  @extend %s-11-12;
   @extend %block;
 }
 
 .s-12 {
-  @extend %grid-column;
-  @extend %eqsize-12;
+  @extend %s-12-12;
   @extend %block;
 }
 
