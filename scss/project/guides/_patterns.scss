@@ -1,0 +1,134 @@
+// normalizing button styles
+@mixin buttonormalize(
+    $font-size: 1em,
+    $padding: .2em 1.4em,
+    $corner-radius: .3em
+  ) {
+  @include inline-block;
+
+  @include position(relative, auto auto auto auto, 1);
+  margin: 0;
+  padding: $padding;
+  -webkit-appearance: none;
+
+  @include width(auto, 55px);
+  @include rounded($corner-radius);
+
+  font-size: $font-size;
+  line-height: 1em;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+// buttons
+@mixin button(
+    $color,
+    $typography-color: $black,
+    $hoverable: true
+  ) {
+
+  background: $color;
+
+  border: solid 1px $color;           // old browsers
+  border-bottom: darken($color, 10%) 4px solid;  // old browsers
+
+  &:not(.IE8) {
+    border: 0;                 // normal browsers override
+  }
+
+  @include color($typography-color);
+  @include box-shadow((
+    0 4px 0 0 darken($color, 10%),
+    0 2px 0 1px transparentize(darken($color, 30%), .9)
+  ));
+
+
+  @if $hoverable == true {
+    &:hover {
+      color: lighten($typography-color, 5%);
+      @include gradient(lighten($color, 5%), $color);
+      @include box-shadow((
+        0 4px 0 0 darken($color, 15%),
+        0 5px 1px 1px transparentize(darken($color, 30%), .8)
+      ));
+    }
+
+    &:active {
+      top: 1px;
+      outline: none;
+      background: $color;
+
+      @include box-shadow((
+        0 3px 0 0 darken($color, 10%),
+        0 4px 1px 1px transparentize(darken($color, 30%), .8)
+      ));
+    }
+  }
+  @else {
+    &:hover,
+    &:active {
+      top: 0;
+      border: 0;
+      background: $color;
+      background-image: none;
+      cursor: default;
+      color: $typography-color;
+      @include box-shadow((
+        0 4px 0 0 darken($color, 10%),
+        0 2px 0 1px transparentize(darken($color, 30%), .9)
+      ));
+    }
+  }
+}
+
+@mixin arrow-box($position, $distance, $bg-color, $size) {
+  position: relative;
+  background: $bg-color;
+
+  &:after {
+    position: absolute;
+    border: solid transparent;
+    border-width: $size;
+    border-color: transparentize($bg-color, 1);
+    width: 0;
+    height: 0;
+    content: ' ';
+  }
+
+  @if $position == 'top' {
+    &:after {
+      bottom: 100%;
+      left: $distance;
+      margin-left: -$size;
+      border-bottom-color: $bg-color;
+    }
+  }
+
+  @else if $position == 'right' {
+    &:after {
+      top: $distance;
+      left: 100%;
+      margin-top: -$size;
+      border-left-color: $bg-color;
+    }
+  }
+
+  @else if $position == 'bottom' {
+    &:after {
+      top: 100%;
+      left: $distance;
+      margin-left: -$size;
+      border-top-color: $bg-color;
+    }
+  }
+
+  @else if $position == 'left' {
+    &:after {
+      top: $distance;
+      right: 100%;
+      margin-top: -$size;
+      border-right-color: $bg-color;
+    }
+  }
+}
