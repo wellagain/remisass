@@ -29,6 +29,7 @@
 .bt {
   @include modifier(primary) {
     @extend %button-m, %button-primary-color;
+
     &:disabled {
       @extend %button-m, %button-disabled-color;
     }
@@ -36,6 +37,7 @@
 
   @include modifier(secondary) {
     @extend %button-m, %button-secondary-color;
+
     &:disabled {
       @extend %button-m, %button-disabled-color;
     }
@@ -43,6 +45,7 @@
 
   @include modifier(cta) {
     @extend %button-xl, %button-primary-color;
+
     &:disabled {
       @extend %button-xl, %button-disabled-color;
     }
@@ -50,6 +53,7 @@
 
   @include modifier(silent) {
     @extend %button-s, %button-secondary-color;
+
     &:disabled {
       @extend %button-s, %button-disabled-color;
     }

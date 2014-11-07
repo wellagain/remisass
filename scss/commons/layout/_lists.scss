@@ -3,6 +3,7 @@
 
 %list--horizontal {
   list-style: none;
+
   li {
     @include inline-block;
   }
