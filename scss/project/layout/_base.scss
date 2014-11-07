@@ -59,65 +59,34 @@ p {
   @extend %s-5-12, %last, %block, %form--half;
 }
 
-
-.s-1 {
-  @extend %s-1-12;
-  @extend %block;
+.form__12-columns {
+  .control {
+    @extend %block;
+    @extend %s-1-12;
+  }
 }
 
-.s-2 {
-  @extend %s-2-12;
+.form__6-columns {
   @extend %block;
+
+  .control {
+    @extend %s-2-12;
+  }
 }
 
-.s-3 {
-  @extend %s-3-12;
-  @extend %block;
+.form__4-columns {
+  .control {
+    @extend %block;
+    @extend %s-3-12;
+  }
 }
 
-.s-4 {
-  @extend %s-4-12;
+.form__3-columns {
   @extend %block;
-}
 
-.s-5 {
-  @extend %s-5-12;
-  @extend %block;
-}
-
-.s-6 {
-  @extend %s-6-12;
-  @extend %block;
-}
-
-.s-7 {
-  @extend %s-7-12;
-  @extend %block;
-}
-
-.s-8 {
-  @extend %s-8-12;
-  @extend %block;
-}
-
-.s-9 {
-  @extend %s-9-12;
-  @extend %block;
-}
-
-.s-10 {
-  @extend %s-10-12;
-  @extend %block;
-}
-
-.s-11 {
-  @extend %s-11-12;
-  @extend %block;
-}
-
-.s-12 {
-  @extend %s-12-12;
-  @extend %block;
+  .control {
+    @extend %s-4-12;
+  }
 }
 
 .debug {
