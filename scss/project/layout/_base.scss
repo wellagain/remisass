@@ -27,6 +27,7 @@ p {
 }
 
 .header,
+.features,
 .grid,
 .footer {
   @extend %wrap;
@@ -47,22 +48,21 @@ p {
 
 @include centered-content(80%, $max-page-width, '.header', '.header__content');
 @include centered-content(80%, $max-page-width, '.grid', '.grid__content');
+@include centered-content(80%, $max-page-width, '.features', '.features__content');
 @include centered-content(80%, $max-page-width, '.footer', '.footer__content');
+
+.features__buttons {
+  @extend %s-7-12, %grid-margin, %block;
+}
+
+.features__form {
+  @extend %s-5-12, %last, %block, %form--half;
+}
 
 
 .s-1 {
   @extend %s-1-12;
   @extend %block;
-
-  // @include breakpoint(normal) {
-  //   @extend %s-2-12;
-  // }
-  // @include breakpoint(small) {
-  //   @extend %s-3-12;
-  // }
-  // @include breakpoint(mobile) {
-  //   @extend %s-12-12;
-  // }
 }
 
 .s-2 {

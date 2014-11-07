@@ -1,0 +1,116 @@
+label,
+.label {
+  display: block;
+  margin-bottom: .3em;
+  vertical-align: middle;
+}
+
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+select {
+  @extend %input-skin;
+  width: 100%;
+  max-width: 18em;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"] {
+  padding: .4em .5em;
+}
+
+select {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  background-image: url('../img/ico.dropdown.png');
+  background-repeat: no-repeat;
+  background-position: 100% 50%;
+  padding: .42em .5em;
+}
+
+textarea {
+  @extend %input-skin;
+  padding: .55em .5em;
+  width: 100%;
+  min-height: 10em;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  display: inline;
+  margin: 0;
+  width: auto;
+  vertical-align: middle;
+}
+
+
+%form {
+  // %form--fourth
+  @include modifier(fourth) {
+    .control {
+      @extend %s-3-12;
+
+      input,
+      select {
+        max-width: 15em;
+      }
+
+      .error-message {
+        max-width: 14em;
+      }
+    }
+  }
+
+  // %form--third
+  @include modifier(third) {
+    .control {
+      @extend %s-4-12;
+
+      input,
+      select {
+        max-width: 18em;
+      }
+
+      .error-message {
+        max-width: 17em;
+      }
+    }
+  }
+
+  // %form--half
+  @include modifier(half) {
+    .control {
+      @extend %s-6-12;
+
+      input,
+      select {
+        max-width: 22em;
+      }
+
+      .error-message {
+        max-width: 21em;
+      }
+    }
+  }
+
+  // %form--full
+  @include modifier(full) {
+    .control {
+      @extend %s-12-12;
+
+      input,
+      select {
+        max-width: 22em;
+      }
+
+      .error-message {
+        max-width: 21em;
+      }
+    }
+  }
+
+}

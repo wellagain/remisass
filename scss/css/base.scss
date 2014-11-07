@@ -10,7 +10,6 @@
 @import 'project/guides/responsive';
 @import 'commons/layout/grid';
 
-
 @import 'commons/css3/box-shadow';
 @import 'commons/css3/text-shadow';
 @import 'commons/css3/rounded';
@@ -21,12 +20,16 @@
 
 @import 'commons/layout/reset';
 @import 'commons/layout/js-utils';
-
+@import 'commons/layout/buttons';
+@import 'commons/layout/forms';
+@import 'commons/layout/arrow';
+@import 'commons/layout/lists';
 @import 'commons/layout/centered-content';
 @import 'commons/layout/sticky_footer';
 
 @import 'project/guides/typography';
-@import 'project/guides/patterns';
 
 @import 'project/layout/elements';
+@import 'project/layout/buttons';
 @import 'project/layout/base';
+@import 'project/layout/forms';

@@ -113,11 +113,17 @@ $grid-columns: get-dividers($columns);
 }
 
 // grid helpers
-
+// use this for known last item in irregular size grid column
 %last {
   margin-right: 0 !important;
 }
 
+// use this to force a grid margin on irregular size grid column
+%grid-margin {
+  margin-right: calc(#{$margin-bit} - #{$inline-block-gap}) !important;
+}
+
+// automatically added on all grid column placeholders
 %grid-column {
   @include inline-block(top);
   position: relative;

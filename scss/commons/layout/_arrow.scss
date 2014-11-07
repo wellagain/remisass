@@ -1,0 +1,52 @@
+// css triangle arrow on an element for speach bubbles and everything
+
+@mixin arrow-box($position, $distance, $bg-color, $size) {
+  position: relative;
+  background: $bg-color;
+
+  &:after {
+    position: absolute;
+    border: solid transparent;
+    border-width: $size;
+    border-color: transparentize($bg-color, 1);
+    width: 0;
+    height: 0;
+    content: ' ';
+  }
+
+  @if $position == 'top' {
+    &:after {
+      bottom: 100%;
+      left: $distance;
+      margin-left: -$size;
+      border-bottom-color: $bg-color;
+    }
+  }
+
+  @else if $position == 'right' {
+    &:after {
+      top: $distance;
+      left: 100%;
+      margin-top: -$size;
+      border-left-color: $bg-color;
+    }
+  }
+
+  @else if $position == 'bottom' {
+    &:after {
+      top: 100%;
+      left: $distance;
+      margin-left: -$size;
+      border-top-color: $bg-color;
+    }
+  }
+
+  @else if $position == 'left' {
+    &:after {
+      top: $distance;
+      right: 100%;
+      margin-top: -$size;
+      border-right-color: $bg-color;
+    }
+  }
+}
