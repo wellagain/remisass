@@ -9,103 +9,148 @@
 <body>
 	<section class="header">
 		<div class="header__content">
-			<h1 class="header__title">Responsive Minimalistic grid SASS framework</h1>
-			<h2 class="header__title--subtitle">minimalistic demo page</h2>
+			<h1 class="header__title">Remisass</h1>
+			<h2 class="header__title--subtitle">Semantic Scss Framework</h2>
+		</div>
+	</section>
+	<section class="features">
+		<div class="features__content">
+			<article class="features__buttons">
+				<button class="bt--primary">I'm a button</button>
+				<button class="bt--secondary" >I'm a button</button>
+				<button class="bt--secondary" disabled>I'm a button</button><br/>
+
+				<button class="bt--cta">I'm a button</button>
+				<button class="bt--silent" >I'm a button</button>
+			</article>
+
+			<form class="features__form">
+				<div class="control">
+					<label>Input</label>
+					<input type="text" />
+				</div>
+				<div class="control">
+					<label>Input disabled</label>
+					<input type="text" disabled/>
+				</div>
+			</form>
 		</div>
 	</section>
 	<section class="grid">
 		<div class="grid__content">
-			<div class="col-1">col-1: 1/12</div>
-			<div class="col-1">col-1: 1/12</div>
-			<div class="col-1">col-1: 1/12</div>
-			<div class="col-1">col-1: 1/12</div>
-			<div class="col-1">col-1: 1/12</div>
-			<div class="col-1">col-1: 1/12</div>
-			<div class="col-1">col-1: 1/12</div>
-			<div class="col-1">col-1: 1/12</div>
-			<div class="col-1">col-1: 1/12</div>
-			<div class="col-1">col-1: 1/12</div>
-			<div class="col-1">col-1: 1/12</div>
-			<div class="col-1">col-1: 1/12</div>
-			<div class="col-1">col-1: 1/12</div>
-			<div class="col-1">col-1: 1/12</div>
-			<div class="col-1">col-1: 1/12</div>
-			<div class="col-1">col-1: 1/12</div>
-			<div class="col-1">col-1: 1/12 This is a block with more text</div>
-			<div class="col-1">col-1: 1/12</div>
-			<div class="col-1">col-1: 1/12</div>
-			<div class="col-1">col-1: 1/12</div>
-			<div class="col-1">col-1: 1/12</div>
-			<div class="col-1">col-1: 1/12</div>
-			<div class="col-1">col-1: 1/12</div>
-			<div class="col-1">col-1: 1/12</div>
-			<div class="col-2">col-2: 1/6</div>
-			<div class="col-2">col-2: 1/6</div>
-			<div class="col-2">col-2: 1/6</div>
-			<div class="col-2">col-2: 1/6</div>
-			<div class="col-2">col-2: 1/6</div>
-			<div class="col-2">col-2: 1/6</div>
-			<div class="col-2">col-2: 1/6</div>
-			<div class="col-2">col-2: 1/6 This is another big block which can push everything down</div>
-			<div class="col-2">col-2: 1/6</div>
-			<div class="col-2">col-2: 1/6</div>
-			<div class="col-2">col-2: 1/6</div>
-			<div class="col-2">col-2: 1/6</div>
-			<div class="col-3">col-3: 1/4</div>
-			<div class="col-3">col-3: 1/4</div>
-			<div class="col-3">col-3: 1/4</div>
-			<div class="col-3">col-3: 1/4</div>
-			<div class="col-3">col-3: 1/4 A downside of this method is it works in modern browsers only</div>
-			<div class="col-3">col-3: 1/4</div>
-			<div class="col-3">col-3: 1/4</div>
-			<div class="col-3">col-3: 1/4</div>
-			<div>
-			<div class="col-4">col-4: 1/3</div>
-			<div class="col-4">col-4: 1/3</div>
-			<div class="col-4">col-4: 1/3</div>
-			<div class="col-4">col-4: 1/3</div>
-			<div class="col-4">col-4: 1/3</div>
-			<div class="col-4">col-4: 1/3</div>
-			<div class="col-4">col-4: 1/3</div>
-			<div class="col-4">col-4: 1/3</div>
-			<div class="col-4">col-4: 1/3</div>
-			<div class="col-4">col-4: 1/3</div>
-			<div class="col-4">col-4: 1/3 poor IE8</div>
-			<div class="col-4">col-4: 1/3</div>
-			<div class="col-4">col-4: 1/3</div>
-			<div class="col-4">col-4: 1/3</div>
-			<div class="col-4">col-4: 1/3</div>
+
+		<div class="form__12-columns">
+			<div class="control">
+				<label>One</label>
+				<input type="text"/>
 			</div>
-			<div>
-			<div class="col-6">col-6: 1/2</div>
-				<div class="col-6">col-6: 1/2</div>
-				<div class="col-6">col-6: 1/2</div>
-				<div class="col-6">col-6: 1/2</div>
-				<div class="col-6">col-6: 1/2</div>
-				<div class="col-6">col-6: 1/2</div>
+			<div class="control">
+				<label>Two</label>
+				<input type="text"/>
 			</div>
-			<div>
-				<div class="col-5">col-5: 5/12</div>
-				<div class="col-7">col-7: 7/12</div>
+			<div class="control">
+				<label>Three</label>
+				<input type="text"/>
 			</div>
-			<div>
-				<div class="col-4">col-4: 1/3</div>
-				<div class="col-8">col-8: 2/3</div>
+			<div class="control">
+				<label>Four</label>
+				<input type="text"/>
 			</div>
-			<div>
-				<div class="col-3">col-3: 1/4</div>
-				<div class="col-9">col-9: 3/4</div>
+			<div class="control">
+				<label>Five</label>
+				<input type="text"/>
 			</div>
-			<div>
-				<div class="col-2">col-2: 1/6</div>
-				<div class="col-10">col-10: 5/6</div>
+			<div class="control">
+				<label>Six</label>
+				<input type="text"/>
 			</div>
-			<div>
-				<div class="col-1">col-1: 1/12</div>
-				<div class="col-11">col-11: 11/12</div>
+			<div class="control">
+				<label>Seven</label>
+				<input type="text"/>
 			</div>
-			<div class="col-12">col-12: 1</div>
+			<div class="control">
+				<label>Eight</label>
+				<input type="text"/>
+			</div>
+			<div class="control">
+				<label>Nine</label>
+				<input type="text"/>
+			</div>
+			<div class="control">
+				<label>Ten</label>
+				<input type="text"/>
+			</div>
+			<div class="control">
+				<label>Eleven</label>
+				<input type="text"/>
+			</div>
+			<div class="control">
+				<label>Twelve</label>
+				<input type="text"/>
+			</div>
 		</div>
+
+		<div class="form__6-columns">
+			<div class="control">
+				<label>One</label>
+				<input type="text"/>
+			</div>
+			<div class="control">
+				<label>Two</label>
+				<input type="text"/>
+			</div>
+			<div class="control">
+				<label>Three</label>
+				<input type="text"/>
+			</div>
+			<div class="control">
+				<label>Four</label>
+				<input type="text"/>
+			</div>
+			<div class="control">
+				<label>Five</label>
+				<input type="text"/>
+			</div>
+			<div class="control">
+				<label>Six</label>
+				<input type="text"/>
+			</div>
+		</div>
+
+		<div class="form__4-columns">
+			<div class="control">
+				<label>One</label>
+				<input type="text"/>
+			</div>
+			<div class="control">
+				<label>Two</label>
+				<input type="text"/>
+			</div>
+			<div class="control">
+				<label>Three</label>
+				<input type="text"/>
+			</div>
+			<div class="control">
+				<label>Four</label>
+				<input type="text"/>
+			</div>
+		</div>
+
+		<div class="form__3-columns">
+			<div class="control">
+				<label>One</label>
+				<input type="text"/>
+			</div>
+			<div class="control">
+				<label>Two</label>
+				<input type="text"/>
+			</div>
+			<div class="control">
+				<label>Three</label>
+				<input type="text"/>
+			</div>
+		</div>
+
 	</section>
 	<section class="footer">
 		<div class="footer__content">

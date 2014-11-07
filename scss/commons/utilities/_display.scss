@@ -13,7 +13,7 @@
 
 @mixin inline-block-no-margin {
   @include inline-block;
-  margin-right: -.31em;
+  margin-right: -$inline-block-gap;
 }
 
 

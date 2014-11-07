@@ -1,165 +1,137 @@
-// These styles are compiled into a grid class system
+@import 'commons/utilities/math';
 
-$columns: 12 !default;
-$media: screen !default;
-
-
-
-// basic width calculations
-@function normal-width($number) {
-  @return $size-bit * $number + $margin-bit * ($number - 1);
-}
-
-@function small-width($number) {
-  @return $size-bit * $number * 2 + $margin-bit * ($number * 2 - 1);
-}
-
-@function small-companion-width($number) {
-  // determine how big is a sibling of big paired blocks
-  $companion: $columns - $number;
-  @return $size-bit * $companion * 2 + $margin-bit * ($companion * 2 - 1);
-}
-
-@function mobile-width($number) {
-  @return $size-bit * $number * 4 + $margin-bit * ($number * 4 - 1);
-}
-
-@function mobile-companion-width($number) {
-  // determine how big is a sibling of big paired blocks
-  $companion: $columns - $number;
-  @return $size-bit * $companion * 4 + $margin-bit * ($companion * 4 - 1);
+// define clearing after columns rules
+//
+@mixin clearing($nth) {
+  &:nth-of-type(#{$nth}n+#{$nth}) {
+    margin-right: 0;
+  }
 }
 
 
-@mixin grid-item($nth) {
-
-  // calculating how many items can be fit into a row
-  $item-per-column: $columns / $nth;
-  $small-item-per-column: $item-per-column / 2;
-  $mobile-item-per-column: $item-per-column / 4;
-
-
-  // calculate different sizes for regular, tablet and mobile view.
-  $width: normal-width($nth);
-  $small-width:  small-width($nth);
-  $mobile-width: mobile-width($nth);
-  $small-companion-width: small-companion-width($nth);
-  $mobile-companion-width: mobile-companion-width($nth);
-
-
-  // set an item width (this is the only one IE8 will ever accept)
-  width: $width;
-
-
-  // if several items of the same class can fill a row without remainder
-  @if ($item-per-column == round($columns / $nth)) {
-    // start from a new row
-    &:nth-of-type(#{$item-per-column}n+#{$item-per-column}), &:last-child {
-      margin-right: 0;
-    }
-
-    @if $media == screen {
-      @include breakpoint(small) {
-        // for tablet view, bigger than half a row items forced to fill whole row
-        @if ($width < 32%) {
-          width: $small-width;
-
-          &:nth-of-type(#{$small-item-per-column}n+#{$small-item-per-column}) {
-            margin-right: 0;
-          }
-        }
-        @else if ($width >= 32% and $width < 75%){
-          width: 49%;
-
-          &:nth-of-type(#{$item-per-column}n+#{$item-per-column}) {
-            margin-right: $margin-bit;
-
-            &:after {
-              clear: none;
-            }
-          }
-
-          &:nth-of-type(2n+2) {
-            margin-right: 0;
-          }
-        }
-        @else {
-          width: 100%;
-        }
-      }
-
-      @include breakpoint(mobile) {
-        // for mobile view, bigger than half a row items forced to fill whole row
-        @if ($mobile-width > 50%) {
-          width: 100%;
-        }
-        @else {
-          width: $mobile-width;
-        }
-
-        // start from a new row
-        &:nth-of-type(#{$mobile-item-per-column}n+#{$mobile-item-per-column}) {
-          margin-right: 0;
-        }
-      }
-    }
+// define margin setting rules
+//
+@mixin marginify($size) {
+  // if column is full width, no margin required;
+  @if $size == 100 {
+    margin-right: 0;
+  }
+  @elseif $size > 57 {
+    margin-right: 0;
   }
   @else {
+    margin-right: calc(#{$margin-bit} - #{$inline-block-gap});
+  }
 
-  // if several items of the same class cannot fill a row without remainder, calculate its likeliest compainion width and fill the space
-    @if $media == screen {
-
-      @include breakpoint(small) {
-        $small-width: 100% - $margin-bit - $small-companion-width;
-
-        // make sure those items whose companion are forced to fill whole row also fill the row
-        @if ($small-width + $margin-bit < 50%) {
-          width: 100%;
-        }
-        @else {
-          width: $small-width;
-        }
-      }
-
-      @include breakpoint(mobile) {
-        // make sure those items whose companion are forced to fill whole row also fill the row
-        $mobile-width: 100% - $margin-bit - $mobile-companion-width;
-
-        @if ($mobile-width + $margin-bit < 50%) {
-          width: 100%;
-        }
-        @else {
-          width: $mobile-width;
-        }
-      }
-    }
-
-    &:last-child {
-      margin-right: 0;
-    }
+  &:last-of-type,
+  &:last-child {
+    margin-right: 0;
   }
 }
 
+// Basic grid width calculator
+//
+@function calc-width($nth) {
+  @return $size-bit * $nth + $margin-bit * ($nth - 1);
+}
 
-// make silent grid classes col-1, col-2... until col-N, where N is number of columns
-@for $i from 1 to $columns+1 {
-  %col-#{$i} {
-    @extend %inblock;
-    @extend %column;
-    @include grid-item($i);
+// Calculate width and margins for grid column
+//
+@mixin custom-size-column($number) {
+  $width: calc-width($number);
+  width: $width;
+  @include marginify($width);
+}
+
+
+// Your grid settings
+$columns: 12 !default;
+
+// Calculate how many equal columns can fit in each row? e.g. 12, 6, 4, 3, 2, 1;
+$grid-columns: get-dividers($columns);
+
+
+// Generate placeholders for all columns
+//
+@for $i from 1 through $columns {
+  // check, if column size is among dividers
+  $index: index($grid-columns, $i);
+
+  %s-#{$i}-#{$columns} {
+    @extend %grid-column;
+
+    // if column is irregular size (is not among dividers), calculate it's size
+    @if $index == null {
+      @include custom-size-column($i);
+    }
+
+    // if column is of regular size, define it's sizes, and clearing rules
+    //
+    @else {
+      // defining normal size and clearing rules
+      //
+      $in-a-row: $columns / $i;                       // for 1/12 column: 12
+
+      @include custom-size-column($i);
+      @include clearing($in-a-row);
+
+      // calculate sizes for normal and small screen sizes
+      //
+      $column-dividers: get-dividers($in-a-row);      // for 1/12 column: 12, 6, 4, 3, 2, 1;
+      $dividers-count: length($column-dividers);      // for 1/12 column: 6;
+      $normal-in-a-row: null;
+      $small-in-a-row: null;
+
+      @if $dividers-count > 2 {
+        $normal-in-a-row:  nth($column-dividers, 2);
+        $small-in-a-row:  nth($column-dividers, 3);
+      }
+      @elseif $dividers-count == 2 {
+        $normal-in-a-row:  nth($column-dividers, 1);
+        $small-in-a-row:  nth($column-dividers, 2);
+      }
+      @else {
+        $normal-in-a-row: nth($column-dividers, 1);
+        $small-in-a-row:  nth($column-dividers, 1);
+      }
+
+      // assigning sizes and clearing rules
+
+      @include breakpoint(normal) {
+        $normal-width: $columns / $normal-in-a-row;
+        @include custom-size-column($normal-width);
+        @include clearing($normal-in-a-row);
+      }
+
+      @include breakpoint(small) {
+        $small-width: $columns / $small-in-a-row;
+        @include custom-size-column($small-width);
+        @include clearing($small-in-a-row);
+      }
+    }
   }
 }
 
 // grid helpers
-%inblock {
-  @include inline-block(top);
-}
-
-%column {
-  position: relative;
-  margin-right: calc(#{$margin-bit} - .35em);
-}
-
+// use this for known last item in irregular size grid column
 %last {
   margin-right: 0 !important;
 }
+
+// use this to force a grid margin on irregular size grid column
+%grid-margin {
+  margin-right: calc(#{$margin-bit} - #{$inline-block-gap}) !important;
+}
+
+// automatically added on all grid column placeholders
+%grid-column {
+  @include inline-block(top);
+  position: relative;
+
+  @include breakpoint(mobile) {
+    margin-right: 0 !important;
+    width: 100%;
+  }
+}
+
+

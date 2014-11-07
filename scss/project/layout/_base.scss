@@ -27,6 +27,7 @@ p {
 }
 
 .header,
+.features,
 .grid,
 .footer {
   @extend %wrap;
@@ -47,15 +48,44 @@ p {
 
 @include centered-content(80%, $max-page-width, '.header', '.header__content');
 @include centered-content(80%, $max-page-width, '.grid', '.grid__content');
+@include centered-content(80%, $max-page-width, '.features', '.features__content');
 @include centered-content(80%, $max-page-width, '.footer', '.footer__content');
 
+.features__buttons {
+  @extend %s-7-12, %grid-margin, %block;
+}
 
-@for $i from 1 to $columns+1 {
-  .col-#{$i} {
-    @extend %inblock;
-    @extend %col-#{$i};
+.features__form {
+  @extend %s-5-12, %last, %block, %form--half;
+}
+
+.form__12-columns {
+  .control {
     @extend %block;
-    @extend %block-skin;
+    @extend %s-1-12;
+  }
+}
+
+.form__6-columns {
+  @extend %block;
+
+  .control {
+    @extend %s-2-12;
+  }
+}
+
+.form__4-columns {
+  .control {
+    @extend %block;
+    @extend %s-3-12;
+  }
+}
+
+.form__3-columns {
+  @extend %block;
+
+  .control {
+    @extend %s-4-12;
   }
 }
 

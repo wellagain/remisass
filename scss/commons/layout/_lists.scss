@@ -1,0 +1,14 @@
+// lists
+// resetting listis
+
+%list--horizontal {
+  list-style: none;
+
+  li {
+    @include inline-block;
+  }
+}
+
+%list--vertical {
+  padding-left: 1em;
+}

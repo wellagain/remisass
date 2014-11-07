@@ -1,0 +1,65 @@
+// placeholders for button sizes
+%button-xl {
+  @include button-size(1.1em, .7em 3em, .3em);
+}
+
+%button-m {
+  @include button-size(1em, .7em 2em, .3em);
+}
+
+%button-s {
+  @include button-size(1em, .5em 2em, .3em);
+}
+
+// placeholders for button colors
+%button-primary-color {
+  @include button-skin($bt-color--primary, $white);
+}
+
+%button-secondary-color {
+  @include button-skin($bt-color--secondary, $white);
+}
+
+%button-disabled-color {
+  @include button-skin($bt-color--disabled, $white, false);
+}
+
+
+// implementation
+.bt {
+  @include modifier(primary) {
+    @extend %button-m, %button-primary-color;
+
+    &:disabled {
+      @extend %button-m, %button-disabled-color;
+    }
+  }
+
+  @include modifier(secondary) {
+    @extend %button-m, %button-secondary-color;
+
+    &:disabled {
+      @extend %button-m, %button-disabled-color;
+    }
+  }
+
+  @include modifier(cta) {
+    @extend %button-xl, %button-primary-color;
+
+    &:disabled {
+      @extend %button-xl, %button-disabled-color;
+    }
+  }
+
+  @include modifier(silent) {
+    @extend %button-s, %button-secondary-color;
+
+    &:disabled {
+      @extend %button-s, %button-disabled-color;
+    }
+  }
+
+  @include modifier(disabled) {
+    @extend %button-m, %button-disabled-color;
+  }
+}

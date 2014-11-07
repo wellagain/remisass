@@ -1,8 +1,8 @@
 // normalizing button styles
-@mixin buttonormalize(
-    $font-size: 1em,
-    $padding: .2em 1.4em,
-    $corner-radius: .3em
+@mixin button-size(
+    $font-size: $bt-font-size,
+    $padding: $bt-padding-default,
+    $corner-radius: $bt-corner-radius
   ) {
   @include inline-block;
 
@@ -11,7 +11,7 @@
   padding: $padding;
   -webkit-appearance: none;
 
-  @include width(auto, 55px);
+  @include width(auto, $bt-max-width);
   @include rounded($corner-radius);
 
   font-size: $font-size;
@@ -21,28 +21,22 @@
   text-decoration: none;
 }
 
-// buttons
-@mixin button(
+// button skins
+@mixin button-skin(
     $color,
     $typography-color: $black,
     $hoverable: true
   ) {
 
+  margin-bottom: .5em;
+  border: 0;
   background: $color;
-
-  border: solid 1px $color;           // old browsers
-  border-bottom: darken($color, 10%) 4px solid;  // old browsers
-
-  &:not(.IE8) {
-    border: 0;                 // normal browsers override
-  }
 
   @include color($typography-color);
   @include box-shadow((
     0 4px 0 0 darken($color, 10%),
     0 2px 0 1px transparentize(darken($color, 30%), .9)
   ));
-
 
   @if $hoverable == true {
     &:hover {
@@ -64,10 +58,15 @@
         0 4px 1px 1px transparentize(darken($color, 30%), .8)
       ));
     }
+
+    &:focus {
+      outline: 0;
+    }
   }
   @else {
     &:hover,
-    &:active {
+    &:active,
+    &:focus {
       top: 0;
       border: 0;
       background: $color;
@@ -78,57 +77,6 @@
         0 4px 0 0 darken($color, 10%),
         0 2px 0 1px transparentize(darken($color, 30%), .9)
       ));
-    }
-  }
-}
-
-@mixin arrow-box($position, $distance, $bg-color, $size) {
-  position: relative;
-  background: $bg-color;
-
-  &:after {
-    position: absolute;
-    border: solid transparent;
-    border-width: $size;
-    border-color: transparentize($bg-color, 1);
-    width: 0;
-    height: 0;
-    content: ' ';
-  }
-
-  @if $position == 'top' {
-    &:after {
-      bottom: 100%;
-      left: $distance;
-      margin-left: -$size;
-      border-bottom-color: $bg-color;
-    }
-  }
-
-  @else if $position == 'right' {
-    &:after {
-      top: $distance;
-      left: 100%;
-      margin-top: -$size;
-      border-left-color: $bg-color;
-    }
-  }
-
-  @else if $position == 'bottom' {
-    &:after {
-      top: 100%;
-      left: $distance;
-      margin-left: -$size;
-      border-top-color: $bg-color;
-    }
-  }
-
-  @else if $position == 'left' {
-    &:after {
-      top: $distance;
-      right: 100%;
-      margin-top: -$size;
-      border-right-color: $bg-color;
     }
   }
 }
