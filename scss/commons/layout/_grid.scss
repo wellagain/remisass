@@ -13,7 +13,7 @@
 //
 @mixin marginify($size) {
   // if column is full width, no margin required;
-  @if $size == 100 {
+  @if $size == 100% {
     margin-right: 0;
   }
   @elseif $size > 57 {
