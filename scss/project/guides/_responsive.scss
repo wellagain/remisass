@@ -1,21 +1,33 @@
-// some common screen size breaking points
-@mixin breakpoint($screen-width) {
-  @if $screen-width == wide {
-    @media screen and (min-width: 991px) { @content; }
-  }
-  @else if $screen-width == normal {
-    @media screen and (min-width: 768px) and (max-width: 990px)  { @content; }
-  }
-  @else if $screen-width == small {
-    @media screen and (min-width: 480px) and (max-width: 767px)  { @content; }
-  }
-  @else if $screen-width == mobile {
-    @media screen and (max-width: 479px)  { @content; }
-  }
-  @else if $screen-width == devices {
-    @media screen and (max-width: 767px)  { @content; }
-  }
-  @else if $screen-width == widescreen {
-    @media screen and (min-width: 991px) and (max-height: 680px)  { @content; }
+// most-user screen widths
+$sw-wide:     990px !default;
+$sw-normal:   768px !default;
+$sw-mobile:   480px !default;
+
+// height-related
+$sh-small:    680px !default;
+
+
+// breaking points
+@mixin breakpoint($screen-widths) {
+
+  @each $screen in $screen-widths {
+    @if $screen == wide {
+      @media screen and (min-width: ($sw-wide + 1)) { @content; }
+    }
+    @else if $screen == normal {
+      @media screen and (min-width: $sw-normal) and (max-width: $sw-wide)  { @content; }
+    }
+    @else if $screen == small {
+      @media screen and (min-width: $sw-mobile) and (max-width: ($sw-normal - 1))  { @content; }
+    }
+    @else if $screen == mobile {
+      @media screen and (max-width: ($sw-mobile - 1))  { @content; }
+    }
+    @else if $screen == devices {
+      @media screen and (max-width: ($sw-normal - 1))  { @content; }
+    }
+    @else if $screen == widescreen {
+      @media screen and (min-width: ($sw-wide - 1)) and (max-height: $sh-small)  { @content; }
+    }
   }
 }

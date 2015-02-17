@@ -2,7 +2,6 @@
   padding: .5em 0;
 }
 
-
 %wrap {
   @include breakpoint(normal) {
     padding: 0 5%;
@@ -25,11 +24,7 @@
     padding: 1em 0 .5em;
   }
 
-  @include breakpoint(devices) {
-    padding: .5em 0;
-  }
-
-  @include breakpoint(widescreen) {
+  @include breakpoint((widescreen, devices)) {
     padding: .5em 0;
   }
 }
