@@ -2,9 +2,9 @@
 // use:
 // @include inline-block(bottom);
 
-@mixin inline-block($align: top) {
+@mixin inline-block($valign: top) {
   display: inline-block;
-  vertical-align: $align;
+  vertical-align: $valign;
 }
 
 // An one-liner for inline-block with gap fix
@@ -13,8 +13,8 @@
 
 $inline-block-gap:  .28rem !default;
 
-@mixin inline-block-no-margin {
-  @include inline-block;
+@mixin inline-block-no-margin($valign: top) {
+  @include inline-block($valign);
   margin-right: -$inline-block-gap;
 }
 
