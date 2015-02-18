@@ -8,9 +8,11 @@
   }
 }
 
-// reverse a list (http://hugogiraudel.com/2013/08/08/advanced-sass-list-functions/)
+// reverse a list
+// credit: http://hugogiraudel.com/2013/08/08/advanced-sass-list-functions/
 @function reverse($list, $recursive: false) {
   $result: ();
+
   @for $i from length($list)*-1 through -1 {
     @if type-of(nth($list, abs($i))) == list and $recursive {
       $result: append($result, reverse(nth($list, abs($i)), $recursive));

@@ -11,19 +11,20 @@
 // use:
 // @include inline-block-no-margin;
 
+$inline-block-gap:  .28rem !default;
+
 @mixin inline-block-no-margin {
   @include inline-block;
   margin-right: -$inline-block-gap;
 }
 
-
 // An one-liner for table-cell
 // use:
 // @include table-cell;
 
-@mixin table-cell($align: top) {
+@mixin table-cell($valign: top) {
   display: table-cell;
-  vertical-align: $align;
+  vertical-align: $valign;
 }
 
 // Push text out of visibility
