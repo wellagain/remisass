@@ -37,3 +37,32 @@
     }
   }
 }
+
+
+// flexbox powered sticky footer
+// be aware of browser support: http://caniuse.com/#feat=flexbox
+// use:
+//
+
+@mixin sticky-footer-flex(
+  $root-selector: unquote('.root'),
+  $content-selector: unquote('.content'),
+  $header-selector: unquote('.header'),
+  $footer-selector: unquote('.footer')
+  ) {
+
+  #{$root-selector} {
+    @include flex-display(column);
+    min-height: 100vh;
+  }
+
+  #{$content-selector} {
+    @include flex(1);
+  }
+
+  #{$header-selector},
+  #{$footer-selector} {
+    flex: none;
+  }
+}
+

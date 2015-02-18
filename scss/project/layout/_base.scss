@@ -2,11 +2,13 @@
 
 body {
   margin: 0;
-  padding: 0 0 2em;
+  padding: 0;
   width: 100%;
   @include debug;
   @include normal-font;
 }
+
+@include sticky-footer-flex;
 
 a {
   @include color($col-link);

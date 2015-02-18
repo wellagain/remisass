@@ -148,13 +148,14 @@ button::-moz-focus-inner {
   padding: 0;
 }
 
-body:before {
-  float: left;
-  margin-top: -32767px;
-  width: 0;
-  height: 100%;
-  content: '';
-}
+// Opera fix
+// body:before {
+//   float: left;
+//   margin-top: -32767px;
+//   width: 0;
+//   height: 100%;
+//   content: '';
+// }
 
 h1,
 h2,
