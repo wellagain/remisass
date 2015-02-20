@@ -92,7 +92,7 @@ linters:
 
   SelectorFormat:
     enabled: true
-    convention: BEM
+    convention: hyphenated_BEM
 
   Shorthand:
     enabled: true
@@ -146,7 +146,7 @@ linters:
     enabled: true
 
   VendorPrefixes:
-    enabled: true
+    enabled: false
     identifier_list: base
     include: []
     exclude: []
@@ -156,3 +156,7 @@ linters:
 
   Compass::*:
     enabled: false
+
+  QualifyingElement:
+    enabled: true
+    allow_element_with_attribute: true

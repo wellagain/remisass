@@ -1,30 +1,31 @@
 // inputs
 %input-skin {
-  border: solid .1em $input-border;
-  background-color: $input-bg;
-  font-size: 1em;
-
   @include rounded($input-radius);
-
   @include box-shadow((
     0 0 .1em .1em transparentize(darken($input-bg, 20%), .5) inset
     ));
 
+  border: solid .1em $input-border;
+  background-color: $input-bg;
+  font-size: 1em;
+
   &:focus {
-    outline: none;
-    border-color: $input-border--focus;
-    background-color: $input-bg--focus;
     @include box-shadow((
       0 0 .1em .1em transparentize(darken($input-border--focus, 30%), .5) inset
       ));
+
+    outline: none;
+    border-color: $input-border--focus;
+    background-color: $input-bg--focus;
   }
 
   &:disabled {
-    border-color: $input-border--disabled;
-    background-color: lighten($input-bg--disabled, 5%);
     @include box-shadow((
       0 0 0 0 transparent inset
       ));
+
+    border-color: $input-border--disabled;
+    background-color: lighten($input-bg--disabled, 5%);
   }
 
   &:-ms-input-placeholder {

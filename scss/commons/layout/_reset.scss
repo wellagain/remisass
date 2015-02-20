@@ -1,5 +1,5 @@
 // based on html5doctor.com Reset Stylesheet
-@import 'commons/utilities/_browserize';
+@import 'commons/utilities/browserize';
 
 html,
 body {
@@ -119,10 +119,8 @@ hgroup,
 menu,
 nav,
 section,
-dialog
-{
+dialog {
   display: block;
-
 }
 
 input,

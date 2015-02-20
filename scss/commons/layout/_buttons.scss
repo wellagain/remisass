@@ -5,14 +5,13 @@
     $corner-radius: $bt-corner-radius
   ) {
   @include inline-block;
-
   @include position(relative, auto auto auto auto, 1);
+  @include width(auto, $bt-max-width);
+  @include rounded($corner-radius);
+
   margin: 0;
   padding: $padding;
   -webkit-appearance: none;
-
-  @include width(auto, $bt-max-width);
-  @include rounded($corner-radius);
 
   font-size: $font-size;
   line-height: 1em;
@@ -28,35 +27,35 @@
     $hoverable: true
   ) {
 
-  margin-bottom: .5em;
-  border: 0;
-  background: $color;
-
   @include color($typography-color);
   @include box-shadow((
     0 4px 0 0 darken($color, 10%),
     0 2px 0 1px transparentize(darken($color, 30%), .9)
   ));
 
+  margin-bottom: .5em;
+  border: 0;
+  background: $color;
+
   @if $hoverable == true {
     &:hover {
-      color: lighten($typography-color, 5%);
       @include gradient(lighten($color, 5%), $color);
       @include box-shadow((
         0 4px 0 0 darken($color, 15%),
         0 5px 1px 1px transparentize(darken($color, 30%), .8)
       ));
+      color: lighten($typography-color, 5%);
     }
 
     &:active {
-      top: 1px;
-      outline: none;
-      background: $color;
-
       @include box-shadow((
         0 3px 0 0 darken($color, 10%),
         0 4px 1px 1px transparentize(darken($color, 30%), .8)
       ));
+
+      top: 1px;
+      outline: none;
+      background: $color;
     }
 
     &:focus {
@@ -67,16 +66,17 @@
     &:hover,
     &:active,
     &:focus {
+      @include box-shadow((
+        0 4px 0 0 darken($color, 10%),
+        0 2px 0 1px transparentize(darken($color, 30%), .9)
+      ));
+
       top: 0;
       border: 0;
       background: $color;
       background-image: none;
       cursor: default;
       color: $typography-color;
-      @include box-shadow((
-        0 4px 0 0 darken($color, 10%),
-        0 2px 0 1px transparentize(darken($color, 30%), .9)
-      ));
     }
   }
 }
