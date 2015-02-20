@@ -1,17 +1,26 @@
+// set initial font-size on html for responsive typography
+
+@mixin font-reset($body-size: 14) {
+  $default-size: 16;
+
+  html {
+    font-size: $body-size/$default-size * 100%; // 14px
+
+    @include breakpoint(devices) {
+      font-size: $body-size/$default-size * 85.7142857%; // 12px
+    }
+  }
+}
+
 // normal sans-serif
-@mixin normal-font {
+@mixin font--normal {
   font-family: 'Helvetica', Arial, sans-serif;
   font-weight: normal;
 }
 
 // pretty italic
-@mixin em-font {
+@mixin font--italic {
   font-family: 'Palatino', 'Palatino Lynotype', times, georgia, serif;
   font-style: italic;
   font-weight: normal;
-}
-
-// simple non-underiliner
-@mixin nonunderlined {
-  text-decoration: none;
 }

@@ -30,24 +30,16 @@
 }
 
 %title {
-  @include em-font;
+  @include font--italic;
+  @include font-size(2);
   margin: .5em 0 .2em;
   line-height: .8em;
-  font-size: 2em;
-
-  @include breakpoint(normal) {
-    font-size: 1.8em;
-  }
-
-  @include breakpoint(devices) {
-    font-size: 1.5em;
-  }
 }
 
 %subtitle {
+  @include font-size(1.2);
   margin: -.2em 0 .5em;
   color: lighten($black, 30%);
-  font-size: 1em;
 
   @include breakpoint(devices) {
     margin-top: 0;
@@ -55,7 +47,7 @@
 }
 
 %block-skin {
-  @include em-font;
+  @include font--italic;
   @include rounded(.5em);
 
   $color-from: darken($white, 8);
@@ -78,8 +70,8 @@
   }
 
   @include breakpoint(devices) {
-    padding: .4em;
     @include rounded(.3em);
+    padding: .4em;
   }
 }
 
@@ -87,5 +79,4 @@
   @extend %block-skin;
   margin-bottom: 1em;
   padding: 1em;
-  font-size: .8em;
 }
