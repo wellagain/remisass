@@ -1,0 +1,84 @@
+.data {
+  @extend %block-skin;
+
+  thead tr {
+    @include rounded($bt-corner-radius $bt-corner-radius 0 0);
+    background: $col-table-header;
+
+    @include breakpoint(devices) {
+      padding: .5em;
+    }
+  }
+
+  thead th {
+    @include font--italic;
+    border-bottom: solid 1px $col-table-border;
+    padding: 1em .5em;
+    vertical-align: bottom;
+
+    @include breakpoint(devices) {
+      border: 0;
+      padding: 0;
+    }
+
+    &:first-child {
+      @include rounded($bt-corner-radius 0 0 0);
+    }
+
+    &:last-child {
+      @include rounded(0 $bt-corner-radius 0 0);
+    }
+  }
+
+  tr {
+    @include breakpoint(devices) {
+      border-bottom: solid 1px $col-table-border;
+
+      &:last-child {
+        border: 0;
+      }
+    }
+
+    &:last-child td {
+      border-bottom: 0;
+    }
+
+    &:nth-child(even) {
+      background: transparentize($white, .5);
+    }
+  }
+
+  td {
+    border-bottom: solid 1px $col-table-border;
+    padding: .5em;
+
+    @include breakpoint(devices) {
+      border-bottom: 0;
+    }
+  }
+}
+
+
+.data__item--primary {
+  @include breakpoint(devices) {
+    width: 30%;
+  }
+}
+
+.data__item--secondary {
+  @include breakpoint(devices) {
+    width: 20%;
+  }
+}
+
+.data__comment {
+  @include breakpoint(devices) {
+    width: 80%;
+  }
+}
+
+.data__action {
+  @include breakpoint(devices) {
+    width: 20%;
+  }
+}

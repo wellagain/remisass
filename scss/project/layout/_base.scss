@@ -34,6 +34,7 @@ p {
 .header,
 .features,
 .grid,
+.table,
 .footer {
   @extend %wrap;
 
@@ -54,6 +55,7 @@ p {
 @include centered-content(80%, $max-page-width, '.header', '.header__content');
 @include centered-content(80%, $max-page-width, '.grid', '.grid__content');
 @include centered-content(80%, $max-page-width, '.features', '.features__content');
+@include centered-content(80%, $max-page-width, '.table', '.table__content');
 @include centered-content(80%, $max-page-width, '.footer', '.footer__content');
 
 .features__buttons {

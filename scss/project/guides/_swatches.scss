@@ -48,3 +48,7 @@ $input-bg--disabled:        lighten($gray, 10%);
 $input-border--disabled:    lighten($gray, 5%);
 $input-placeholder-color:   $gray;
 $input-bg--err:             rgba(236, 32, 56, 1);
+
+// table:
+$col-table-border:          lighten($gray, 5%);
+$col-table-header:          rgba(209, 219, 224, 1);

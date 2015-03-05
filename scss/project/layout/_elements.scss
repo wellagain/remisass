@@ -47,7 +47,6 @@
 }
 
 %block-skin {
-  @include font--italic;
   @include rounded(.5em);
 
   $color-from: darken($white, 8);
@@ -77,6 +76,7 @@
 
 %block {
   @extend %block-skin;
+  @include font--italic;
   margin-bottom: 1em;
   padding: 1em;
 }
