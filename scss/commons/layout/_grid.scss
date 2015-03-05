@@ -112,6 +112,8 @@ $grid-columns: get-dividers($columns);
   }
 }
 
+// scss-lint:disable ImportantRule
+
 // grid helpers
 // use this for known last item in irregular size grid column
 %last {
@@ -133,5 +135,7 @@ $grid-columns: get-dividers($columns);
     width: 100%;
   }
 }
+
+// scss-lint:enable ImportantRule
 
 

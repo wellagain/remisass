@@ -21,7 +21,7 @@
 
   &:disabled {
     @include box-shadow((
-      0 0 0 0 transparent inset
+      0 0 0 0 $transparent inset
       ));
 
     border-color: $input-border--disabled;
@@ -30,7 +30,7 @@
 
   &:-ms-input-placeholder {
     opacity: 1;
-    color: $input-placeholder-color !important;
+    color: $input-placeholder-color;
   }
 
   .error & {
