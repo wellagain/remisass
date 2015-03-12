@@ -14,6 +14,7 @@ gulp.task('styles', function () {
       .pipe(gulp.dest('.'))
       .pipe(minifycss())
       .pipe(gulp.dest('.'))
+      .pipe(livereload())
       ;
 });
 
@@ -33,5 +34,4 @@ gulp.task('default', function () {
 gulp.task('watch', function() {
   gulp.watch('scss/**/*.scss', ['default']);
   livereload.listen();
-  gulp.watch(['scss/**']).on('change', livereload.changed);
 });
