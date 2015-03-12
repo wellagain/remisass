@@ -26,40 +26,47 @@
 
 
 // implementation
-.bt {
-  @include modifier(primary) {
-    @extend %button-m, %button-primary-color;
+.bt--primary {
+  @extend %button-m;
+  @extend %button-primary-color;
 
-    &:disabled {
-      @extend %button-m, %button-disabled-color;
-    }
+  &:disabled {
+    @extend %button-m;
+    @extend %button-disabled-color;
   }
+}
 
-  @include modifier(secondary) {
-    @extend %button-m, %button-secondary-color;
+.bt--secondary {
+  @extend %button-m;
+  @extend %button-secondary-color;
 
-    &:disabled {
-      @extend %button-m, %button-disabled-color;
-    }
+  &:disabled {
+    @extend %button-m;
+    @extend %button-disabled-color;
   }
+}
 
-  @include modifier(cta) {
-    @extend %button-xl, %button-primary-color;
+.bt--cta {
+  @extend %button-xl;
+  @extend %button-primary-color;
 
-    &:disabled {
-      @extend %button-xl, %button-disabled-color;
-    }
+  &:disabled {
+    @extend %button-xl;
+    @extend %button-disabled-color;
   }
+}
 
-  @include modifier(silent) {
-    @extend %button-s, %button-secondary-color;
+.bt--silent {
+  @extend %button-s;
+  @extend %button-secondary-color;
 
-    &:disabled {
-      @extend %button-s, %button-disabled-color;
-    }
+  &:disabled {
+    @extend %button-s;
+    @extend %button-disabled-color;
   }
+}
 
-  @include modifier(disabled) {
-    @extend %button-m, %button-disabled-color;
-  }
+.bt--disabled {
+  @extend %button-m;
+  @extend %button-disabled-color;
 }

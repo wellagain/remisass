@@ -37,19 +37,28 @@ p {
 .table,
 .footer {
   @extend %wrap;
+}
 
-  @include element(content) {
-    @extend %element;
-  }
+.header__content,
+.features__content,
+.grid__content,
+.table__content,
+.foote__contentr {
+  @extend %element;
+}
 
-  @include element(title) {
+.header__title,
+.features__title,
+.grid__title,
+.table__title,
+.footer__title {
+  @extend %title;
+}
 
-    @extend %title;
-
-    @include modifier(subtitle) {
-      @extend %subtitle;
-    }
-  }
+.header__title--subtitle,
+.table__title--subtitle,
+.grid__title--subtitle {
+  @extend %subtitle;
 }
 
 @include centered-content(80%, $max-page-width, '.header', '.header__content');
@@ -59,11 +68,16 @@ p {
 @include centered-content(80%, $max-page-width, '.footer', '.footer__content');
 
 .features__buttons {
-  @extend %s-7-12, %grid-margin, %block;
+  @extend %s-7-12;
+  @extend %grid-margin;
+  @extend %block;
 }
 
 .features__form {
-  @extend %s-5-12, %last, %block, %form--half;
+  @extend %s-5-12;
+  @extend %last;
+  @extend %block;
+  @extend %form--half;
 }
 
 .form__12-columns {

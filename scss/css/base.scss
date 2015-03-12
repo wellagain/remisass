@@ -3,7 +3,6 @@
 @import 'commons/utilities/position';
 @import 'commons/utilities/display';
 @import 'commons/utilities/float';
-@import 'commons/utilities/bem';
 @import 'commons/utilities/debug';
 @import 'commons/utilities/typography';
 
@@ -11,9 +10,8 @@
 @import 'project/guides/responsive';
 @import 'commons/layout/grid';
 
-@import 'commons/css3/box-shadow';
+@import 'commons/css3/animation';
 @import 'commons/css3/text-shadow';
-@import 'commons/css3/rounded';
 @import 'commons/css3/gradient';
 @import 'commons/css3/transition';
 @import 'commons/css3/word-break';
