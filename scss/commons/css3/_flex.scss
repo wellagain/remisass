@@ -3,23 +3,10 @@
 // @include flex-display(column);
 
 @mixin flex-display($direction) {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
   display: flex;
-
-  @if $direction == 'column' {
-    -webkit-box-orient: vertical;
-  }
-
-  -webkit-flex-direction: $direction;
-  -ms-flex-direction: $direction;
   flex-direction: $direction;
 }
 
 @mixin flex($value) {
   flex: $value;
-  -webkit-box-flex: $value;
-  -ms-flex: $value;
-  -webkit-flex: $value;
 }

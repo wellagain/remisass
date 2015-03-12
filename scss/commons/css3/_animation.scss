@@ -6,14 +6,6 @@
 // }
 
 @mixin keyframe($animation-name) {
-  @-webkit-keyframes #{$animation-name} {
-    @content;
-  }
-
-  @-moz-keyframes #{$animation-name} {
-    @content;
-  }
-
   @keyframes #{$animation-name} {
     @content;
   }
@@ -25,12 +17,11 @@
 // @include animation(1s, 20s, jump, infinite, normal, ease-in-out);
 
 @mixin animation($delay, $duration, $animation, $count: 1, $direction: alternate, $timing: linear) {
-  $prefixes: webkit moz;
-  @include prefixize('animation-delay', $delay, $prefixes);
-  @include prefixize('animation-duration', $duration, $prefixes);
-  @include prefixize('animation-name', $animation, $prefixes);
-  @include prefixize('animation-iteration-count', $count, $prefixes);
-  @include prefixize('animation-direction', $direction, $prefixes);
-  @include prefixize('animation-fill-mode', forwards, $prefixes);
-  @include prefixize('animation-timing-function', $timing, $prefixes);
+  animation-delay: $delay;
+  animation-duration: $duration;
+  animation-name: $animation;
+  animation-iteration-count: $count;
+  animation-direction: $direction;
+  animation-fill-mode: forwards;
+  animation-timing-function: $timing;
 }

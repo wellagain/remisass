@@ -2,7 +2,6 @@
 // use:
 // @include column(2, 2em);
 @mixin column($count, $gap) {
-  $prefixes: webkit moz;
-  @include prefixize('column-count', $count, $prefixes);
-  @include prefixize('column-gap', $gap, $prefixes);
+  column-count: $count;
+  column-gap: $prefixes;
 }

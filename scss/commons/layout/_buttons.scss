@@ -7,7 +7,7 @@
   @include inline-block;
   @include position(relative, auto auto auto auto, 1);
   @include width(auto, $bt-max-width);
-  @include rounded($corner-radius);
+  border-radius: $corner-radius;
 
   margin: 0;
   padding: $padding;
@@ -28,10 +28,10 @@
   ) {
 
   @include color($typography-color);
-  @include box-shadow((
+  box-shadow:
     0 4px 0 0 darken($color, 10%),
     0 2px 0 1px transparentize(darken($color, 30%), .9)
-  ));
+  ;
 
   margin-bottom: .5em;
   border: 0;
@@ -40,18 +40,18 @@
   @if $hoverable == true {
     &:hover {
       @include gradient(lighten($color, 5%), $color);
-      @include box-shadow((
+      box-shadow:
         0 4px 0 0 darken($color, 15%),
         0 5px 1px 1px transparentize(darken($color, 30%), .8)
-      ));
+      ;
       color: lighten($typography-color, 5%);
     }
 
     &:active {
-      @include box-shadow((
+      box-shadow:
         0 3px 0 0 darken($color, 10%),
         0 4px 1px 1px transparentize(darken($color, 30%), .8)
-      ));
+      ;
 
       top: 1px;
       outline: none;
@@ -66,10 +66,10 @@
     &:hover,
     &:active,
     &:focus {
-      @include box-shadow((
+      box-shadow:
         0 4px 0 0 darken($color, 10%),
         0 2px 0 1px transparentize(darken($color, 30%), .9)
-      ));
+      ;
 
       top: 0;
       border: 0;
