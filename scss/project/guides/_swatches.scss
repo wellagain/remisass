@@ -2,6 +2,7 @@
 
 $columns:                   12;
 $margin-bit:                2%;
+$margin-bit--falback:       1.1%;
 $max-screen:                1800px;
 
 
@@ -9,6 +10,7 @@ $max-screen:                1800px;
 $size-bit:                  (100% - ($columns - 1) * $margin-bit) / $columns;
 $max-page-width:            1300px;
 $inline-block-gap:          .28rem;
+$inline-block-gap-flb:      3px;
 
 // solid theme colors
 $transparent:               transparent;
