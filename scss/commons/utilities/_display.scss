@@ -15,7 +15,10 @@ $inline-block-gap:  .28rem !default;
 
 @mixin inline-block-no-margin($valign: top) {
   @include inline-block($valign);
+  // scss-lint:disable DuplicateProperty
+  margin-right: -$inline-block-gap-flb;
   margin-right: -$inline-block-gap;
+  // scss-lint:ebable DuplicateProperty
 }
 
 // An one-liner for table-cell

@@ -20,6 +20,8 @@
     margin-right: 0;
   }
   @else {
+    // use calc() to compute percent and rem, or fallback to percent
+    margin-right: $margin-bit--falback;
     margin-right: calc(#{$margin-bit} - #{$inline-block-gap});
   }
 
@@ -122,6 +124,7 @@ $grid-columns: get-dividers($columns);
 
 // use this to force a grid margin on irregular size grid column
 %grid-margin {
+  margin-right: $margin-bit--falback !important;
   margin-right: calc(#{$margin-bit} - #{$inline-block-gap}) !important;
 }
 
