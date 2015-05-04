@@ -41,6 +41,28 @@
 }
 
 
+@mixin sticky-footer-position(
+  $footer-height,
+  $footer-selector: unquote('footer')
+  ) {
+
+  html {
+    position: relative;
+    min-height: 100%;
+  }
+
+  body {
+    margin: 0 0 $footer-height;
+  }
+
+  #{$footer-selector} {
+    @include position(absolute, auto auto 0 0);
+    width: 100%;
+    height: $footer-height;
+  }
+}
+
+
 // flexbox powered sticky footer
 // be aware of browser support: http://caniuse.com/#feat=flexbox
 // use:
