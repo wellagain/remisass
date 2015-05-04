@@ -1,5 +1,5 @@
 @mixin font-size($size: 1.4) {
   // scss-lint:disable DuplicateProperty
-  font-size: ($size * 10) + px;
+  font-size: ($size * 14) + px;
   font-size: $size + rem;
 }

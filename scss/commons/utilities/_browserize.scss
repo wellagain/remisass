@@ -22,7 +22,7 @@ $default-prefixes: webkit moz ms o;
 // @include normalize;
 
 @mixin normalize {
-  box-sizing: border-box
+  box-sizing: border-box;
 }
 
 
