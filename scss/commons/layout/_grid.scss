@@ -1,5 +1,19 @@
 @import 'commons/utilities/math';
 
+
+$columns:                   12 !default;
+$margin-bit:                2% !default;
+$margin-bit--falback:       1.1% !default;
+$inline-block-gap:          .29rem !default;
+$inline-block-gap-flb:      3px !default;
+
+// calculated size
+$size-bit:                  (100% - ($columns - 1) * $margin-bit) / $columns;
+
+
+
+
+
 // define clearing after columns rules
 //
 @mixin clearing($nth) {
@@ -20,6 +34,8 @@
     margin-right: 0;
   }
   @else {
+    // use calc() to compute percent and rem, or fallback to percent
+    margin-right: $margin-bit--falback;
     margin-right: calc(#{$margin-bit} - #{$inline-block-gap});
   }
 
@@ -122,6 +138,7 @@ $grid-columns: get-dividers($columns);
 
 // use this to force a grid margin on irregular size grid column
 %grid-margin {
+  margin-right: $margin-bit--falback !important;
   margin-right: calc(#{$margin-bit} - #{$inline-block-gap}) !important;
 }
 
