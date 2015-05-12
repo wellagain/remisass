@@ -1,3 +1,57 @@
+// inputs
+%input-skin {
+  @include rounded($input-radius);
+  @include box-shadow((
+    0 0 .1em .1em transparentize(darken($input-bg, 20%), .5) inset
+    ));
+
+  border: solid .1em $input-border;
+  background-color: $input-bg;
+  font-size: 1em;
+
+  &:focus {
+    @include box-shadow((
+      0 0 .1em .1em transparentize(darken($input-border--focus, 30%), .5) inset
+      ));
+
+    outline: none;
+    border-color: $input-border--focus;
+    background-color: $input-bg--focus;
+  }
+
+  &:disabled {
+    @include box-shadow((
+      0 0 0 0 $transparent inset
+      ));
+
+    border-color: $input-border--disabled;
+    background-color: lighten($input-bg--disabled, 5%);
+  }
+
+  &:-ms-input-placeholder {
+    opacity: 1;
+    color: $input-placeholder-color;
+  }
+
+  .error & {
+    border: $input-bg--err solid 2px;
+  }
+
+  &:-webkit-autofill {
+    @include box-shadow((
+      0 0 0 1000px lighten(saturate($input-bg, 10%), 5%) inset,
+      0 0 2px 0 transparentize(darken($input-border--focus, 5%), .5) inset
+      ));
+    &:focus {
+      @include box-shadow((
+        0 0 0 1000px lighten(saturate($input-bg, 10%), 3%) inset,
+        0 0 2px 1px transparentize(darken($input-border--focus, 5%), .5) inset
+        ));
+    }
+  }
+}
+
+
 label,
 .label {
   display: block;
