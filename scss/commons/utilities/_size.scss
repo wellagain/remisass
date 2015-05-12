@@ -42,3 +42,14 @@
     max-height: $max;
   }
 }
+
+
+// Rem sizing with fallback to pixels
+// use:
+// @include rem-size(width, 10);
+
+@mixin rem-size($property, $size) {
+  // scss-lint:disable DuplicateProperty
+  #{$property}: ($size * 14) + px;
+  #{$property}: $size + rem;
+}
