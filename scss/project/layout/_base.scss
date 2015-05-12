@@ -1,11 +1,11 @@
 // your basic layout styles here, like
 
-@include font-reset;
+// @include font-reset;
 
 body {
   @include debug;
   @include font--normal;
-  @include font-size(1);
+  @include font-size(.9);
   margin: 0;
   padding: 0;
   width: 100%;
