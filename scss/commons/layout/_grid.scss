@@ -128,7 +128,7 @@ $grid-columns: get-dividers($columns);
   }
 }
 
-// scss-lint:disable ImportantRule
+// scss-lint:disable ImportantRule DuplicateProperty
 
 // grid helpers
 // use this for known last item in irregular size grid column
@@ -153,6 +153,6 @@ $grid-columns: get-dividers($columns);
   }
 }
 
-// scss-lint:enable ImportantRule
+// scss-lint:enable ImportantRule DuplicateProperty
 
 

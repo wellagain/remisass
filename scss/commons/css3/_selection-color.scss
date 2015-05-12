@@ -1,5 +1,5 @@
 // selection color
-
+// scss-lint:disable VendorPrefix
 @mixin selection($background, $color: inherit) {
   ::selection {
     background: $background;
@@ -11,3 +11,4 @@
     color: $color;
   }
 }
+// scss-lint:enable VendorPrefix

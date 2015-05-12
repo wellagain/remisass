@@ -5,6 +5,8 @@
 //     to { top: 0; }
 // }
 
+
+// scss-lint:disable VendorPrefix
 @mixin keyframe($animation-name) {
   @-webkit-keyframes #{$animation-name} {
     @content;
@@ -18,7 +20,7 @@
     @content;
   }
 }
-
+// scss-lint:enable VendorPrefix
 
 // Animation
 // use:

@@ -2,6 +2,8 @@
 // use:
 // @include flex-display(column);
 
+
+// scss-lint:disable VendorPrefix
 @mixin flex-display($direction) {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -23,3 +25,4 @@
   -ms-flex: $value;
   -webkit-flex: $value;
 }
+// scss-lint:enable VendorPrefix
