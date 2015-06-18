@@ -8,6 +8,11 @@ $max-page-width:            1300px;
 $inline-block-gap:          .29rem;
 $inline-block-gap-flb:      3px;
 
+$breakpoint-width-wide:     990px;
+$breakpoint-width-normal:   768px;
+$breakpoint-width-mobile:   480px;
+$breakpoint-height-small:   680px;
+
 // solid theme colors
 $transparent:               transparent;
 $black:                     rgba(26, 28, 32, 1);
@@ -16,14 +21,6 @@ $col-link:                  rgba(0, 136, 193, 1);
 $green:                     rgba(61, 132, 57, 1);
 $pink:                      rgba(210, 55, 124, 1);
 $gray:                      rgba(196, 196, 196, 1);
-
-// debug colors
-$col-debug-wide:            rgba(0, 172, 101, 1);
-$col-debug-normal:          rgba(178, 104, 219, 1);
-$col-debug-small:           rgba(49, 143, 143, 1);
-$col-debug-mobile:          rgba(233, 102, 44, 1);
-$col-debug-widescreen:      rgba(235, 175, 60, 1);
-
 
 // buttons
 $bt-font-size-default:      1em;

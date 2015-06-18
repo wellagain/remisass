@@ -1,0 +1,31 @@
+/// Hugo Giraudel https://github.com/HugoGiraudel
+/// Create a single media condition out of a map of queries
+@mixin media($queries) {
+  @if length($queries) == 0 {
+    @content;
+  }
+
+  @else {
+    $first-key: nth(map-keys($queries), 1);
+
+    @media ($first-key: map-get($queries, $first-key)) {
+      $queries: map-remove($queries, $first-key);
+
+      @include media($queries) {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin breakpoint($breakpoint) {
+  $queries: map-get($breakpoints, $breakpoint);
+
+  @if not $queries {
+    @error "The `#{$breakpoint}` is not defined in the map";
+  }
+
+  @include media($queries) {
+    @content;
+  }
+}

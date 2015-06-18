@@ -1,42 +1,21 @@
+// Define screen sizes for
+// @mixin breakpoint(...)
+
 // most-user screen widths
-$sw-wide:     990px !default;
-$sw-normal:   768px !default;
-$sw-mobile:   480px !default;
+$breakpoint-width-wide:     990px !default;
+$breakpoint-width-normal:   768px !default;
+$breakpoint-width-mobile:   480px !default;
+$breakpoint-height-small:    680px !default;
 
-// height-related
-$sh-small:    680px !default;
+$breakpoints: (
+  'wide': (min-width: $breakpoint-width-wide + 1),
+  'normal': (min-width: $breakpoint-width-normal, max-width: $breakpoint-width-wide),
+  'small': (min-width: $breakpoint-width-mobile, max-width: $breakpoint-width-normal - 1),
+  'mobile': (max-width: $breakpoint-width-mobile - 1),
+  'widescreen': (min-width: $breakpoint-width-wide - 1, max-height: $breakpoint-height-small),
+  'devices': (max-width: $breakpoint-width-normal - 1),
+);
 
-
-// breaking points
-@mixin breakpoint($screen-widths) {
-
-  @each $screen in $screen-widths {
-    @if $screen == wide {
-      @media screen and (min-width: ($sw-wide + 1)) { @content; }
-    }
-    @else if $screen == normal {
-      @media screen and (min-width: $sw-normal) and (max-width: $sw-wide)  { @content; }
-    }
-    @else if $screen == small {
-      @media screen and (min-width: $sw-mobile) and (max-width: ($sw-normal - 1))  { @content; }
-    }
-    @else if $screen == mobile {
-      @media screen and (max-width: ($sw-mobile - 1))  { @content; }
-    }
-    @else if $screen == devices {
-      @media screen and (max-width: ($sw-normal - 1))  { @content; }
-    }
-    @else if $screen == widescreen {
-      @media screen and (min-width: ($sw-wide - 1)) and (max-height: $sh-small)  { @content; }
-    }
-    @else if $screen == retina {
-      @media
-      only screen and (-webkit-min-device-pixel-ratio: 2),
-      only screen and (min--moz-device-pixel-ratio: 2),
-      only screen and (-o-min-device-pixel-ratio: 2/1),
-      only screen and (min-device-pixel-ratio: 2),
-      only screen and (min-resolution: 192dpi),
-      only screen and (min-resolution: 2dppx) { @content; }
-    }
-  }
-}
+// build @media queries for
+// @mixin breakpoint(...)
+@import 'commons/utilities/responsive';
