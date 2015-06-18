@@ -1,5 +1,5 @@
-/// Hugo Giraudel https://github.com/HugoGiraudel
-/// Create a single media condition out of a map of queries
+// Hugo Giraudel https://github.com/HugoGiraudel
+// Create a single media condition out of a map of queries
 @mixin media($queries) {
   @if length($queries) == 0 {
     @content;

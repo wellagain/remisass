@@ -23,7 +23,7 @@ $debug-colors: (
     padding: .2em .5em;
     color: $white;
     font-size: .8rem;
-    content: 'default'
+    content: 'default';
   }
 
   @each $screenname, $query in $breakpoints {
