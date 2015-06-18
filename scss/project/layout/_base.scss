@@ -3,7 +3,7 @@
 // @include font-reset;
 
 body {
-  @include debug;
+  @extend %debug;
   @include font--normal;
   @include font-size(.9);
   margin: 0;
@@ -96,6 +96,4 @@ p {
   }
 }
 
-.debug {
-  @include debug;
-}
+
