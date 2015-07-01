@@ -32,7 +32,6 @@ $inline-block-gap:  .28rem !default;
 // @include hidden-text;
 
 @mixin hidden-text {
-  text-indent: 1000%;
-  white-space: nowrap;
-  overflow: hidden;
+  @include position(absolute);
+  visibility: hidden;
 }
