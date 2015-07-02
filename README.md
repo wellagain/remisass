@@ -1,5 +1,6 @@
 remisass
 ========
+**re**sponsive, **mi**nimalistic, **SASS**  
 
 Semantic responsive SCSS grid framework for modern browsers
 
@@ -13,8 +14,9 @@ Key features
 - Benefit from other little **snippets and one-liners** for faster coding (e.g. for positioning, animation and gradient).
 - Dealing with **vendor prefixes** without post-processor? Use mixins for css3 features or build your own for as many vendors as you need to.
 - Resets, centered content, sticky footer and other layout snippets available.
+- Fallback for IE8 provided for graceful degradation
 
-See <a href="http://work.wellagain.lt/remisass/">demo page</a> for visual presentation.
+See [demo page](http://work.wellagain.lt/remisass/) for visual presentation.
 
 Structure
 ---------
