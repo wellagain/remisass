@@ -93,7 +93,7 @@
     @extend %button-m, %button-primary-color;
 
     &:disabled {
-      @extend %button-m, %button-disabled-color;
+      @extend %button-disabled-color;
     }
   }
 
@@ -101,7 +101,7 @@
     @extend %button-m, %button-secondary-color;
 
     &:disabled {
-      @extend %button-m, %button-disabled-color;
+      @extend %button-disabled-color;
     }
   }
 
@@ -109,7 +109,7 @@
     @extend %button-xl, %button-primary-color;
 
     &:disabled {
-      @extend %button-xl, %button-disabled-color;
+      @extend %button-disabled-color;
     }
   }
 
@@ -117,11 +117,11 @@
     @extend %button-s, %button-secondary-color;
 
     &:disabled {
-      @extend %button-s, %button-disabled-color;
+      @extend %button-disabled-color;
     }
   }
 
   @include modifier(disabled) {
-    @extend %button-m, %button-disabled-color;
+    @extend %button-disabled-color;
   }
 }
