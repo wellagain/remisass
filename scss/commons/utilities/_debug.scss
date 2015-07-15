@@ -12,18 +12,20 @@ $debug-colors: (
 // use:
 // @include debug;
 
-@mixin debug {
+@mixin debug($naming: false) {
   border: solid 1px map-get($debug-colors, col-debug-wide);
 
-  &:after {
-    @include position(absolute);
-    display: inline-block;
-    margin-top: -1.2rem;
-    background: map-get($debug-colors, col-debug-wide);
-    padding: .2em .5em;
-    color: $white;
-    font-size: .8rem;
-    content: 'default';
+  @if($naming == true) {
+    &:after {
+      @include position(absolute);
+      display: inline-block;
+      margin-top: -1.2rem;
+      background: map-get($debug-colors, col-debug-wide);
+      padding: .2em .5em;
+      color: $white;
+      font-size: .8rem;
+      content: 'default';
+    }
   }
 
   @each $screenname, $query in $breakpoints {
@@ -35,9 +37,11 @@ $debug-colors: (
       @include breakpoint(#{$screenname}) {
         border-color: map-get($debug-colors, $screenname);
 
-        &:after {
-          background: map-get($debug-colors, $screenname);
-          content: '#{$screenname}';
+        @if($naming == true) {
+          &:after {
+            background: map-get($debug-colors, $screenname);
+            content: '#{$screenname}';
+          }
         }
       }
     }
