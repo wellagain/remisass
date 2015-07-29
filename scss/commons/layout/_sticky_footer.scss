@@ -1,80 +1,9 @@
-// based on compass sticky-footer
-// use:
-// @include sticky-footer(310px, '.container', '.push', '.footer');
-
-@mixin sticky-footer(
-  $footer-height,
-  $root-selector: unquote('#root'),
-  $root-footer-selector: unquote('#root-footer'),
-  $footer-selector: unquote('#footer')
-  ) {
-  html,
-  body {
-    height: 100%;
-  }
-
-  #{$root-selector} {
-    clear: both;
-    margin-bottom: -$footer-height;
-    // scss-lint:disable all
-    height: auto !important;
-    height: 100%;
-    min-height: 100%;
-    // scss-lint:enable all
-
-    #{$root-footer-selector} {
-      height: $footer-height;
-    }
-  }
-
-  #{$footer-selector} {
-    position: relative;
-    clear: both;
-    height: $footer-height;
-  }
-
-  @include breakpoint(devices) {
-    #{$footer-selector} {
-      height: auto;
-    }
-  }
-}
-
-
-// flexbox powered sticky footer
-// be aware of browser support: http://caniuse.com/#feat=flexbox
-// use:
-// @include sticky-footer-flex;
-
-@mixin sticky-footer-flex(
-  $root-selector: unquote('.root'),
-  $content-selector: unquote('.content'),
-  $header-selector: unquote('.header'),
-  $footer-selector: unquote('.footer')
-  ) {
-
-  #{$root-selector} {
-    @include flex-display(column);
-    min-height: 100vh;
-  }
-
-  #{$content-selector} {
-    @include flex(1);
-  }
-
-  #{$header-selector},
-  #{$footer-selector} {
-    flex: none;
-  }
-}
-
-
 // positioned sticky footer
 // must define height
 // use:
-// @include sticky-footer-position(10em);
+// @include sticky-footer(10em);
 
-@mixin sticky-footer-position(
+@mixin sticky-footer(
   $footer-height,
   $footer-selector: unquote('footer')
   ) {

@@ -11,7 +11,7 @@ body {
   width: 100%;
 }
 
-@include sticky-footer-flex;
+@include sticky-footer($footer-heigth);
 
 a {
   @include color($col-link);
