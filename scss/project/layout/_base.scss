@@ -58,11 +58,13 @@ p {
 @include centered-content(80%, $max-page-width, '.footer', '.footer__content');
 
 .features__buttons {
-  @extend %s-7-12, %grid-margin, %block;
+  @extend %block;
+  @include grid(7 true, 6 true, 6 true, 12);
 }
 
 .features__form {
-  @extend %s-5-12, %last, %block, %form--half;
+  @extend %block, %form--half;
+  @include grid(5 false, 6 false, 6 false, 12);
   @include debug(true);
 }
 

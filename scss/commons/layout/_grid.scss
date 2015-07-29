@@ -35,8 +35,7 @@ $size-bit:                  (100% - ($columns - 1) * $margin-bit) / $columns;
   }
   @else {
     // use calc() to compute percent and rem, or fallback to percent
-    margin-right: $margin-bit--falback;
-    margin-right: calc(#{$margin-bit} - #{$inline-block-gap});
+    @include grid-margin;
   }
 
   &:last-of-type,
@@ -44,6 +43,20 @@ $size-bit:                  (100% - ($columns - 1) * $margin-bit) / $columns;
     margin-right: 0;
   }
 }
+
+@mixin grid-margin($force: false) {
+
+  @if $force == true {
+    margin-right: $margin-bit--falback !important;
+    margin-right: calc(#{$margin-bit} - #{$inline-block-gap}) !important;
+  }
+
+  @else {
+    margin-right: $margin-bit--falback;
+    margin-right: calc(#{$margin-bit} - #{$inline-block-gap});
+  }
+}
+
 
 // Basic grid width calculator
 //
@@ -128,6 +141,48 @@ $grid-columns: get-dividers($columns);
   }
 }
 
+
+// simple grid column sizing mixin
+// use:
+// @include grid(7 true, 6 true, 6 true, 12);
+// where number is a column count, and true or false is for grid margin
+
+@mixin grid(
+  $size--wide,
+  $size--normal,
+  $size--small,
+  $size--mobile)
+{
+
+  @extend %grid-column;
+  @include custom-size-column(nth($size--wide, 1));
+
+  @if nth($size--wide, 2) == true {
+    @include grid-margin(true);
+  }
+
+  @include breakpoint(normal) {
+    @include custom-size-column(nth($size--normal,1));
+
+    @if nth($size--normal, 2) == true {
+      @include grid-margin(true);
+    }
+  }
+
+  @include breakpoint(small) {
+    @include custom-size-column(nth($size--small, 1));
+
+    @if nth($size--small, 2) == true {
+      @include grid-margin(true);
+    }
+  }
+
+  @include breakpoint(mobile) {
+    @include custom-size-column(nth($size--mobile, 1));
+  }
+}
+
+
 // scss-lint:disable ImportantRule DuplicateProperty
 
 // grid helpers
@@ -138,8 +193,7 @@ $grid-columns: get-dividers($columns);
 
 // use this to force a grid margin on irregular size grid column
 %grid-margin {
-  margin-right: $margin-bit--falback !important;
-  margin-right: calc(#{$margin-bit} - #{$inline-block-gap}) !important;
+  @include grid-margin(true);
 }
 
 // automatically added on all grid column placeholders
