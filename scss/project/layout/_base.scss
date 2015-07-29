@@ -1,6 +1,6 @@
 // your basic layout styles here, like
 
-// @include font-reset;
+@include font-reset;
 
 body {
   @extend %debug;

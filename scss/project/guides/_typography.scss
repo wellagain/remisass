@@ -1,6 +1,6 @@
 // set initial font-size on html for responsive typography
 
-@mixin font-reset($body-size: 14) {
+@mixin font-reset($body-size: 16) {
   $default-size: 16;
 
   html {
