@@ -3,7 +3,6 @@
 @include font-reset;
 
 body {
-  @extend %debug;
   @include font--normal;
   @include font-size(.9);
   margin: 0;
@@ -64,6 +63,7 @@ p {
 
 .features__form {
   @extend %s-5-12, %last, %block, %form--half;
+  @include debug(true);
 }
 
 .form__12-columns {
@@ -95,5 +95,3 @@ p {
     @extend %s-4-12;
   }
 }
-
-
