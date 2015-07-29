@@ -1,3 +1,7 @@
+// Color your links
+// use:
+// @include link($red);
+
 @mixin link($color) {
   color: $color;
 
