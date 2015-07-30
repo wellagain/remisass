@@ -1,3 +1,25 @@
+// normalizing button styles
+@mixin button-size(
+    $font-size: $bt-font-size,
+    $padding: $bt-padding-default,
+    $corner-radius: $bt-corner-radius
+  ) {
+  @include inline-block;
+  @include position(relative, auto auto auto auto, 1);
+  @include width(auto, $bt-max-width);
+
+  margin: 0;
+  border-radius: $corner-radius;
+  padding: $padding;
+  -webkit-appearance: none;
+
+  font-size: $font-size;
+  line-height: 1;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+
 // button skins
 @mixin button-skin(
     $color,
