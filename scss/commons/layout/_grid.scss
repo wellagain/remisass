@@ -149,9 +149,9 @@ $grid-columns: get-dividers($columns);
 
 @mixin grid(
   $size--wide,
-  $size--normal,
-  $size--small,
-  $size--mobile
+  $size--normal: $size--wide,
+  $size--small: $size--wide,
+  $size--mobile: $size--wide
   ) {
 
   @extend %grid-column;
