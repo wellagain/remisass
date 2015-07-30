@@ -59,18 +59,16 @@
 }
 
 %block-skin {
-  border-radius: .5em;
-
   $color-from: darken($white, 8);
   $color-to: lighten($black, 100-8);
 
   @include gradient($color-from, $color-to);
-
   @include box-shadow((
     0 0 0 1px transparentize(darken($color-to, 40%), .8) inset
   ));
-
   @include color(lighten($black, 30%));
+
+  border-radius: .5em;
 
   @include breakpoint(widescreen) {
     padding: .5em 1em;

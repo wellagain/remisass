@@ -12,7 +12,7 @@ $size-bit:                  (100% - ($columns - 1) * $margin-bit) / $columns;
 
 
 
-
+// scss-lint:disable ImportantRule DuplicateProperty
 
 // define clearing after columns rules
 //
@@ -151,8 +151,8 @@ $grid-columns: get-dividers($columns);
   $size--wide,
   $size--normal,
   $size--small,
-  $size--mobile)
-{
+  $size--mobile
+  ) {
 
   @extend %grid-column;
   @include custom-size-column(nth($size--wide, 1));
@@ -162,7 +162,7 @@ $grid-columns: get-dividers($columns);
   }
 
   @include breakpoint(normal) {
-    @include custom-size-column(nth($size--normal,1));
+    @include custom-size-column(nth($size--normal, 1));
 
     @if nth($size--normal, 2) == true {
       @include grid-margin(true);
@@ -182,8 +182,6 @@ $grid-columns: get-dividers($columns);
   }
 }
 
-
-// scss-lint:disable ImportantRule DuplicateProperty
 
 // grid helpers
 // use this for known last item in irregular size grid column
