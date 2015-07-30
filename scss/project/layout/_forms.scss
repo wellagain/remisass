@@ -1,11 +1,11 @@
 // inputs
 %input-skin {
-  @include rounded($input-radius);
   @include box-shadow((
     0 0 .1em .1em transparentize(darken($input-bg, 20%), .5) inset
     ));
 
   border: solid .1em $input-border;
+  border-radius: $input-radius;
   background-color: $input-bg;
   font-size: 1em;
 

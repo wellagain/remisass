@@ -59,7 +59,7 @@
 }
 
 %block-skin {
-  @include rounded(.5em);
+  border-radius: .5em;
 
   $color-from: darken($white, 8);
   $color-to: lighten($black, 100-8);
@@ -81,7 +81,7 @@
   }
 
   @include breakpoint(devices) {
-    @include rounded(.3em);
+    border-radius: .3em;
     padding: .4em;
   }
 }

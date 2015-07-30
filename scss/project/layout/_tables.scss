@@ -2,7 +2,7 @@
   @extend %block-skin;
 
   thead tr {
-    @include rounded($bt-corner-radius $bt-corner-radius 0 0);
+    border-radius: $bt-corner-radius $bt-corner-radius 0 0;
     background: $col-table-header;
 
     @include breakpoint(devices) {
@@ -22,11 +22,11 @@
     }
 
     &:first-child {
-      @include rounded($bt-corner-radius 0 0 0);
+      border-radius: $bt-corner-radius 0 0 0;
     }
 
     &:last-child {
-      @include rounded(0 $bt-corner-radius 0 0);
+      border-radius: 0 $bt-corner-radius 0 0;
     }
   }
 
