@@ -161,24 +161,39 @@ $grid-columns: get-dividers($columns);
     @include grid-margin(true);
   }
 
-  @include breakpoint(normal) {
-    @include custom-size-column(nth($size--normal, 1));
-
-    @if nth($size--normal, 2) == true {
-      @include grid-margin(true);
-    }
+  @else {
+    margin-right: 0;
   }
 
-  @include breakpoint(small) {
-    @include custom-size-column(nth($size--small, 1));
 
-    @if nth($size--small, 2) == true {
-      @include grid-margin(true);
+  @if $responsive == true {
+    @include breakpoint(normal) {
+      @include custom-size-column(nth($size--normal, 1));
+
+      @if nth($size--normal, 2) == true {
+        @include grid-margin(true);
+      }
+
+      @else {
+        margin-right: 0;
+      }
     }
-  }
 
-  @include breakpoint(mobile) {
-    @include custom-size-column(nth($size--mobile, 1));
+    @include breakpoint(small) {
+      @include custom-size-column(nth($size--small, 1));
+
+      @if nth($size--small, 2) == true {
+        @include grid-margin(true);
+      }
+
+      @else {
+        margin-right: 0;
+      }
+    }
+
+    @include breakpoint(mobile) {
+      @include custom-size-column(nth($size--mobile, 1));
+    }
   }
 }
 
