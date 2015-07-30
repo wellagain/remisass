@@ -47,6 +47,4 @@
 
     background-image: url($image), -webkit-gradient(linear, #{$webkit-direction}, from($color1), to($color2));
   }
-
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#{ie-hex-str($color1)}, EndColorStr=#{ie-hex-str($color2)});
 }
