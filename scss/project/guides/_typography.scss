@@ -4,10 +4,10 @@
   $default-size: 16;
 
   html {
-    font-size: $body-size/$default-size * 100%; // 14px
+    font-size: $body-size / $default-size * 100%; // 14px
 
     @include breakpoint(devices) {
-      font-size: $body-size/$default-size * 85.7142857%; // 12px
+      font-size: $body-size / $default-size * 85.7142857%; // 12px
     }
   }
 }

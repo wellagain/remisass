@@ -60,7 +60,7 @@
 
 %block-skin {
   $color-from: darken($white, 8);
-  $color-to: lighten($black, 100-8);
+  $color-to: lighten($black, 100 - 8);
 
   @include gradient($color-from, $color-to);
   @include box-shadow((
