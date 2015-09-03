@@ -11,7 +11,7 @@
 // use:
 // @include color($white)
 
-@mixin color($color, $force: false) {
+@mixin text-color($color, $force: false) {
   @if $force == true {
     // scss-lint:disable ImportantRule
     color: $color !important;

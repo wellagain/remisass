@@ -52,7 +52,7 @@
   @include box-shadow((
     0 0 0 1px transparentize(darken($color-to, 40%), .8) inset
   ));
-  @include color(lighten($black, 30%));
+  @include text-color(lighten($black, 30%));
 
   border-radius: .5em;
 
