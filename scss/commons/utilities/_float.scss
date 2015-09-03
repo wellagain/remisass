@@ -27,23 +27,3 @@
     content: ' ';
   }
 }
-
-// An one-liner for clearing
-// use:
-// @include clear;
-
-@mixin clear($side: both) {
-  clear: $side;
-}
-
-// An one-liner for floating
-// use:
-// @include float(left);
-
-@mixin float(
-  $side: left,
-  $display: inline
-  ) {
-  display: unquote($display);
-  float: unquote($side);
-}

@@ -6,12 +6,13 @@
   ) {
   @include inline-block;
   @include position(relative, auto auto auto auto, 1);
-  @include width(auto, $bt-max-width);
 
   margin: 0;
   border-radius: $corner-radius;
   padding: $padding;
   -webkit-appearance: none;
+  width: auto;
+  min-width: $bt-min-width;
 
   font-size: $font-size;
   line-height: 1;

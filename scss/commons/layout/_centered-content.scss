@@ -17,7 +17,8 @@
   }
 
   #{$element} {
-    @include width($element-width, 0, $max-element-width);
+    width: $element-width;
+    max-width: $max-element-width;
     margin: 0 auto;
     text-align: left;
 
