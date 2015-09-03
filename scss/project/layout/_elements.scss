@@ -10,21 +10,7 @@
   padding: .5em 0;
 }
 
-%wrap {
-  @include breakpoint(normal) {
-    padding: 0 5%;
-  }
-
-  @include breakpoint(small) {
-    padding: 0 2em;
-  }
-
-  @include breakpoint(mobile) {
-    padding: 0 1em;
-  }
-}
-
-%element {
+%section {
   @include clearfix;
   padding: 1em 0;
 
@@ -44,7 +30,7 @@
 %title {
   @include font--italic;
   @include font-size(2);
-  margin: .5em 0 .2em;
+  margin: 0;
   line-height: .8em;
 }
 

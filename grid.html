@@ -3,159 +3,159 @@
 <head>
 	<title>Grid</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" media="screen" href="css/base.css">
+	<link rel="stylesheet" href="css/base.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.00, user-scalable=yes">
 </head>
 <body class="root">
-	<header class="header">
-		<div class="header__content">
+	<div class="header__container">
+		<header class="header">
 			<h1 class="header__title">Remisass</h1>
 			<h2 class="header__title--subtitle">Semantic Scss Framework</h2>
-		</div>
-	</header>
+		</header>
+	</div>
 	<div class="content">
-	<section class="features">
-		<div class="features__content">
-			<article class="features__buttons">
-				<button class="bt--primary">Primary button</button>
-				<button class="bt--secondary" >Secondary button</button>
-				<button class="bt--secondary" disabled>Disabled button</button><br/>
+		<section class="features__container">
+			<div class="features">
+				<article class="features__buttons">
+					<button class="bt--primary">Primary button</button>
+					<button class="bt--secondary" >Secondary button</button>
+					<button class="bt--secondary" disabled>Disabled button</button><br/>
 
-				<button class="bt--cta">Download me!</button>
-				<button class="bt--silent">Or drop me a line</button>
-			</article>
+					<button class="bt--cta">Download me!</button>
+					<button class="bt--silent">Or drop me a line</button>
+				</article>
 
-			<form class="features__form">
+				<form class="features__form">
+					<div class="control">
+						<label>Input example</label>
+						<input type="text" />
+					</div>
+					<div class="control">
+						<label>Input disabled</label>
+						<input type="text" disabled/>
+					</div>
+				</form>
+			</div>
+		</section>
+		<section class="grid__container">
+			<div class="grid">
+			<h2 class="grid__title">Grid example</h2>
+			<div class="form__12-columns">
 				<div class="control">
-					<label>Input example</label>
-					<input type="text" />
+					<label>One</label>
+					<input type="text"/>
 				</div>
 				<div class="control">
-					<label>Input disabled</label>
-					<input type="text" disabled/>
+					<label>Two</label>
+					<input type="text"/>
 				</div>
-			</form>
-		</div>
-	</section>
-	<section class="grid">
-		<div class="grid__content">
-		<h2 class="grid__title--subtitle">Grid example</h2>
-		<div class="form__12-columns">
-			<div class="control">
-				<label>One</label>
-				<input type="text"/>
+				<div class="control">
+					<label>Three</label>
+					<input type="text"/>
+				</div>
+				<div class="control">
+					<label>Four</label>
+					<input type="text"/>
+				</div>
+				<div class="control">
+					<label>Five</label>
+					<input type="text"/>
+				</div>
+				<div class="control">
+					<label>Six</label>
+					<input type="text"/>
+				</div>
+				<div class="control">
+					<label>Seven</label>
+					<input type="text"/>
+				</div>
+				<div class="control">
+					<label>Eight</label>
+					<input type="text"/>
+				</div>
+				<div class="control">
+					<label>Nine</label>
+					<input type="text"/>
+				</div>
+				<div class="control">
+					<label>Ten</label>
+					<input type="text"/>
+				</div>
+				<div class="control">
+					<label>Eleven</label>
+					<input type="text"/>
+				</div>
+				<div class="control">
+					<label>Twelve</label>
+					<input type="text"/>
+				</div>
 			</div>
-			<div class="control">
-				<label>Two</label>
-				<input type="text"/>
-			</div>
-			<div class="control">
-				<label>Three</label>
-				<input type="text"/>
-			</div>
-			<div class="control">
-				<label>Four</label>
-				<input type="text"/>
-			</div>
-			<div class="control">
-				<label>Five</label>
-				<input type="text"/>
-			</div>
-			<div class="control">
-				<label>Six</label>
-				<input type="text"/>
-			</div>
-			<div class="control">
-				<label>Seven</label>
-				<input type="text"/>
-			</div>
-			<div class="control">
-				<label>Eight</label>
-				<input type="text"/>
-			</div>
-			<div class="control">
-				<label>Nine</label>
-				<input type="text"/>
-			</div>
-			<div class="control">
-				<label>Ten</label>
-				<input type="text"/>
-			</div>
-			<div class="control">
-				<label>Eleven</label>
-				<input type="text"/>
-			</div>
-			<div class="control">
-				<label>Twelve</label>
-				<input type="text"/>
-			</div>
-		</div>
 
-		<div class="form__6-columns">
-			<div class="control">
-				<label>One</label>
-				<input type="text"/>
+			<div class="form__6-columns">
+				<div class="control">
+					<label>One</label>
+					<input type="text"/>
+				</div>
+				<div class="control">
+					<label>Two</label>
+					<input type="text"/>
+				</div>
+				<div class="control">
+					<label>Three</label>
+					<input type="text"/>
+				</div>
+				<div class="control">
+					<label>Four</label>
+					<input type="text"/>
+				</div>
+				<div class="control">
+					<label>Five</label>
+					<input type="text"/>
+				</div>
+				<div class="control">
+					<label>Six</label>
+					<input type="text"/>
+				</div>
 			</div>
-			<div class="control">
-				<label>Two</label>
-				<input type="text"/>
-			</div>
-			<div class="control">
-				<label>Three</label>
-				<input type="text"/>
-			</div>
-			<div class="control">
-				<label>Four</label>
-				<input type="text"/>
-			</div>
-			<div class="control">
-				<label>Five</label>
-				<input type="text"/>
-			</div>
-			<div class="control">
-				<label>Six</label>
-				<input type="text"/>
-			</div>
-		</div>
 
-		<div class="form__4-columns">
-			<div class="control">
-				<label>One</label>
-				<input type="text"/>
+			<div class="form__4-columns">
+				<div class="control">
+					<label>One</label>
+					<input type="text"/>
+				</div>
+				<div class="control">
+					<label>Two</label>
+					<input type="text"/>
+				</div>
+				<div class="control">
+					<label>Three</label>
+					<input type="text"/>
+				</div>
+				<div class="control">
+					<label>Four</label>
+					<input type="text"/>
+				</div>
 			</div>
-			<div class="control">
-				<label>Two</label>
-				<input type="text"/>
-			</div>
-			<div class="control">
-				<label>Three</label>
-				<input type="text"/>
-			</div>
-			<div class="control">
-				<label>Four</label>
-				<input type="text"/>
-			</div>
-		</div>
 
-		<div class="form__3-columns">
-			<div class="control">
-				<label>One</label>
-				<input type="text"/>
+			<div class="form__3-columns">
+				<div class="control">
+					<label>One</label>
+					<input type="text"/>
+				</div>
+				<div class="control">
+					<label>Two</label>
+					<input type="text"/>
+				</div>
+				<div class="control">
+					<label>Three</label>
+					<input type="text"/>
+				</div>
 			</div>
-			<div class="control">
-				<label>Two</label>
-				<input type="text"/>
-			</div>
-			<div class="control">
-				<label>Three</label>
-				<input type="text"/>
-			</div>
-		</div>
-	</section>
+		</section>
 
-	<section class="table">
-		<div class="table__content">
-			<h2 class="table__title--subtitle">Responsive table example</h2>
+	<section class="table__container">
+		<div class="table">
+			<h2 class="table__title">Responsive table example</h2>
 			<table class="data">
 				<thead>
 					<tr>
@@ -205,8 +205,8 @@
 		</div>
 	</section>
 </div>
-	<footer class="footer">
-		<div class="footer__content">
+	<footer class="footer__container">
+		<div class="footer">
 			<h1 class="footer__title">Get it on GitHub</h1>
 			<p><a href="https://github.com/wellagain">wellagain</a> / <a href="https://github.com/wellagain/remisass">remisass</a></p>
 		</div>

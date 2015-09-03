@@ -1,0 +1,10 @@
+@include centered-content(80%, $max-page-width, '.footer__container', '.footer');
+@include sticky-footer($footer-height, '.footer__container');
+
+.footer__container {
+  background: $bg-color;
+}
+
+.footer {
+  padding: 1em 0;
+}

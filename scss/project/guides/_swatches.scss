@@ -21,7 +21,7 @@ $white:                     rgba(255, 255, 255, 1);
 $col-link:                  rgba(0, 136, 193, 1);
 $green:                     rgba(61, 132, 57, 1);
 $pink:                      rgba(210, 55, 124, 1);
-$gray:                      rgba(196, 196, 196, 1);
+$grey:                      rgba(196, 196, 196, 1);
 
 // buttons
 $bt-font-size-default:      1em;
@@ -31,7 +31,7 @@ $bt-max-width:              55px;
 
 $bt-color--primary:          $pink;
 $bt-color--secondary:        $green;
-$bt-color--disabled:         $gray;
+$bt-color--disabled:         $grey;
 
 
 // inputs
@@ -40,13 +40,14 @@ $input-border:              rgba(60, 133, 171, 1);
 $input-radius:              .2em;
 $input-bg--focus:           darken($input-bg, 5%);
 $input-border--focus:       rgba(19, 115, 164, 1);
-$input-bg--disabled:        lighten($gray, 10%);
-$input-border--disabled:    lighten($gray, 5%);
-$input-placeholder-color:   $gray;
+$input-bg--disabled:        lighten($grey, 10%);
+$input-border--disabled:    lighten($grey, 5%);
+$input-placeholder-color:   $grey;
 $input-bg--err:             rgba(236, 32, 56, 1);
 
 // table:
-$col-table-border:          lighten($gray, 5%);
+$col-table-border:          lighten($grey, 5%);
 $col-table-header:          rgba(209, 219, 224, 1);
 
-$footer-heigth:             5em;
+$footer-height:             6em;
+$bg-color:                  lighten($grey, 20%);

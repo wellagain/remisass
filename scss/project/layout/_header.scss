@@ -1,0 +1,15 @@
+@include centered-content(80%, $max-page-width, '.header__container', '.header');
+
+
+.header__container {
+  background: $bg-color;
+  margin-bottom: 1em;
+}
+
+.header {
+  padding: 1em 0;
+}
+
+.header__title {
+  @extend %title;
+}

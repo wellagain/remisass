@@ -5,12 +5,7 @@
 body {
   @include font--normal;
   @include font-size(.9);
-  margin: 0;
-  padding: 0;
-  width: 100%;
 }
-
-@include sticky-footer($footer-heigth);
 
 a {
   @include color($col-link);
@@ -30,27 +25,29 @@ p {
   line-height: 1.5em;
 }
 
-.header,
-.features,
-.grid,
-.table,
-.footer {
-  @extend %wrap;
 
-  @include element(content) {
-    @extend %element;
-  }
+@include centered-content(80%, $max-page-width, '.grid__wrapper', '.grid');
+@include centered-content(80%, $max-page-width, '.features__wrapper', '.features');
+@include centered-content(80%, $max-page-width, '.table__wrapper', '.table');
 
-  @include element(title) {
 
-    @extend %title;
-
-    @include modifier(subtitle) {
-      @extend %subtitle;
-    }
-  }
+.content {
+  padding-bottom: 2em;
 }
 
+.grid,
+.features,
+.table {
+  @extend %section;
+}
+
+
+.header__title--subtitle,
+.grid__title,
+.table__title,
+.footer__title {
+  @extend %subtitle;
+}
 
 .header__title {
   &:before {
@@ -59,11 +56,6 @@ p {
   }
 }
 
-@include centered-content(80%, $max-page-width, '.header', '.header__content');
-@include centered-content(80%, $max-page-width, '.grid', '.grid__content');
-@include centered-content(80%, $max-page-width, '.features', '.features__content');
-@include centered-content(80%, $max-page-width, '.table', '.table__content');
-@include centered-content(80%, $max-page-width, '.footer', '.footer__content');
 
 .features__buttons {
   @extend %block;
