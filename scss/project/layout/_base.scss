@@ -8,23 +8,13 @@ body {
 }
 
 a {
-  @include color($col-link);
-
-  &:visited {
-    color: darken(desaturate($col-link, 55%), 5%);
-  }
-
-  &:hover,
-  &:active {
-    color: lighten($col-link, 10%);
-  }
+  @include link($col-link);
 }
 
 p {
   margin-bottom: 1em;
   line-height: 1.5em;
 }
-
 
 @include centered-content(80%, $max-page-width, 95%, 90%, '.grid__wrapper', '.grid');
 @include centered-content(80%, $max-page-width, 95%, 90%, '.features__wrapper', '.features');
