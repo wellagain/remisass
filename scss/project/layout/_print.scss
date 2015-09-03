@@ -1,1 +1,44 @@
 // print layout
+@page {
+  size: A4 portrait;
+}
+
+@page :left {
+  margin-left: 1.5cm;
+}
+
+@page :right {
+  margin-left: 1.5cm;
+}
+
+@page:right{
+  @bottom-right {
+    content: counter(page);
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 2em 0 .5em;
+}
+
+table {
+  display: table;
+  margin: 2em 0;
+  border-top: solid 1px $grey;
+  width: 100%;
+  border-collapse: collapse;
+
+  tr {
+    display: table-row;
+  }
+
+  td,
+  th {
+    display: table-cell;
+    border-bottom: solid 1px $grey;
+  }
+}

@@ -38,3 +38,7 @@
 @import 'project/layout/base';
 @import 'project/layout/forms';
 @import 'project/layout/tables';
+
+@media print {
+  @import 'project/layout/print';
+}
