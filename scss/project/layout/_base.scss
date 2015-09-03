@@ -49,12 +49,12 @@ p {
 
 .features__buttons {
   @extend %block;
-  @include grid(7 true, 6 true, 6 true, 12);
+  @include grid(8 true, 6 true, 7 true, 12);
 }
 
 .features__form {
   @extend %block, %form--half;
-  @include grid(5 false, 6 false, 6 false, 12);
+  @include grid(4 false, 6 false, 5 false, 12);
   @include debug(true);
 }
 
