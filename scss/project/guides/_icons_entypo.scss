@@ -1,15 +1,6 @@
 // http://www.entypo.com/
 
-@font-face {
-  font-family: 'icon';
-  font-weight: normal;
-  font-style: normal;
-  src: url('../font/icomoon.eot?-co1td8');
-  src: url('../font/icomoon.eot?#iefix-co1td8') format('embedded-opentype'),
-       url('../font/icomoon.woff?-co1td8') format('woff'),
-       url('../font/icomoon.ttf?-co1td8') format('truetype'),
-       url('../font/icomoon.svg?-co1td8#icon') format('svg');
-}
+@include font-face('../fonts/entypo', v1, icon);
 
 $icons: (
   'add-to-list': '\e600',
@@ -69,6 +60,7 @@ $icons: (
   'controller-play': '\e636',
   'controller-record': '\e637',
   'controller-stop': '\e638',
+  'rhombus': '\e5ff',
   'controller-volume': '\e639',
   'dot-single': '\e63a',
   'dots-three-horizontal': '\e63b',
@@ -398,25 +390,3 @@ $icons: (
   'youtube-with-circle': '\e77f',
   'youtube': '\e780',
 );
-
-%icon {
-  display: inline-block;
-  vertical-align: baseline;
-  text-align: center;
-  text-decoration: none;
-  text-rendering: optimizeLegibility;
-  font-family: 'icon';
-  font-weight: normal;
-  -webkit-font-smoothing: antialiased;
-  font-style: normal;
-  speak: none;
-}
-
-@function icon($key) {
-  @if map-has-key($icons, $key) {
-    @return map-get($icons, $key);
-  }
-
-  @warn "Unknown `#{$key}` in $icons.";
-  @return null;
-}

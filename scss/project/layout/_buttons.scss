@@ -27,7 +27,6 @@
     $hoverable: true
   ) {
 
-  @include color($typography-color);
   @include box-shadow((
     0 4px 0 0 darken($color, 10%),
     0 2px 0 1px transparentize(darken($color, 30%), .9)
@@ -36,6 +35,7 @@
   margin-bottom: .5em;
   border: 0;
   background: $color;
+  color: $typography-color;
 
   @if $hoverable == true {
     &:hover {

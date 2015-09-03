@@ -19,6 +19,9 @@
 @import 'commons/css3/word-break';
 @import 'commons/css3/columns';
 
+@import 'project/guides/typography';
+@import 'project/guides/icons_entypo';
+
 @import 'commons/layout/reset';
 @import 'commons/layout/js-utils';
 @import 'commons/layout/arrow';
@@ -28,7 +31,7 @@
 @import 'commons/layout/centered-content';
 @import 'commons/layout/sticky_footer';
 
-@import 'project/guides/typography';
+
 
 @import 'project/layout/elements';
 @import 'project/layout/buttons';

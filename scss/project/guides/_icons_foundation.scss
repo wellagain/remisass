@@ -1,15 +1,6 @@
 // http://zurb.com/playground/foundation-icon-fonts-3
 
-@font-face {
-  font-family: 'icon';
-  font-weight: normal;
-  font-style: normal;
-  src: url('../font/foundation-icons.eot?v.1');
-  src: url('../font/foundation-icons.eot?#iefix') format('embedded-opentype'),
-       url('../font/foundation-icons.woff?v.1') format('woff'),
-       url('../font/foundation-icons.ttf?v.1') format('truetype'),
-       url('../font/foundation-icons.svg#foundation-icons') format('svg');
-}
+@include font-face('../fonts/foundation-icons', v1, icon);
 
 $icons: (
   'address-book': '\f100',
@@ -296,26 +287,3 @@ $icons: (
   'zoom-in': '\f219',
   'zoom-out': '\f21a',
   );
-
-
-%icon {
-  display: inline-block;
-  vertical-align: baseline;
-  text-align: center;
-  text-decoration: none;
-  text-rendering: optimizeLegibility;
-  font-family: 'icon';
-  font-weight: normal;
-  -webkit-font-smoothing: antialiased;
-  font-style: normal;
-  speak: none;
-}
-
-@function icon($key) {
-  @if map-has-key($icons, $key) {
-    @return map-get($icons, $key);
-  }
-
-  @warn "Unknown `#{$key}` in $icons.";
-  @return null;
-}

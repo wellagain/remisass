@@ -51,6 +51,14 @@ p {
   }
 }
 
+
+.header__title {
+  &:before {
+    @extend %icon;
+    content: icon(link);
+  }
+}
+
 @include centered-content(80%, $max-page-width, '.header', '.header__content');
 @include centered-content(80%, $max-page-width, '.grid', '.grid__content');
 @include centered-content(80%, $max-page-width, '.features', '.features__content');
