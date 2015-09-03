@@ -5,6 +5,8 @@
 @mixin centered-content(
   $element-width,
   $max-element-width: $element-width,
+  $element-width--normal: $element-width,
+  $element-width--small: $element-width,
   $wrapper: unquote('.wrap'),
   $element: unquote('.element')
   ) {
@@ -20,17 +22,19 @@
     text-align: left;
 
     @include breakpoint(normal) {
-      width: 100%;
+      width: $element-width--normal;
       max-width: none;
     }
 
     @include breakpoint(small) {
-      width: 100%;
+      width: $element-width--small;
       max-width: none;
     }
 
     @include breakpoint(mobile) {
       width: 100%;
+      padding-right: 1em;
+      padding-left: 1em;
       max-width: none;
     }
   }

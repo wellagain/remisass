@@ -1,4 +1,4 @@
-@include centered-content(80%, $max-page-width, '.header__container', '.header');
+@include centered-content(80%, $max-page-width, 95%, 90%, '.header__container', '.header');
 
 
 .header__container {
@@ -7,7 +7,8 @@
 }
 
 .header {
-  padding: 1em 0;
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
 
 .header__title {

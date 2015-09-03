@@ -26,9 +26,9 @@ p {
 }
 
 
-@include centered-content(80%, $max-page-width, '.grid__wrapper', '.grid');
-@include centered-content(80%, $max-page-width, '.features__wrapper', '.features');
-@include centered-content(80%, $max-page-width, '.table__wrapper', '.table');
+@include centered-content(80%, $max-page-width, 95%, 90%, '.grid__wrapper', '.grid');
+@include centered-content(80%, $max-page-width, 95%, 90%, '.features__wrapper', '.features');
+@include centered-content(80%, $max-page-width, 95%, 90%, '.table__wrapper', '.table');
 
 
 .content {
