@@ -32,9 +32,9 @@
     }
 
     @include breakpoint(mobile) {
-      width: 100%;
       padding-right: 1em;
       padding-left: 1em;
+      width: 100%;
       max-width: none;
     }
   }

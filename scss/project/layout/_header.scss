@@ -1,9 +1,8 @@
 @include centered-content(80%, $max-page-width, 95%, 90%, '.header__container', '.header');
 
-
 .header__container {
-  background: $bg-color;
   margin-bottom: 1em;
+  background: $bg-color;
 }
 
 .header {
