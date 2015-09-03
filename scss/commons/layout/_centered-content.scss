@@ -17,9 +17,9 @@
   }
 
   #{$element} {
+    margin: 0 auto;
     width: $element-width;
     max-width: $max-element-width;
-    margin: 0 auto;
     text-align: left;
 
     @include breakpoint(normal) {
