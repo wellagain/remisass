@@ -38,7 +38,6 @@ $size-bit:                  (100% - ($columns - 1) * $margin-bit) / $columns;
     @include grid-margin;
   }
 
-  &:last-of-type,
   &:last-child {
     margin-right: 0;
   }
@@ -158,7 +157,7 @@ $grid-columns: get-dividers($columns);
   @include custom-size-column(nth($size--wide, 1));
 
   @if nth($size--wide, 2) == true {
-    @include grid-margin(true);
+    @include grid-margin(false);
   }
 
   @else {
@@ -169,7 +168,7 @@ $grid-columns: get-dividers($columns);
     @include custom-size-column(nth($size--normal, 1));
 
     @if nth($size--normal, 2) == true {
-      @include grid-margin(true);
+      @include grid-margin(false);
     }
 
     @else {
@@ -181,7 +180,7 @@ $grid-columns: get-dividers($columns);
     @include custom-size-column(nth($size--small, 1));
 
     @if nth($size--small, 2) == true {
-      @include grid-margin(true);
+      @include grid-margin(false);
     }
 
     @else {
@@ -191,6 +190,7 @@ $grid-columns: get-dividers($columns);
 
   @include breakpoint(mobile) {
     @include custom-size-column(nth($size--mobile, 1));
+    margin-right: 0;
   }
 }
 
