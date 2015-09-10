@@ -7,7 +7,7 @@
     font-family: 'icon';
     font-weight: normal;
     font-style: normal;
-    src: url('{.#{$font-url}.eot}?#{$version}');
+    src: url('#{$font-url}.eot?#{$version}');
     src: url('#{$font-url}.eot?#iefix') format('embedded-opentype'),
          url('#{$font-url}.woff?#{$version}') format('woff'),
          url('#{$font-url}.ttf?#{$version}') format('truetype'),
