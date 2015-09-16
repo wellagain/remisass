@@ -148,3 +148,22 @@
     @extend %button-disabled-color;
   }
 }
+
+@include keyframe(move) {
+  0% {
+    margin-top: 0;
+  }
+  20% {
+    margin-top: 0;
+  }
+  80% {
+    margin-top: .7em;
+  }
+  100% {
+    margin-top: .7em;
+  }
+}
+
+.bt--silent {
+  @include animation(move, 1s, 0, infinite, alternate);
+}
