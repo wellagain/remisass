@@ -24,9 +24,9 @@
 
 // Animation
 // use:
-// @include animation(1s, 20s, jump, infinite, normal, ease-in-out);
+// @include animation(jump, 20s, 1s, infinite, alternate, ease-in-out);
 
-@mixin animation($delay, $duration, $animation, $count: 1, $direction: alternate, $timing: linear) {
+@mixin animation($animation, $duration, $delay: 0, $count: 1, $direction: normal, $timing: linear) {
   $prefixes: webkit moz;
   @include prefixize('animation-delay', $delay, $prefixes);
   @include prefixize('animation-duration', $duration, $prefixes);
