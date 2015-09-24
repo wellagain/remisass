@@ -51,6 +51,10 @@ p {
   @include list-style(icon(rhombus), $pink);
 }
 
+.animation-block {
+  @include grid(4 false, 4 false, 5 false, 12);
+  text-align: center;
+}
 
 .features__buttons {
   @extend %block;

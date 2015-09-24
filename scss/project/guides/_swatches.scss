@@ -51,3 +51,10 @@ $col-table-header:          rgba(209, 219, 224, 1);
 
 $footer-height:             6em;
 $bg-color:                  lighten($grey, 20%);
+
+
+// ghost
+$ghost-size:                10em;
+$ghost-color:               $grey;
+$ghost-bit-size:            $ghost-size / 4;
+$ghost-eye-size:            $ghost-size / 5;

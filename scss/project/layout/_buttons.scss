@@ -163,7 +163,3 @@
     margin-top: .7em;
   }
 }
-
-.bt--silent {
-  @include animation(move, 1s, 0, infinite, alternate);
-}

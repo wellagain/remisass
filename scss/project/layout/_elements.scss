@@ -76,3 +76,67 @@
   margin-bottom: 1em;
   padding: 1em;
 }
+
+
+// ghost animation
+
+@include keyframe(ghost) {
+  0% {
+    margin-left: -2 * $ghost-eye-size;
+  }
+  20% {
+    margin-left: -2 * $ghost-eye-size;
+  }
+  80% {
+    margin-left: -.5 * $ghost-eye-size;
+  }
+  100% {
+    margin-left: -.5 * $ghost-eye-size;
+  }
+}
+
+.ghost {
+  @include position;
+  display: inline-block;
+  margin: 2em 0;
+  border-radius: 50% 50% 0 0;
+  background: $ghost-color;
+  width: $ghost-size;
+  height: $ghost-size;
+
+  @include breakpoint(mobile) {
+    margin-top: 0;
+    margin-bottom: 4em;
+  }
+
+  &:before,
+  &:after {
+    @include position(absolute);
+    content: '';
+  }
+
+  // bottom
+  &:before {
+    bottom: $ghost-bit-size * -.5;
+    left: 0;
+    border-radius: 50%;
+    box-shadow: ($ghost-bit-size * 1) 0 0 0 $ghost-color,
+                ($ghost-bit-size * 2) 0 0 0 $ghost-color,
+                ($ghost-bit-size * 3) 0 0 0 $ghost-color;
+    background: $ghost-color;
+    width: $ghost-bit-size;
+    height: $ghost-bit-size;
+  }
+
+  //eyes
+  &:after {
+    @include animation(ghost, .5s, 0, infinite, alternate-reverse);
+    top: $ghost-eye-size * 2;
+    left: $ghost-eye-size * 2.5;
+    border-radius: 50%;
+    box-shadow: ($ghost-eye-size * 1.5) 0 0 0 $bg-color;
+    background: $bg-color;
+    width: $ghost-eye-size;
+    height: $ghost-eye-size;
+  }
+}
