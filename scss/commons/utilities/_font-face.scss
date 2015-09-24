@@ -1,0 +1,16 @@
+@mixin font-face(
+  $font-url,
+  $version,
+  $name
+  ) {
+  @font-face {
+    font-family: quote($name);
+    font-weight: normal;
+    font-style: normal;
+    src: url('#{$font-url}.eot?#{$version}');
+    src: url('#{$font-url}.eot?#iefix') format('embedded-opentype'),
+         url('#{$font-url}.woff?#{$version}') format('woff'),
+         url('#{$font-url}.ttf?#{$version}') format('truetype'),
+         url('#{$font-url}.svg#{$name}') format('svg');
+  }
+}
