@@ -13,198 +13,216 @@
 			<h2 class="header__title--subtitle">Semantic Scss Framework</h2>
 		</header>
 	</div>
-	<div class="content">
-		<section class="features__container">
-			<div class="features">
-				<article class="features__buttons">
-					<button class="bt--primary">Primary button</button>
-					<button class="bt--secondary" >Secondary button</button>
-					<button class="bt--secondary" disabled>Disabled button</button><br/>
+	<div class="content__container">
+		<main class="content">
 
-					<button class="bt--cta">Download me!</button>
-					<button class="bt--silent">Or drop me a line</button>
-				</article>
+			<section class="list-container">
+				<ul class="feature-list">
+					<li><strong>Semantics first</strong>: no need to compile what you never use: <code>%placeholders</code> insdead of outputed <code>.class</code>;</li>
+					<li><strong>Pre-build placeholders</strong> for grid sizes (e.g. <code>%s-2-12</code>, meaning 2 columns of 12), buttons and form elements;</li>
+					<li>Generate grid placeholders for <strong>your own grid</strong>, for any column numbers you want (fancy <code>%s-3-6</code>? Easy!);</li>
+					<li><strong>Intelligent grid behaviour</strong> for smaller screens (e.g. 12 columns become 6, then 4, then 1 when resizing);</li>
+					<li>Benefit from other little <strong>snippets and one-liners</strong> for faster coding (e.g. for positioning, animation and gradient);</li>
+					<li>Dealing with <strong>vendor prefixes</strong> without post-processor? Use mixins for css3 features or build your own for as many vendors as you need to;</li>
+					<li>Resets, centered content, sticky footer, responsive tables and other layout snippets available;</li>
+					<li>Fallback for IE8 provided for graceful degradation.</li>
+				</ul>
+			</section>
 
-				<form class="features__form">
+
+			<section class="features__container">
+				<div class="features">
+					<article class="features__buttons">
+						<button class="bt--primary">Primary button</button>
+						<button class="bt--secondary" >Secondary button</button>
+						<button class="bt--secondary" disabled>Disabled button</button><br/>
+
+						<button class="bt--cta">Download me!</button>
+						<button class="bt--silent">Or drop me a line</button>
+					</article>
+
+					<form class="features__form">
+						<div class="control">
+							<label>Input example</label>
+							<input type="text" />
+						</div>
+						<div class="control">
+							<label>Input disabled</label>
+							<input type="text" disabled/>
+						</div>
+					</form>
+				</div>
+			</section>
+
+			<section class="grid__container">
+				<div class="grid">
+				<h2 class="grid__title">Grid example</h2>
+				<div class="form__12-columns">
 					<div class="control">
-						<label>Input example</label>
-						<input type="text" />
+						<label>One</label>
+						<input type="text"/>
 					</div>
 					<div class="control">
-						<label>Input disabled</label>
-						<input type="text" disabled/>
+						<label>Two</label>
+						<input type="text"/>
 					</div>
-				</form>
-			</div>
-		</section>
-		<section class="grid__container">
-			<div class="grid">
-			<h2 class="grid__title">Grid example</h2>
-			<div class="form__12-columns">
-				<div class="control">
-					<label>One</label>
-					<input type="text"/>
+					<div class="control">
+						<label>Three</label>
+						<input type="text"/>
+					</div>
+					<div class="control">
+						<label>Four</label>
+						<input type="text"/>
+					</div>
+					<div class="control">
+						<label>Five</label>
+						<input type="text"/>
+					</div>
+					<div class="control">
+						<label>Six</label>
+						<input type="text"/>
+					</div>
+					<div class="control">
+						<label>Seven</label>
+						<input type="text"/>
+					</div>
+					<div class="control">
+						<label>Eight</label>
+						<input type="text"/>
+					</div>
+					<div class="control">
+						<label>Nine</label>
+						<input type="text"/>
+					</div>
+					<div class="control">
+						<label>Ten</label>
+						<input type="text"/>
+					</div>
+					<div class="control">
+						<label>Eleven</label>
+						<input type="text"/>
+					</div>
+					<div class="control">
+						<label>Twelve</label>
+						<input type="text"/>
+					</div>
 				</div>
-				<div class="control">
-					<label>Two</label>
-					<input type="text"/>
-				</div>
-				<div class="control">
-					<label>Three</label>
-					<input type="text"/>
-				</div>
-				<div class="control">
-					<label>Four</label>
-					<input type="text"/>
-				</div>
-				<div class="control">
-					<label>Five</label>
-					<input type="text"/>
-				</div>
-				<div class="control">
-					<label>Six</label>
-					<input type="text"/>
-				</div>
-				<div class="control">
-					<label>Seven</label>
-					<input type="text"/>
-				</div>
-				<div class="control">
-					<label>Eight</label>
-					<input type="text"/>
-				</div>
-				<div class="control">
-					<label>Nine</label>
-					<input type="text"/>
-				</div>
-				<div class="control">
-					<label>Ten</label>
-					<input type="text"/>
-				</div>
-				<div class="control">
-					<label>Eleven</label>
-					<input type="text"/>
-				</div>
-				<div class="control">
-					<label>Twelve</label>
-					<input type="text"/>
-				</div>
-			</div>
 
-			<div class="form__6-columns">
-				<div class="control">
-					<label>One</label>
-					<input type="text"/>
+				<div class="form__6-columns">
+					<div class="control">
+						<label>One</label>
+						<input type="text"/>
+					</div>
+					<div class="control">
+						<label>Two</label>
+						<input type="text"/>
+					</div>
+					<div class="control">
+						<label>Three</label>
+						<input type="text"/>
+					</div>
+					<div class="control">
+						<label>Four</label>
+						<input type="text"/>
+					</div>
+					<div class="control">
+						<label>Five</label>
+						<input type="text"/>
+					</div>
+					<div class="control">
+						<label>Six</label>
+						<input type="text"/>
+					</div>
 				</div>
-				<div class="control">
-					<label>Two</label>
-					<input type="text"/>
-				</div>
-				<div class="control">
-					<label>Three</label>
-					<input type="text"/>
-				</div>
-				<div class="control">
-					<label>Four</label>
-					<input type="text"/>
-				</div>
-				<div class="control">
-					<label>Five</label>
-					<input type="text"/>
-				</div>
-				<div class="control">
-					<label>Six</label>
-					<input type="text"/>
-				</div>
-			</div>
 
-			<div class="form__4-columns">
-				<div class="control">
-					<label>One</label>
-					<input type="text"/>
+				<div class="form__4-columns">
+					<div class="control">
+						<label>One</label>
+						<input type="text"/>
+					</div>
+					<div class="control">
+						<label>Two</label>
+						<input type="text"/>
+					</div>
+					<div class="control">
+						<label>Three</label>
+						<input type="text"/>
+					</div>
+					<div class="control">
+						<label>Four</label>
+						<input type="text"/>
+					</div>
 				</div>
-				<div class="control">
-					<label>Two</label>
-					<input type="text"/>
-				</div>
-				<div class="control">
-					<label>Three</label>
-					<input type="text"/>
-				</div>
-				<div class="control">
-					<label>Four</label>
-					<input type="text"/>
-				</div>
-			</div>
 
-			<div class="form__3-columns">
-				<div class="control">
-					<label>One</label>
-					<input type="text"/>
+				<div class="form__3-columns">
+					<div class="control">
+						<label>One</label>
+						<input type="text"/>
+					</div>
+					<div class="control">
+						<label>Two</label>
+						<input type="text"/>
+					</div>
+					<div class="control">
+						<label>Three</label>
+						<input type="text"/>
+					</div>
 				</div>
-				<div class="control">
-					<label>Two</label>
-					<input type="text"/>
-				</div>
-				<div class="control">
-					<label>Three</label>
-					<input type="text"/>
-				</div>
-			</div>
-		</section>
+			</section>
 
-	<section class="table__container">
-		<div class="table">
-			<h2 class="table__title">Responsive table example</h2>
-			<table class="data">
-				<thead>
-					<tr>
-						<th>Name</th>
-						<th>Surname</th>
-						<th>ID number</th>
-						<th>Case number</th>
-						<th>Comment</th>
-						<th>Action</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td class="data__item--primary">Jon</td>
-						<td class="data__item--primary">Snow</td>
-						<td class="data__item--secondary">ST234</td>
-						<td class="data__item--secondary">348657</td>
-						<td class="data__comment">Ned Stark's Bastard, The 998th Lord Commander of the Night's Watch</td>
-						<td class="data__action"><a href="">Edit</a></td>
-					</tr>
-					<tr>
-						<td class="data__item--primary">Daenerys</td>
-						<td class="data__item--primary">Targaryen</td>
-						<td class="data__item--secondary">TG3759</td>
-						<td class="data__item--secondary">78946</td>
-						<td class="data__comment"> Daenerys Targaryen called Stormborn, the Unburnt, Mother of Dragons, Khaleesi of the Dothraki, Trueborn Queen of the Andals, Rhoynar, and the First Men, and Lady of the Seven Kingdoms.</td>
-						<td class="data__action"><a href="">Edit</a></td>
-					</tr>
-					<tr>
-						<td class="data__item--primary">Theon</td>
-						<td class="data__item--primary">Greyjoy</td>
-						<td class="data__item--secondary">EU114</td>
-						<td class="data__item--secondary">765423</td>
-						<td class="data__comment">Prince of Winterfell, Captain of Sea Bitch, Lord of the Iron Islands (by law of the green lands)</td>
-						<td class="data__action"><a href="">Edit</a></td>
-					</tr>
-					<tr>
-						<td class="data__item--primary">Sansa</td>
-						<td class="data__item--primary">Stark</td>
-						<td class="data__item--secondary">ST9342</td>
-						<td class="data__item--secondary">4309643</td>
-						<td class="data__comment">Sansa is the eldest daughter and second child of Lady Catelyn and Lord Eddard Stark, head of House Stark and Warden of the North</td>
-						<td class="data__action"><a href="">Edit</a></td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-	</section>
-</div>
+			<section class="table__container">
+				<div class="table">
+					<h2 class="table__title">Responsive table example</h2>
+					<table class="data">
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Surname</th>
+								<th>ID number</th>
+								<th>Case number</th>
+								<th>Comment</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="data__item--primary">Jon</td>
+								<td class="data__item--primary">Snow</td>
+								<td class="data__item--secondary">ST234</td>
+								<td class="data__item--secondary">348657</td>
+								<td class="data__comment">Ned Stark's Bastard, The 998th Lord Commander of the Night's Watch</td>
+								<td class="data__action"><a href="">Edit</a></td>
+							</tr>
+							<tr>
+								<td class="data__item--primary">Daenerys</td>
+								<td class="data__item--primary">Targaryen</td>
+								<td class="data__item--secondary">TG3759</td>
+								<td class="data__item--secondary">78946</td>
+								<td class="data__comment"> Daenerys Targaryen called Stormborn, the Unburnt, Mother of Dragons, Khaleesi of the Dothraki, Trueborn Queen of the Andals, Rhoynar, and the First Men, and Lady of the Seven Kingdoms.</td>
+								<td class="data__action"><a href="">Edit</a></td>
+							</tr>
+							<tr>
+								<td class="data__item--primary">Theon</td>
+								<td class="data__item--primary">Greyjoy</td>
+								<td class="data__item--secondary">EU114</td>
+								<td class="data__item--secondary">765423</td>
+								<td class="data__comment">Prince of Winterfell, Captain of Sea Bitch, Lord of the Iron Islands (by law of the green lands)</td>
+								<td class="data__action"><a href="">Edit</a></td>
+							</tr>
+							<tr>
+								<td class="data__item--primary">Sansa</td>
+								<td class="data__item--primary">Stark</td>
+								<td class="data__item--secondary">ST9342</td>
+								<td class="data__item--secondary">4309643</td>
+								<td class="data__comment">Sansa is the eldest daughter and second child of Lady Catelyn and Lord Eddard Stark, head of House Stark and Warden of the North</td>
+								<td class="data__action"><a href="">Edit</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+		</main>
+	</div>
 	<footer class="footer__container">
 		<div class="footer">
 			<h1 class="footer__title">Get it on GitHub</h1>

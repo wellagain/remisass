@@ -9,6 +9,27 @@
   }
 }
 
-%list--vertical {
-  padding-left: 1em;
+@mixin list-style(
+  $icon,
+  $color: inherit
+  ) {
+
+  list-style: none;
+
+  li {
+    display: block;
+    margin: .7em 0;
+    padding-left: 1em;
+
+    &:before {
+      @extend %icon;
+      display: block;
+      float: left;
+      margin: .4em .5em 0 -1.5em;
+      color: $color;
+      font-size: .65em;
+      content: $icon;
+    }
+  }
 }
+

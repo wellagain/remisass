@@ -24,3 +24,8 @@
   font-style: italic;
   font-weight: normal;
 }
+
+code {
+  font-size: 1.2em;
+  background: transparentize($green, .8);
+}

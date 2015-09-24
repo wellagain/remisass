@@ -16,18 +16,14 @@ p {
   line-height: 1.5em;
 }
 
-@include centered-content(80%, $max-page-width, 95%, 90%, '.grid__wrapper', '.grid');
-@include centered-content(80%, $max-page-width, 95%, 90%, '.features__wrapper', '.features');
-@include centered-content(80%, $max-page-width, 95%, 90%, '.table__wrapper', '.table');
+@include centered-content(80%, $max-page-width, 95%, 90%, '.content__wrapper', '.content');
 
 
 .content {
   padding-bottom: 2em;
 }
 
-.grid,
-.features,
-.table {
+.content {
   @extend %section;
 }
 
@@ -44,6 +40,15 @@ p {
     @extend %icon;
     content: icon(link);
   }
+}
+
+.list-container {
+  @include grid(8 true, 8 true, 7 true, 12);
+  margin-bottom: 3em;
+}
+
+.feature-list {
+  @include list-style(icon(rhombus), $pink);
 }
 
 
