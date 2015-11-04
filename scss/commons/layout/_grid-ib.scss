@@ -1,15 +1,9 @@
-@import 'commons/utilities/math';
+// inline-block driven grid
 
+@import 'commons/utilities/grid-sizing';
 
-$columns:                   12 !default;
-$margin-bit:                2% !default;
-$margin-bit--falback:       1.1% !default;
 $inline-block-gap:          .29rem !default;
 $inline-block-gap-flb:      3px !default;
-
-// calculated size
-$size-bit:                  (100% - ($columns - 1) * $margin-bit) / $columns;
-
 
 
 // scss-lint:disable ImportantRule DuplicateProperty
@@ -18,27 +12,6 @@ $size-bit:                  (100% - ($columns - 1) * $margin-bit) / $columns;
 //
 @mixin clearing($nth) {
   &:nth-of-type(#{$nth}n+#{$nth}) {
-    margin-right: 0;
-  }
-}
-
-
-// define margin setting rules
-//
-@mixin marginify($size) {
-  // if column is full width, no margin required;
-  @if $size == 100% {
-    margin-right: 0;
-  }
-  @elseif $size > 57 {
-    margin-right: 0;
-  }
-  @else {
-    // use calc() to compute percent and rem, or fallback to percent
-    @include grid-margin;
-  }
-
-  &:last-child {
     margin-right: 0;
   }
 }
@@ -57,26 +30,16 @@ $size-bit:                  (100% - ($columns - 1) * $margin-bit) / $columns;
 }
 
 
-// Basic grid width calculator
-//
-@function calc-width($nth) {
-  @return $size-bit * $nth + $margin-bit * ($nth - 1);
-}
-
 // Calculate width and margins for grid column
 //
 @mixin custom-size-column($number) {
-  $width: calc-width($number);
-  width: $width;
-  @include marginify($width);
+  @include calc-size-column($number);
+  @include grid-margin;
+
+  &:last-child {
+    margin-right: 0;
+  }
 }
-
-
-// Your grid settings
-$columns: 12 !default;
-
-// Calculate how many equal columns can fit in each row? e.g. 12, 6, 4, 3, 2, 1;
-$grid-columns: get-dividers($columns);
 
 
 // Generate placeholders for all columns
@@ -96,8 +59,6 @@ $grid-columns: get-dividers($columns);
     // if column is of regular size, define it's sizes, and clearing rules
     //
     @else {
-      // defining normal size and clearing rules
-      //
       $in-a-row: $columns / $i;                       // for 1/12 column: 12
 
       @include custom-size-column($i);
@@ -156,35 +117,40 @@ $grid-columns: get-dividers($columns);
   @extend %grid-column;
   @include custom-size-column(nth($size--wide, 1));
 
-  @if nth($size--wide, 2) == true {
-    @include grid-margin(false);
-  }
-
-  @else {
-    margin-right: 0;
+  @if length($size--wide) > 1 {
+    @if nth($size--wide, 2) == true {
+      @include grid-margin(false);
+    }
+    @else {
+      margin-right: 0;
+    }
   }
 
   @include breakpoint(normal) {
     @include custom-size-column(nth($size--normal, 1));
 
-    @if nth($size--normal, 2) == true {
-      @include grid-margin(false);
-    }
+    @if length($size--normal) > 1 {
+      @if nth($size--normal, 2) == true {
+        @include grid-margin(false);
+      }
 
-    @else {
-      margin-right: 0;
+      @else {
+        margin-right: 0;
+      }
     }
   }
 
   @include breakpoint(small) {
     @include custom-size-column(nth($size--small, 1));
 
-    @if nth($size--small, 2) == true {
-      @include grid-margin(false);
-    }
+     @if length($size--small) > 1 {
+      @if nth($size--small, 2) == true {
+        @include grid-margin(false);
+      }
 
-    @else {
-      margin-right: 0;
+      @else {
+        margin-right: 0;
+      }
     }
   }
 

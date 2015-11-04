@@ -1,0 +1,24 @@
+@import 'commons/utilities/math';
+
+$columns:                   12 !default;
+$margin-bit:                2% !default;
+$margin-bit--falback:       1.1% !default;
+
+// calculated size
+$size-bit:                  (100% - ($columns - 1) * $margin-bit) / $columns;
+
+// Calculate how many equal columns can fit in each row? e.g. 12, 6, 4, 3, 2, 1;
+$grid-columns: get-dividers($columns);
+
+// Basic grid width calculator
+//
+@function calc-width($nth) {
+  @return $size-bit * $nth + $margin-bit * ($nth - 1);
+}
+
+// Calculate width and margins for grid column
+//
+@mixin calc-size-column($number) {
+  $width: calc-width($number);
+  width: $width;
+}
