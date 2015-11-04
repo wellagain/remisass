@@ -14,7 +14,7 @@ Key features
 - Benefit from other little **snippets and one-liners** for faster coding (e.g. for positioning, animation and gradient).
 - Dealing with **vendor prefixes** without post-processor? Use mixins for css3 features or build your own for as many vendors as you need to.
 - Resets, centered content, sticky footer and other layout snippets available.
-- Fallback for IE8 provided for graceful degradation
+- **Flexbox** based grid can be changed to inline-block based layout, which older browser support is just great!
 
 See [demo page](http://work.wellagain.lt/remisass/) for visual presentation.
 
