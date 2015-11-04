@@ -20,19 +20,24 @@ p {
 
 
 .content {
+  @extend %section;
   padding-bottom: 2em;
 }
-
-.content {
-  @extend %section;
-}
-
 
 .header__title--subtitle,
 .grid__title,
 .table__title,
 .footer__title {
   @extend %subtitle;
+}
+
+.intro,
+.features,
+.form__12-columns,
+.form__6-columns,
+.form__4-columns,
+.form__3-columns {
+   @extend %grid-container !optional;
 }
 
 .header__title {
@@ -42,8 +47,9 @@ p {
   }
 }
 
+
 .list-container {
-  @include grid(8 true, 8 true, 7 true, 12);
+  @include grid(8, 8, 7, 12);
   margin-bottom: 3em;
 }
 
@@ -52,22 +58,24 @@ p {
 }
 
 .animation-block {
-  @include grid(4 false, 4 false, 5 false, 12);
+  @include grid(4, 4, 5, 12);
   text-align: center;
 }
 
 .features__buttons {
   @extend %block;
-  @include grid(8 true, 6 true, 7 true, 12);
+  @include grid(8, 6, 7, 12);
 }
 
 .features__form {
-  @extend %block, %form--half;
-  @include grid(4 false, 6 false, 5 false, 12);
+  @extend %block, %form--half, %grid-container !optional;
+  @include grid(4, 6, 5, 12);
   @include debug(true);
 }
 
 .form__12-columns {
+  @extend %grid-container !optional;
+
   .control {
     @extend %block;
     @extend %s-1-12;

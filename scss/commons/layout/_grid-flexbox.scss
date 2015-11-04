@@ -1,0 +1,116 @@
+// flexbox driven grid
+// which is for those lucky ones who support only modern browsers
+
+@import 'commons/utilities/grid-sizing';
+
+%grid-container {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  flex-direction: row;
+
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  -webkit-box-align: stretch;
+  align-items: stretch;
+}
+
+@for $i from 1 through $columns {
+  // check, if column size is among dividers
+  $index: index($grid-columns, $i);
+
+  %s-#{$i}-#{$columns} {
+
+    // if column is irregular size (is not among dividers), calculate it's size
+    @if $index == null {
+      @include calc-size-column($i);
+    }
+
+    // if column is of regular size, define it's sizes for screens
+    //
+    @else {
+      $in-a-row: $columns / $i;                       // for 1/12 column: 12
+
+      // defining normal size and clearing rules
+      @include calc-size-column($i);
+
+      // calculate sizes for normal and small screen sizes
+      //
+      $column-dividers: get-dividers($in-a-row);      // for 1/12 column: 12, 6, 4, 3, 2, 1;
+      $dividers-count: length($column-dividers);      // for 1/12 column: 6;
+      $normal-in-a-row: null;
+      $small-in-a-row: null;
+
+      @if $dividers-count > 2 {
+        $normal-in-a-row:  nth($column-dividers, 2);
+        $small-in-a-row:  nth($column-dividers, 3);
+      }
+      @elseif $dividers-count == 2 {
+        $normal-in-a-row:  nth($column-dividers, 1);
+        $small-in-a-row:  nth($column-dividers, 2);
+      }
+      @else {
+        $normal-in-a-row: nth($column-dividers, 1);
+        $small-in-a-row:  nth($column-dividers, 1);
+      }
+
+      // assigning sizes and clearing rules
+
+      @include breakpoint(normal) {
+        $normal-width: $columns / $normal-in-a-row;
+        @include calc-size-column($normal-width);
+      }
+
+      @include breakpoint(small) {
+        $small-width: $columns / $small-in-a-row;
+        @include calc-size-column($small-width);
+      }
+
+      @include breakpoint(mobile) {
+        width: 100%;
+      }
+    }
+  }
+}
+
+// simple grid column sizing mixin
+// use:
+// @include grid(7 true, 6 true, 6 true, 12);
+// where number is a column count, and true or false is for grid margin
+
+@mixin grid(
+  $size--wide,
+  $size--normal: $size--wide,
+  $size--small: $size--wide,
+  $size--mobile: $size--wide
+  ) {
+
+  @include calc-size-column(nth($size--wide, 1));
+
+  @include breakpoint(normal) {
+    @include calc-size-column(nth($size--normal, 1));
+  }
+
+  @include breakpoint(small) {
+    @include calc-size-column(nth($size--small, 1));
+  }
+
+  @include breakpoint(mobile) {
+    @include calc-size-column(nth($size--mobile, 1));
+  }
+}
