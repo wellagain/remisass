@@ -1,20 +1,3 @@
-// grid parameters
-
-$columns:                   12;
-$margin-bit:                2%;
-$margin-bit--falback:       1.1%;
-$max-screen:                1800px;
-$max-page-width:            1300px;
-$inline-block-gap:          .25rem;
-$inline-block-gap-flb:      3px;
-$base-font-size:            16;
-$flex:                      true;
-
-$breakpoint-width-wide:     990px;
-$breakpoint-width-normal:   768px;
-$breakpoint-width-mobile:   480px;
-$breakpoint-height-small:   680px;
-
 // solid theme colors
 $transparent:               transparent;
 $black:                     rgba(26, 28, 32, 1);
@@ -30,9 +13,9 @@ $bt-padding-default:        .2em 1.4em;
 $bt-corner-radius:          .3em;
 $bt-min-width:              55px;
 
-$bt-color--primary:          $pink;
-$bt-color--secondary:        $green;
-$bt-color--disabled:         $grey;
+$bt-color--primary:         $pink;
+$bt-color--secondary:       $green;
+$bt-color--disabled:        $grey;
 
 
 // inputs

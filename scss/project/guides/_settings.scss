@@ -1,0 +1,19 @@
+// grid parameters
+
+$flex:                      true;         // set to 'true' if you support only browsers with flexbox support
+$columns:                   12;           // specify any column number, grid placeholder names will be generated accordingly
+$margin-bit:                2%;           // grid gutter size
+$margin-bit--falback:       1.1%;         // for those suporting browsers with no calc() support, you'll need to adjust it visually
+
+
+$inline-block-gap:          .25rem;       // if $flex is false, this value is for whitespace removal between inline-block elements
+$inline-block-gap-flb:      3px;          // falback for those who don't support rem
+
+$base-font-size:            16;           // base font size
+
+$breakpoint-width-wide:     990px;        // minimum screen size for desktops
+$breakpoint-width-normal:   768px;        // screen size for tablet landscape
+$breakpoint-width-mobile:   480px;        // screen size for tablet portrait and mobile landscape
+$breakpoint-height-small:   680px;        // screen size for mobile portrait
+
+$max-page-width:            1300px;       // prevent your page from growing bigger than a certain size when screen is huge
