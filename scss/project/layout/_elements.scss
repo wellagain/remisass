@@ -36,7 +36,7 @@
 
 %subtitle {
   @include font-size(1.2);
-  margin: -.2em 0 .5em;
+  margin: .5em 0;
   color: lighten($black, 30%);
 
   @include breakpoint(devices) {
