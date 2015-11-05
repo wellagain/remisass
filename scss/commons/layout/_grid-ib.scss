@@ -156,7 +156,15 @@ $inline-block-gap-flb:      3px !default;
 
   @include breakpoint(mobile) {
     @include custom-size-column(nth($size--mobile, 1));
-    margin-right: 0;
+   @if length($size--mobile) > 1 {
+      @if nth($size--mobile, 2) == true {
+        @include grid-margin(false);
+      }
+
+      @else {
+        margin-right: 0;
+      }
+    }
   }
 }
 
@@ -178,7 +186,7 @@ $inline-block-gap-flb:      3px !default;
   position: relative;
 
   @include breakpoint(mobile) {
-    margin-right: 0 !important;
+    margin-right: 0;
     width: 100%;
   }
 }
