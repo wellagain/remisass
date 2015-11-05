@@ -49,7 +49,7 @@ p {
 
 
 .list-container {
-  @include grid(8, 8, 7, 12);
+  @include grid(8, 8, 7, 12 false);
   margin-bottom: 3em;
 }
 
@@ -58,20 +58,80 @@ p {
 }
 
 .animation-block {
-  @include grid(4, 4, 5, 12);
+  @include grid(4 false, 4 false, 5 false, 12);
+  @include debug(true);
+  margin-bottom: 2em;
   text-align: center;
 }
 
 .features__buttons {
   @extend %block;
-  @include grid(8, 6, 7, 12);
+  @include grid(8, 6, 7, 12 false);
 }
 
 .features__form {
-  @extend %block, %form--half, %grid-container !optional;
-  @include grid(4, 6, 5, 12);
-  @include debug(true);
+  @extend %block, %form--half;
+  @include grid(4 false, 6 false, 5 false, 12 false);
+
+  form {
+    @extend %grid-container !optional;
+  }
 }
+
+.mixed-sizies {
+  @extend %grid-container !optional;
+}
+
+.mixed-sizes--1 {
+  @extend %block;
+  @include grid(1, 2, 3, 6);
+}
+
+.mixed-sizes--2 {
+  @extend %block;
+  @include grid(11 false, 10 false, 9 false, 6 false);
+}
+
+.mixed-sizes--3 {
+  @extend %block;
+  @include grid(2, 4, 12 false, 12 false);
+}
+
+.mixed-sizes--4 {
+  @extend %block;
+  @include grid(7, 8 false, 12 false, 12 false);
+}
+
+.mixed-sizes--5 {
+  @extend %block;
+  @include grid(2, 6, 6, 12 false);
+}
+
+.mixed-sizes--6 {
+  @extend %block;
+  @include grid(1 false, 6 false, 6 false, 12 false);
+}
+
+.mixed-sizes--7 {
+  @extend %block;
+  @include grid(3, 6, 12 false, 12 false);
+}
+
+.mixed-sizes--8 {
+  @extend %block;
+  @include grid(4, 6 false, 12 false, 12 false);
+}
+
+.mixed-sizes--9 {
+  @extend %block;
+  @include grid(3, 6, 6, 12 false);
+}
+
+.mixed-sizes--10 {
+  @extend %block;
+  @include grid(2 false, 6 false, 6 false, 12 false);
+}
+
 
 .form__12-columns {
   @extend %grid-container !optional;

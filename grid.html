@@ -45,16 +45,18 @@
 						<button class="bt--silent">Or drop me a line</button>
 					</article>
 
-					<form class="features__form">
-						<div class="control">
-							<label>Input example</label>
-							<input type="text" />
-						</div>
-						<div class="control">
-							<label>Input disabled</label>
-							<input type="text" disabled/>
-						</div>
-					</form>
+					<div class="features__form">
+						<form>
+							<div class="control">
+								<label>Input example</label>
+								<input type="text" />
+							</div>
+							<div class="control">
+								<label>Input disabled</label>
+								<input type="text" disabled/>
+							</div>
+						</form>
+					</div>
 				</div>
 			</section>
 
@@ -63,11 +65,23 @@
 				<h2 class="grid__title">Grid example - Irregular sizes</h2>
 				<p>For irregular grid sizes use <code>@mixin grid</code>, with at least one size (for all screens) specified.<br/>4 params set sizes for <code>wide</code>, <code>normal</code>, <code>small</code> and <code>mobile</code> breakpoints, respectively.</p>
 
+				<div class="mixed-sizies">
+					<div class="mixed-sizes--1">One</div>
+					<div class="mixed-sizes--2">grid(11, 10, 9, 6)</div>
+					<div class="mixed-sizes--3">Three</div>
+					<div class="mixed-sizes--4">grid(7, 8, 12, 12)</div>
+					<div class="mixed-sizes--5">Five</div>
+					<div class="mixed-sizes--6">Six</div>
+					<div class="mixed-sizes--7">Seven</div>
+					<div class="mixed-sizes--8">Eight</div>
+					<div class="mixed-sizes--9">Nine</div>
+					<div class="mixed-sizes--10">Ten</div>
+				</div>
 				<h2 class="grid__title">Grid example - Uniform sizies</h2>
 				<p>If all elements in container are of the same grid size, use a %placeholder <code>%s-n-m</code>, where <code>n</code> - size in columns, and <code>m</code> - total column count. </p>
 				<div class="form__12-columns">
 					<div class="control">
-						<label>One</label>
+						<label>%s-1-12</label>
 						<input type="text"/>
 					</div>
 					<div class="control">
@@ -118,7 +132,7 @@
 
 				<div class="form__6-columns">
 					<div class="control">
-						<label>One</label>
+						<label>%s-2-12</label>
 						<input type="text"/>
 					</div>
 					<div class="control">
@@ -145,7 +159,7 @@
 
 				<div class="form__4-columns">
 					<div class="control">
-						<label>One</label>
+						<label>%s-3-12</label>
 						<input type="text"/>
 					</div>
 					<div class="control">
@@ -164,7 +178,7 @@
 
 				<div class="form__3-columns">
 					<div class="control">
-						<label>One</label>
+						<label>%s-4-12</label>
 						<input type="text"/>
 					</div>
 					<div class="control">
