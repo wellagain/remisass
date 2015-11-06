@@ -99,6 +99,32 @@ input[type="checkbox"] {
   margin: 0;
   width: auto;
   vertical-align: middle;
+
+  + label {
+    display: inline;
+    margin: 0 1em 0 .1em;
+    vertical-align: middle;
+  }
+
+  &:disabled {
+    + label {
+      color: $input-label--disabled;
+    }
+  }
+
+  .checkbox--newline & + label {
+    margin: 0 0 0 .1em;
+
+    &:after {
+      display: block;
+      padding-bottom: .5em;
+      content: '';
+    }
+
+    &:last-child:after {
+      display: none;
+    }
+  }
 }
 
 .control {

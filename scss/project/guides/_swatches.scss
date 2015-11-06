@@ -26,6 +26,7 @@ $input-bg--focus:           darken($input-bg, 5%);
 $input-border--focus:       rgba(19, 115, 164, 1);
 $input-bg--disabled:        lighten($grey, 10%);
 $input-border--disabled:    lighten($grey, 5%);
+$input-label--disabled:     $grey;
 $input-placeholder-color:   $grey;
 $input-bg--err:             rgba(236, 32, 56, 1);
 
