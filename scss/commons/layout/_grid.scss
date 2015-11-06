@@ -165,7 +165,7 @@ $grid-columns: get-dividers($columns);
   @include breakpoint(small) {
     @include calc-size-column(nth($size--small, 1));
 
-     @if length($size--small) > 1 {
+    @if length($size--small) > 1 {
       @if nth($size--small, 2) == false {
         @include margin-clear;
       }
@@ -189,6 +189,8 @@ $grid-columns: get-dividers($columns);
 
 @if $flex == true {
   %grid-container {
+
+    // scss-lint:disable VendorPrefix
     display: -webkit-flex;
     display: -ms-flexbox;
     display: -webkit-box;
@@ -208,11 +210,12 @@ $grid-columns: get-dividers($columns);
     -ms-flex-pack: start;
     -webkit-box-pack: start;
     justify-content: flex-start;
-    text-align: start;
 
     -webkit-align-items: stretch;
     -ms-flex-align: stretch;
     -webkit-box-align: stretch;
     align-items: stretch;
+
+    // scss-lint:enable VendorPrefix
   }
 }
