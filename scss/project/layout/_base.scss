@@ -37,7 +37,7 @@ p {
 .form__6-columns,
 .form__4-columns,
 .form__3-columns {
-   @extend %grid-container !optional;
+  @extend %grid-container !optional;
 }
 
 .header__title {
