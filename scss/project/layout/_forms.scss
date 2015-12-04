@@ -115,13 +115,13 @@ input[type="checkbox"] {
   .checkbox--newline & + label {
     margin: 0 0 0 .1em;
 
-    &:after {
+    &::after {
       display: block;
       padding-bottom: .5em;
       content: '';
     }
 
-    &:last-child:after {
+    &:last-child::after {
       display: none;
     }
   }

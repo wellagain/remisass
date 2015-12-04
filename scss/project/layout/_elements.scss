@@ -112,14 +112,14 @@
     margin-bottom: 4em;
   }
 
-  &:before,
-  &:after {
+  &::before,
+  &::after {
     @include position(absolute);
     content: '';
   }
 
   // bottom
-  &:before {
+  &::before {
     bottom: $ghost-bit-size * -.5;
     left: 0;
     border-radius: 50%;
@@ -132,7 +132,7 @@
   }
 
   //eyes
-  &:after {
+  &::after {
     @include animation(ghost, .5s, 0, infinite, alternate-reverse);
     top: $ghost-eye-size * 2;
     left: $ghost-eye-size * 2.5;

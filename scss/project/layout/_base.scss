@@ -41,7 +41,7 @@ p {
 }
 
 .header__title {
-  &:before {
+  &::before {
     @extend %icon;
     content: icon(link);
   }

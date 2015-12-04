@@ -3,14 +3,14 @@
 // @include clearfix;
 
 @mixin clearfix {
-  &:before,
-  &:after {
+  &::before,
+  &::after {
     display: table;
     height: 0;
     content: ' ';
   }
 
-  &:after {
+  &::after {
     clear: both;
   }
 }
@@ -20,7 +20,7 @@
 // @include clearafter;
 
 @mixin clearafter {
-  &:after {
+  &::after {
     display: table;
     clear: both;
     height: 0;

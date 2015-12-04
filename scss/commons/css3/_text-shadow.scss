@@ -25,14 +25,14 @@
   @if lightness($color) > 60% {
     @include text-shadow((
       0 0 0 $transparent,
-      0 -1px 0 rgba(0, 0, 0, .5)
+      0 -1px 0 transparentize($black, .5)
       ));
   }
 
   @else {
     @include text-shadow((
       0 0 0 $transparent,
-      0 1px 0 rgba(255, 255, 255, .5)
+      0 1px 0 transparentize($white, .5)
       ));
   }
 }

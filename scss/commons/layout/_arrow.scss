@@ -4,15 +4,19 @@
   @if $direction == 'top' {
     $result: 'bottom';
   }
+
   @elseif $direction == 'bottom' {
     $result: 'top';
   }
+
   @elseif $direction == 'left' {
     $result: 'right';
   }
+
   @elseif $direction == 'right' {
     $result: 'left';
   }
+
   @else {
     $result: 'center';
   }

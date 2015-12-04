@@ -85,10 +85,10 @@ td {
   vertical-align: top;
 }
 
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
   content: '';
 }
 
