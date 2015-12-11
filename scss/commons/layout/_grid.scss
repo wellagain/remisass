@@ -191,9 +191,9 @@ $grid-columns: get-dividers($columns);
   %grid-container {
 
     // scss-lint:disable VendorPrefix
-    display: -webkit-flex;
     display: -ms-flexbox;
     display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
 
     -webkit-flex-direction: row;
