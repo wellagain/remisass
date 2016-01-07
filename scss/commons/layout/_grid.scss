@@ -27,9 +27,7 @@ $grid-columns: get-dividers($columns);
 @mixin marginify {
   @if $flex == true {
     margin-right: #{$margin-bit};
-  }
-
-  @else {
+  } @else {
     margin-right: $margin-bit--falback;
     margin-right: calc(#{$margin-bit} - #{$inline-block-gap});
   }
@@ -53,9 +51,7 @@ $grid-columns: get-dividers($columns);
 @mixin gridify($is-flex: $flex) {
   @if $is-flex == true {
     position: relative;
-  }
-
-  @else {
+  } @else {
     @include inline-block(top);
     position: relative;
   }
@@ -75,11 +71,10 @@ $grid-columns: get-dividers($columns);
     @if $index == null {
       @include calc-size-column($i);
       @include marginify;
-    }
+    } @else {
 
     // if column is of regular size, define it's sizes, and clearing rules
-    //
-    @else {
+
       $in-a-row: $columns / $i;                       // for 1/12 column: 12
 
       @include calc-size-column($i);
@@ -96,12 +91,10 @@ $grid-columns: get-dividers($columns);
       @if $dividers-count > 2 {
         $normal-in-a-row:  nth($column-dividers, 2);
         $small-in-a-row:  nth($column-dividers, 3);
-      }
-      @elseif $dividers-count == 2 {
+      } @elseif $dividers-count == 2 {
         $normal-in-a-row:  nth($column-dividers, 1);
         $small-in-a-row:  nth($column-dividers, 2);
-      }
-      @else {
+      } @else {
         $normal-in-a-row: nth($column-dividers, 1);
         $small-in-a-row:  nth($column-dividers, 1);
       }

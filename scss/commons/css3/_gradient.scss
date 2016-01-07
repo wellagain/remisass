@@ -14,17 +14,11 @@
 
   @if $direction == top {
     $webkit-direction: 'left top, left bottom';
-  }
-
-  @else if $direction == bottom {
+  } @else if $direction == bottom {
     $webkit-direction: 'left bottom, left top';
-  }
-
-  @else if $direction == left {
+  } @else if $direction == left {
     $webkit-direction: 'left top, right top';
-  }
-
-  @else if $direction == right {
+  } @else if $direction == right {
     $webkit-direction: 'right top, left top';
   }
 
@@ -37,9 +31,7 @@
 
     background-image: -webkit-gradient(linear, #{$webkit-direction}, from($color1), to($color2));
 
-  }
-
-  @else {
+  } @else {
     background: url($image), $color2;
 
     @each $prefix in $prefixes {

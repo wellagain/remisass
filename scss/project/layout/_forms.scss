@@ -78,12 +78,12 @@ input[type="number"] {
 }
 
 select {
-  -webkit-appearance: button;
-  -moz-appearance: button;
   background-image: url('../img/ico.dropdown.png');
   background-repeat: no-repeat;
   background-position: 100% 50%;
   padding: .42em .5em;
+  -webkit-appearance: button;
+  -moz-appearance: button;
 }
 
 textarea {

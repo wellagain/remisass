@@ -134,9 +134,9 @@ select {
 button {
   outline: none;
   width: auto;
-  -webkit-border-fit: border !important;
-  -webkit-appearance: none;
   overflow: visible;
+  -webkit-appearance: none;
+  -webkit-border-fit: border !important;
 
   &:focus {
     outline: 0;

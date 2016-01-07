@@ -62,8 +62,7 @@
     &:focus {
       outline: 0;
     }
-  }
-  @else {
+  } @else {
     &:hover,
     &:active,
     &:focus {

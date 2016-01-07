@@ -40,9 +40,7 @@ $debug-colors: (
   @each $screenname, $query in $breakpoints {
     @if $screenname == null {
       @error "No responsiveness found";
-    }
-
-    @else {
+    } @else {
       @include breakpoint(#{$screenname}) {
         border-color: map-get($debug-colors, $screenname);
 

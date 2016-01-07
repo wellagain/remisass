@@ -2,8 +2,7 @@
 @function is-integer($number) {
   @if round($number) == $number {
     @return true;
-  }
-  @else {
+  } @else {
     @return false;
   }
 }
@@ -16,8 +15,7 @@
   @for $i from length($list) * -1 through -1 {
     @if type-of(nth($list, abs($i))) == list and $recursive {
       $result: append($result, reverse(nth($list, abs($i)), $recursive));
-    }
-    @else {
+    } @else {
       $result: append($result, nth($list, abs($i)));
     }
   }

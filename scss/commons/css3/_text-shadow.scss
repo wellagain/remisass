@@ -16,9 +16,7 @@
     // scss-lint:disable ImportantRule
     color: $color !important;
     // scss-lint:enable ImportantRule
-  }
-
-  @else {
+  } @else {
     color: $color;
   }
 
@@ -27,9 +25,7 @@
       0 0 0 $transparent,
       0 -1px 0 transparentize($black, .5)
       ));
-  }
-
-  @else {
+  } @else {
     @include text-shadow((
       0 0 0 $transparent,
       0 1px 0 transparentize($white, .5)

@@ -3,9 +3,7 @@
 @mixin media($queries) {
   @if length($queries) == 0 {
     @content;
-  }
-
-  @else {
+  } @else {
     $first-key: nth(map-keys($queries), 1);
 
     @media ($first-key: map-get($queries, $first-key)) {
