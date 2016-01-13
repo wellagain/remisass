@@ -21,14 +21,6 @@ $inline-block-gap:  .28rem !default;
   // scss-lint:ebable DuplicateProperty
 }
 
-// An one-liner for table-cell
-// use:
-// @include table-cell;
-
-@mixin table-cell($valign: top) {
-  display: table-cell;
-  vertical-align: $valign;
-}
 
 // Push text out of visibility
 // use:
