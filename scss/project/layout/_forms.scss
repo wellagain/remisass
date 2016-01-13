@@ -132,69 +132,63 @@ input[type="checkbox"] {
 }
 
 
-%form {
-  // %form--fourth
-  @include modifier(fourth) {
-    .control {
-      @extend %s-3-12;
+%form--fourth {
+  .control {
+    @extend %s-3-12;
 
-      input,
-      select {
-        max-width: 15em;
-      }
+    input,
+    select {
+      max-width: 15em;
+    }
 
-      .error-message {
-        max-width: 14em;
-      }
+    .error-message {
+      max-width: 14em;
     }
   }
-
-  // %form--third
-  @include modifier(third) {
-    .control {
-      @extend %s-4-12;
-
-      input,
-      select {
-        max-width: 18em;
-      }
-
-      .error-message {
-        max-width: 17em;
-      }
-    }
-  }
-
-  // %form--half
-  @include modifier(half) {
-    .control {
-      @extend %s-6-12;
-
-      input,
-      select {
-        max-width: 22em;
-      }
-
-      .error-message {
-        max-width: 21em;
-      }
-    }
-  }
-
-  // %form--full
-  @include modifier(full) {
-    .control {
-      @extend %s-12-12;
-
-      input,
-      select {
-        max-width: 22em;
-      }
-
-      .error-message {
-        max-width: 21em;
-      }
-    }
-  }
-
 }
+
+%form--third {
+  .control {
+    @extend %s-4-12;
+
+    input,
+    select {
+      max-width: 18em;
+    }
+
+    .error-message {
+      max-width: 17em;
+    }
+  }
+}
+
+%form--half {
+  .control {
+    @extend %s-6-12;
+
+    input,
+    select {
+      max-width: 22em;
+    }
+
+    .error-message {
+      max-width: 21em;
+    }
+  }
+}
+
+%form--full {
+  .control {
+    @extend %s-12-12;
+
+    input,
+    select {
+      max-width: 22em;
+    }
+
+    .error-message {
+      max-width: 21em;
+    }
+  }
+}
+
