@@ -1,12 +1,3 @@
-// An one-liner for inline-block
-// use:
-// @include inline-block(bottom);
-
-@mixin inline-block($valign: top) {
-  display: inline-block;
-  vertical-align: $valign;
-}
-
 // An one-liner for inline-block with gap fix
 // use:
 // @include inline-block-no-margin;
@@ -14,11 +5,11 @@
 $inline-block-gap:  .28rem !default;
 
 @mixin inline-block-no-margin($valign: top) {
-  @include inline-block($valign);
   // scss-lint:disable DuplicateProperty
+  display: inline-block;
+  vertical-align: $valign;
   margin-right: -$inline-block-gap-flb;
   margin-right: -$inline-block-gap;
-  // scss-lint:ebable DuplicateProperty
 }
 
 

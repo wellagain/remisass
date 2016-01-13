@@ -4,9 +4,10 @@
     $padding: $bt-padding-default,
     $corner-radius: $bt-corner-radius
   ) {
-  @include inline-block;
   @include position(relative, auto auto auto auto, 1);
 
+  display: inline-block;
+  vertical-align: top;
   margin: 0;
   border-radius: $corner-radius;
   padding: $padding;

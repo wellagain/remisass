@@ -5,7 +5,8 @@
   list-style: none;
 
   li {
-    @include inline-block;
+    display: inline-block;
+    vertical-align: middle;
   }
 }
 
