@@ -1,10 +1,10 @@
 // Rem sizing with fallback to pixels
 // use:
-// @include rem-size(width, 10);
+// @include remify(width, 10);
 
 $base-font-size: 16 !default;
 
-@mixin rem-size($property, $size) {
+@mixin remify($property, $size) {
   // scss-lint:disable DuplicateProperty
   #{$property}: ($size * $base-font-size) + px;
   #{$property}: $size + rem;
