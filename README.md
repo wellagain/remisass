@@ -21,7 +21,7 @@ See [demo page](http://work.wellagain.lt/remisass/) for visual presentation.
 Structure
 ---------
 - `commons` - reusable partials
- - `css3` -  one-liners for css3 features, also dealing with vendor prefixes
+ - `css3` -  Not using autoprefixer? Use these one-liners for css3 features
  - `layout` - layout-specific snippets, reset, grid and helpers
  - `utilities` - utilities (math) and shorthands
 - `css` -  files for css compiling (table of contents). The order of includes is important.
