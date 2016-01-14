@@ -1,11 +1,12 @@
 @import 'commons/utilities/math';
 
 $columns:                   12 !default;
-$margin-bit:                2% !default;
-$margin-bit--falback:       1.1% !default;
+$grid-gutter:               2% !default;
+$grid-gutter--falback:      1.1% !default;
+$grid-output:               inline-block !default;
 
 // calculated size
-$size-bit:                  (100% - ($columns - 1) * $margin-bit) / $columns;
+$size-bit:                  (100% - ($columns - 1) * $grid-gutter) / $columns;
 
 // Calculate how many equal columns can fit in each row? e.g. 12, 6, 4, 3, 2, 1;
 $grid-columns: get-dividers($columns);
@@ -13,7 +14,7 @@ $grid-columns: get-dividers($columns);
 // Basic grid width calculator
 //
 @function calc-width($nth) {
-  @return $size-bit * $nth + $margin-bit * ($nth - 1);
+  @return $size-bit * $nth + $grid-gutter * ($nth - 1);
 }
 
 // Calculate width and margins for grid column
@@ -25,11 +26,13 @@ $grid-columns: get-dividers($columns);
 
 // make a margin
 @mixin marginify {
-  @if $flex == true {
-    margin-right: #{$margin-bit};
-  } @else {
-    margin-right: $margin-bit--falback;
-    margin-right: calc(#{$margin-bit} - #{$inline-block-gap});
+  @if $grid-output == flex {
+    margin-right: #{$grid-gutter};
+  } @else if $grid-output == inline-block {
+    margin-right: $grid-gutter--falback;
+    margin-right: calc(#{$grid-gutter} - #{$inline-block-gap});
+  } @else if $grid-output == float {
+    margin-right: #{$grid-gutter};
   }
 }
 
@@ -43,17 +46,25 @@ $grid-columns: get-dividers($columns);
 
 @mixin margin-clear {
   margin-right: 0;
+
+  @if $grid-output == float {
+    @include clearafter;
+  }
 }
 
 
 // Make a grid element
 //
-@mixin gridify($is-flex: $flex) {
-  @if $is-flex == true {
+@mixin gridify {
+  @if $grid-output == flex {
     position: relative;
+  } @else if $grid-output == inline-block {
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
   } @else {
-    @include inline-block(top);
-    position: relative;
+    display: block;
+    float: left;
   }
 }
 
@@ -180,9 +191,9 @@ $grid-columns: get-dividers($columns);
 // use display:flex container
 // if using a flexbox based grid
 
-@if $flex == true {
-  %grid-container {
 
+%grid-container {
+  @if $grid-output == flex {
     // for those without Autoprefixer
     // scss-lint:disable VendorPrefix
     display: -ms-flexbox;
@@ -210,6 +221,7 @@ $grid-columns: get-dividers($columns);
     -webkit-box-align: stretch;
     align-items: stretch;
 
-    // scss-lint:enable VendorPrefix
+  } @else if $grid-output == float {
+    @include clearfix;
   }
 }

@@ -1,19 +1,44 @@
-// grid parameters
+// Grid settings
 
-$flex:                      true;         // set to 'true' if you support only browsers with flexbox support
-$columns:                   12;           // specify any column number, grid placeholder names will be generated accordingly
-$margin-bit:                2%;           // grid gutter size
-$margin-bit--falback:       1.1%;         // for those suporting browsers with no calc() support, you'll need to adjust it visually
+// $grid-output defines how grid is build
+// 'inline-block' results in grid elements outputed as inline-blocks, needs calc() support
+// 'float' results in grid outputed as floating boxes
+// 'flex' results in grid container being flex
+
+$grid-output:               flex;        // inline-block / float / flex
 
 
-$inline-block-gap:          .25rem;       // if $flex is false, this value is for whitespace removal between inline-block elements
-$inline-block-gap-flb:      3px;          // falback for those who don't support rem
+// Specify any column number, grid placeholder names will be generated accordingly
+// e.g. setting param to 6 will generate %s-1-6, %s-2-6, %s-3-6, %s-4-6, %s-5-6, %s-6-6
+$columns:                   12;
 
-$base-font-size:            16;           // base font size
 
+// Grid gutter size
+// regular grid gutter size
+$grid-gutter:                2%;
+
+// fallback those suporting browsers with no calc() support, you'll need to adjust it visually
+$grid-gutter--falback:       1.1%;
+
+
+// if $grid-output is set to inline-block
+// use $inline-block-gap value for whitespace removal between inline-block elements
+$inline-block-gap:          .25rem;
+
+// falback for those who don't support rem
+$inline-block-gap-flb:      3px;
+
+
+// base font size
+$base-font-size:            16;
+
+
+// responsive breakpoints
 $breakpoint-width-wide:     990px;        // minimum screen size for desktops
 $breakpoint-width-normal:   768px;        // screen size for tablet landscape
 $breakpoint-width-mobile:   480px;        // screen size for tablet portrait and mobile landscape
 $breakpoint-height-small:   680px;        // screen size for mobile portrait
 
-$max-page-width:            1200px;       // prevent your page from growing bigger than a certain size when screen is huge
+
+// prevent your page from growing bigger than a certain size when screen is huge
+$max-page-width:            1200px;
