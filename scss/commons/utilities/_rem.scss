@@ -4,7 +4,7 @@
 
 $base-font-size: 16 !default;
 
-@mixin remify($property, $size) {
+@mixin rem($property, $size) {
   // use pixel fallback for those without rem support
   // scss-lint:disable DuplicateProperty
   #{$property}: ($size * $base-font-size) + px;

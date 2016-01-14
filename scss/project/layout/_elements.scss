@@ -29,13 +29,13 @@
 
 %title {
   @include font--italic;
-  @include remify(font-size, 2);
+  @include rem(font-size, 2);
   margin: 0;
   line-height: .8em;
 }
 
 %subtitle {
-  @include remify(font-size, 1.2);
+  @include rem(font-size, 1.2);
   margin: .5em 0;
   color: lighten($black, 30%);
 

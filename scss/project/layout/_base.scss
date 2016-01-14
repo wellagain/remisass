@@ -4,7 +4,7 @@
 
 body {
   @include font--normal;
-  @include remify(font-size, .9);
+  @include rem(font-size, .9);
 }
 
 a {
