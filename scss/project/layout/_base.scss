@@ -43,7 +43,7 @@ p {
 .header__title {
   &::before {
     @extend %icon;
-    content: icon(link);
+    content: icon(heart-outline);
   }
 }
 
@@ -53,7 +53,7 @@ p {
 }
 
 .feature-list {
-  @include list-style(icon(rhombus), $pink);
+  @include list-style(icon(star), $pink);
   margin: 0;
   padding: 0;
 }
