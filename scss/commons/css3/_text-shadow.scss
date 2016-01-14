@@ -11,14 +11,8 @@
 // use:
 // @include color($white)
 
-@mixin text-color($color, $force: false) {
-  @if $force == true {
-    // scss-lint:disable ImportantRule
-    color: $color !important;
-    // scss-lint:enable ImportantRule
-  } @else {
-    color: $color;
-  }
+@mixin text-color($color) {
+  color: $color;
 
   @if lightness($color) > 60% {
     @include text-shadow((
