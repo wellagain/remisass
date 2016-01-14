@@ -47,7 +47,6 @@ p {
   }
 }
 
-
 .list-container {
   @include grid(8, 8, 7, 12 false);
   margin-bottom: 3em;
@@ -55,6 +54,8 @@ p {
 
 .feature-list {
   @include list-style(icon(rhombus), $pink);
+  margin: 0;
+  padding: 0;
 }
 
 .animation-block {

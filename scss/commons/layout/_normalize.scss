@@ -1,0 +1,190 @@
+// https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+// Deal with box-sizing first
+// scss-lint:disable MergeableSelector
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+// Besed on https://github.com/necolas/normalize.css/blob/master/normalize.css
+
+
+// Prevent iOS and IE text size adjust after device orientation change
+// but allow zoom on desktops.
+// More on the issue:
+// http://blog.55minutes.com/2012/04/iphone-text-resizing/
+
+html {
+  // for those without Autoprefixer
+  // scss-lint:disable VendorPrefix
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+
+// Remove default body margin
+body {
+  margin: 0;
+}
+
+// HTML5
+// Display correction
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+
+// Prevent modern browsers from displaying `audio` without controls.
+// Remove excess height in iOS 5 devices.
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+// Address `[hidden]` styling not present in IE 8/9/10.
+// Hide the `template` element in IE 8/9/10/11, Safari, and Firefox < 22.
+
+[hidden],
+template {
+  display: none;
+}
+
+// Remove the gray background color from active links in IE 10.
+
+a {
+  background-color: transparent;
+}
+
+// Improve readability of focused elements when they are also in an
+// active/hover state.
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+// Prevent `sub` and `sup` affecting `line-height` in all browsers.
+
+sub,
+sup {
+  position: relative;
+  vertical-align: baseline;
+  line-height: 0;
+  font-size: 75%;
+}
+
+sup {
+  top: -.5em;
+}
+
+sub {
+  bottom: -.25em;
+}
+
+// Remove border when inside `a` element in IE 8/9/10.
+img {
+  border: 0;
+}
+
+// Correct overflow not hidden in IE 9/10/11.
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+
+// Contain overflow in all browsers.
+
+pre {
+  overflow: auto;
+}
+
+// Address odd `em`-unit font size rendering in all browsers.
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+// Address `overflow` set to `hidden` in IE 8/9/10/11.
+
+button {
+  overflow: visible;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+[disabled] {
+  cursor: default;
+}
+
+// Remove inner padding and border in Firefox 4+.
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+// Fix the cursor style for Chrome's increment/decrement buttons. For certain
+// `font-size` values of the `input`, it causes the cursor style of the
+// decrement button to change from `default` to `text`.
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+
+// 1. Correct `color` not being inherited in IE 8/9/10/11.
+// 2. Remove padding so people aren't caught out if they zero out fieldsets.
+
+legend {
+  border: 0;
+  padding: 0;
+}
+
+
+// Remove default vertical scrollbar in IE 8/9/10/11.
+
+textarea {
+  overflow: auto;
+}
+
+// Remove most spacing between table cells.
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
