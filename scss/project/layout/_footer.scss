@@ -1,4 +1,4 @@
-@include centered-content(80%, $max-page-width, 95%, 90%, '.footer__container', '.footer');
+@include centered-content(90%, $max-page-width, 95%, 90%, '.footer__container', '.footer');
 @include sticky-footer($footer-height, '.footer__container');
 
 .footer__container {
