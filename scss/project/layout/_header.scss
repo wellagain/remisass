@@ -1,4 +1,4 @@
-@include centered-content(80%, $max-page-width, 95%, 90%, '.header__container', '.header');
+@include centered-content(90%, $max-page-width, 95%, 90%, '.header__container', '.header');
 
 .header__container {
   margin-bottom: 1em;
