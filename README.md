@@ -13,6 +13,7 @@ Key features
 - **Intelligent grid behaviour** for smaller screens (e.g. 12 columns become 6, then 4, then 1 when resizing);
 - Choose how your grid is outputed, using **inline-block** (default), **flexbox** or **floats** as your grid output setting;
 - Normalize, centered content, sticky footer, responsive tables and other layout snippets available;
+- Use icons from available 4 icon sets as easy as icon(heart);
 - Dealing with **vendor prefixes** without post-processor? Use mixins for css3 features or build your own for as many vendors as you need to.
 
 
