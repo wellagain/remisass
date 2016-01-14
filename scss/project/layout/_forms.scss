@@ -60,20 +60,20 @@ label,
 }
 
 
-input[type="text"],
-input[type="password"],
-input[type="email"],
-input[type="number"],
+[type="text"],
+[type="password"],
+[type="email"],
+[type="number"],
 select {
   @extend %input-skin;
   width: 100%;
   max-width: 18em;
 }
 
-input[type="text"],
-input[type="password"],
-input[type="email"],
-input[type="number"] {
+[type="text"],
+[type="password"],
+[type="email"],
+[type="number"] {
   padding: .4em .5em;
 }
 
@@ -93,8 +93,8 @@ textarea {
   min-height: 10em;
 }
 
-input[type="radio"],
-input[type="checkbox"] {
+[type="radio"],
+[type="checkbox"] {
   display: inline;
   margin: 0;
   width: auto;

@@ -5,9 +5,11 @@
 $inline-block-gap:  .28rem !default;
 
 @mixin inline-block-no-margin($valign: top) {
-  // scss-lint:disable DuplicateProperty
   display: inline-block;
   vertical-align: $valign;
+
+  // margin fallback for those without rem support
+  // scss-lint:disable DuplicateProperty
   margin-right: -$inline-block-gap-flb;
   margin-right: -$inline-block-gap;
 }

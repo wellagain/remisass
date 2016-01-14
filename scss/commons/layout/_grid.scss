@@ -183,6 +183,7 @@ $grid-columns: get-dividers($columns);
 @if $flex == true {
   %grid-container {
 
+    // for those without Autoprefixer
     // scss-lint:disable VendorPrefix
     display: -ms-flexbox;
     display: -webkit-box;
