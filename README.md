@@ -4,6 +4,8 @@ remisass
 
 Semantic responsive SCSS grid framework for modern browsers
 
+[View demo](http://work.wellagain.lt/remisass/)
+-----------------------------------------------
 
 Key features
 ------------
