@@ -58,11 +58,15 @@ p {
   padding: 0;
 }
 
-  .feature-list__icon:before {
-    @extend %icon;
-    padding-right: .2em;
-    content: icon(heart);
-  }
+.feature-list__icon::before {
+  @extend %icon;
+  padding-right: .2em;
+  content: icon(heart);
+}
+
+.main-nav__col {
+  padding: 1em;
+}
 
 .animation-block {
   @include grid(4 false, 4 false, 5 false, 12);

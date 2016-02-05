@@ -22,7 +22,7 @@
     padding: .5em 0;
   }
 
-  @include breakpoint(devices) {
+  @include breakpoint(small-down) {
     padding: .5em 0;
   }
 }
@@ -39,7 +39,7 @@
   margin: .5em 0;
   color: lighten($black, 30%);
 
-  @include breakpoint(devices) {
+  @include breakpoint(small-down) {
     margin-top: 0;
   }
 }
@@ -64,7 +64,7 @@
     padding: .5em;
   }
 
-  @include breakpoint(devices) {
+  @include breakpoint(small-down) {
     border-radius: .3em;
     padding: .4em;
   }

@@ -6,7 +6,7 @@
   html {
     font-size: $body-size / $default-size * 100%; // 14px
 
-    @include breakpoint(devices) {
+    @include breakpoint(small-down) {
       font-size: $body-size / $default-size * 92.8571429%; // 13px
     }
   }

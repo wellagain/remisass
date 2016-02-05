@@ -1,5 +1,6 @@
 // color vars
-$col-wide:        rgba(0, 172, 101, 1);
+$col-huge:        rgba(0, 172, 101, 1);
+$col-default:     rgba(36, 72, 201, 1);
 $col-normal:      rgba(178, 104, 219, 1);
 $col-small:       rgba(49, 143, 143, 1);
 $col-mobile:      rgba(233, 102, 44, 1);
@@ -9,7 +10,8 @@ $col-widescreen:  rgba(235, 175, 60, 1);
 
 // default colors for debug
 $debug-colors: (
-  'wide':        $col-wide,
+  'default':     $col-default,
+  'huge':        $col-huge,
   'normal':      $col-normal,
   'small':       $col-small,
   'mobile':      $col-mobile,
@@ -22,14 +24,14 @@ $debug-colors: (
 // @include debug;
 
 @mixin debug($naming: false) {
-  border: solid 1px map-get($debug-colors, col-debug-wide);
+  border: solid 1px map-get($debug-colors, default);
 
   @if($naming == true) {
     &::after {
       @include position(absolute);
       display: inline-block;
       margin-top: -1.2rem;
-      background: map-get($debug-colors, col-debug-wide);
+      background: map-get($debug-colors, default);
       padding: .2em .5em;
       color: $white;
       font-size: .8rem;

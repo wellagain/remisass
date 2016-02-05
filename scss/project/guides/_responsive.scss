@@ -2,18 +2,25 @@
 // @mixin breakpoint(...)
 
 // most-user screen widths
-$breakpoint-width-wide:     990px !default;
-$breakpoint-width-normal:   768px !default;
-$breakpoint-width-mobile:   480px !default;
-$breakpoint-height-small:    680px !default;
+$breakpoint-width-huge:       1200px !default;
+$breakpoint-width-normal:     1024px !default;
+$breakpoint-width-small:      768px !default;
+$breakpoint-width-mobile:     480px !default;
+
+$breakpoint-height-small:   680px !default;
 
 $breakpoints: (
-  'wide': (min-width: $breakpoint-width-wide + 1),
-  'normal': (min-width: $breakpoint-width-normal, max-width: $breakpoint-width-wide),
-  'small': (min-width: $breakpoint-width-mobile, max-width: $breakpoint-width-normal - 1),
+  'mobile-up': (min-width: $breakpoint-width-mobile),
+  'small-up': (min-width: $breakpoint-width-small),
+  'normal-up': (min-width: $breakpoint-width-normal),
+  'small-down': (max-width: $breakpoint-width-small),
+  'normal-down': (max-width: $breakpoint-width-normal),
+  'huge-down': (max-width: $breakpoint-width-huge),
   'mobile': (max-width: $breakpoint-width-mobile - 1),
-  'widescreen': (min-width: $breakpoint-width-wide - 1, max-height: $breakpoint-height-small),
-  'devices': (max-width: $breakpoint-width-normal - 1),
+  'small': (min-width: $breakpoint-width-mobile, max-width: $breakpoint-width-small - 1),
+  'normal': (min-width: $breakpoint-width-small, max-width: $breakpoint-width-normal - 1),
+  'huge': (min-width: $breakpoint-width-huge),
+  'widescreen': (min-width: $breakpoint-width-normal, max-height: $breakpoint-height-small),
 );
 
 // build @media queries for

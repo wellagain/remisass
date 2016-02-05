@@ -5,7 +5,7 @@
     border-radius: $bt-corner-radius $bt-corner-radius 0 0;
     background: $col-table-header;
 
-    @include breakpoint(devices) {
+    @include breakpoint(small-down) {
       padding: .5em;
     }
   }
@@ -16,7 +16,7 @@
     padding: 1em .5em;
     vertical-align: bottom;
 
-    @include breakpoint(devices) {
+    @include breakpoint(small-down) {
       border: 0;
       padding: 0;
     }
@@ -31,7 +31,7 @@
   }
 
   tr {
-    @include breakpoint(devices) {
+    @include breakpoint(small-down) {
       border-bottom: solid 1px $col-table-border;
 
       &:last-child {
@@ -52,7 +52,7 @@
     border-bottom: solid 1px $col-table-border;
     padding: .5em;
 
-    @include breakpoint(devices) {
+    @include breakpoint(small-down) {
       border-bottom: 0;
     }
   }
@@ -60,25 +60,25 @@
 
 
 .data__item--primary {
-  @include breakpoint(devices) {
+  @include breakpoint(small-down) {
     width: 30%;
   }
 }
 
 .data__item--secondary {
-  @include breakpoint(devices) {
+  @include breakpoint(small-down) {
     width: 20%;
   }
 }
 
 .data__comment {
-  @include breakpoint(devices) {
+  @include breakpoint(small-down) {
     width: 80%;
   }
 }
 
 .data__action {
-  @include breakpoint(devices) {
+  @include breakpoint(small-down) {
     width: 20%;
   }
 }

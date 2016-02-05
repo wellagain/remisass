@@ -33,12 +33,5 @@ $inline-block-gap-flb:      3px;
 $base-font-size:            16;
 
 
-// responsive breakpoints
-$breakpoint-width-wide:     990px;        // minimum screen size for desktops
-$breakpoint-width-normal:   768px;        // screen size for tablet landscape
-$breakpoint-width-mobile:   480px;        // screen size for tablet portrait and mobile landscape
-$breakpoint-height-small:   680px;        // screen size for mobile portrait
-
-
 // prevent your page from growing bigger than a certain size when screen is huge
 $max-page-width:            1200px;

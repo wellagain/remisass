@@ -2,13 +2,13 @@ table {
   width: 100%;
 
   tr {
-    @include breakpoint(devices) {
+    @include breakpoint(small-down) {
       display: block;
     }
   }
 
   thead th {
-    @include breakpoint(devices) {
+    @include breakpoint(small-down) {
       display: inline-block;
 
       &::after {
@@ -22,7 +22,7 @@ table {
   }
 
   td {
-    @include breakpoint(devices) {
+    @include breakpoint(small-down) {
       @include inline-block-no-margin;
     }
   }
