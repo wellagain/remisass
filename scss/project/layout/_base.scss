@@ -149,7 +149,7 @@ p {
 
   .control {
     @extend %block;
-    @extend %s-1-12;
+    @include per-row(12, 6, 4, 2);
   }
 }
 
@@ -157,14 +157,14 @@ p {
   @extend %block;
 
   .control {
-    @extend %s-2-12;
+    @include per-row(6, 3, 3);
   }
 }
 
 .form__4-columns {
   .control {
     @extend %block;
-    @extend %s-3-12;
+    @include per-row(4, 4, 2);
   }
 }
 
@@ -172,6 +172,6 @@ p {
   @extend %block;
 
   .control {
-    @extend %s-4-12;
+    @include per-row(3, 3, 2);
   }
 }

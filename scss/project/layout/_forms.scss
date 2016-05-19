@@ -134,7 +134,7 @@ textarea {
 
 %form--fourth {
   .control {
-    @extend %s-3-12;
+    @include per-row(4, 2, 2);
 
     input,
     select {
@@ -149,7 +149,7 @@ textarea {
 
 %form--third {
   .control {
-    @extend %s-4-12;
+    @include per-row(3, 3, 2);
 
     input,
     select {
@@ -164,7 +164,7 @@ textarea {
 
 %form--half {
   .control {
-    @extend %s-6-12;
+    @include per-row(2, 2, 1);
 
     input,
     select {
@@ -179,7 +179,7 @@ textarea {
 
 %form--full {
   .control {
-    @extend %s-12-12;
+    @include per-row(1, 1, 1);
 
     input,
     select {
