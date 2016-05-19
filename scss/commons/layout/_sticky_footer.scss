@@ -15,12 +15,21 @@
 
   body {
     margin: 0 0 $footer-height;
+
+    @include breakpoint(small-down) {
+      margin-bottom: 0;
+    }
   }
 
   #{$footer-selector} {
     @include position(absolute, auto auto 0 0);
     width: 100%;
     height: $footer-height;
+
+    @include breakpoint(small-down) {
+      position: relative;
+      height: auto;
+    }
   }
 }
 
