@@ -103,8 +103,8 @@ $grid-output:               inline-block !default;
 
 // simple grid column sizing mixin
 // use:
-// @include grid(7 true, 6 true, 6 true, 12);
-// where number is a column count, and true or false is for grid margin
+// @include grid(7 gap, 6 gap, 6 gap, 12);
+// where number is a column count, and gap is for grid gutter
 // setting 0 will hide the column on that screen size
 
 @mixin grid(
@@ -115,16 +115,16 @@ $grid-output:               inline-block !default;
   ) {
 
   @include gridify;
-  @include marginify;
-  width: calc-width(nth($size--wide, 1));
 
-  @if $size--wide == 0 {
-    display: none;
-  }
+  @include breakpoint(normal-up) {
+    width: calc-width(nth($size--wide, 1));
 
-  @if length($size--wide) > 1 {
-    @if nth($size--wide, 2) == false {
-      @include margin-clear;
+    @if length($size--wide) > 1 {
+      @include marginify;
+    }
+
+    @if $size--wide == 0 {
+      display: none;
     }
   }
 
@@ -132,9 +132,7 @@ $grid-output:               inline-block !default;
     width: calc-width(nth($size--normal, 1));
 
     @if length($size--normal) > 1 {
-      @if nth($size--normal, 2) == false {
-        @include margin-clear;
-      }
+      @include marginify;
     }
 
     @if $size--normal == 0 {
@@ -146,9 +144,7 @@ $grid-output:               inline-block !default;
     width: calc-width(nth($size--small, 1));
 
     @if length($size--small) > 1 {
-      @if nth($size--small, 2) == false {
-        @include margin-clear;
-      }
+      @include marginify;
     }
 
     @if $size--small == 0 {
@@ -160,9 +156,7 @@ $grid-output:               inline-block !default;
     width: calc-width(nth($size--mobile, 1));
 
     @if length($size--mobile) > 1 {
-      @if nth($size--mobile, 2) == false {
-        @include margin-clear;
-      }
+      @include marginify;
     }
 
     @if $size--mobile == 0 {
