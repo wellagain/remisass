@@ -5,24 +5,6 @@ $grid-gutter:               2% !default;
 $grid-gutter--falback:      1.1% !default;
 $grid-output:               inline-block !default;
 
-// calculated size
-$size-bit:                  (100% - ($columns - 1) * $grid-gutter) / $columns;
-
-// Calculate how many equal columns can fit in each row? e.g. 12, 6, 4, 3, 2, 1;
-$grid-columns: get-dividers($columns);
-
-// Basic grid width calculator
-//
-@function calc-width($nth) {
-  @return $size-bit * $nth + $grid-gutter * ($nth - 1);
-}
-
-// Calculate width and margins for grid column
-//
-@mixin calc-size-column($number) {
-  $width: calc-width($number);
-  width: $width;
-}
 
 // make a margin
 @mixin marginify {
@@ -36,14 +18,7 @@ $grid-columns: get-dividers($columns);
   }
 }
 
-// define clearing after columns rules
-//
-@mixin clear-after($nth) {
-  &:nth-of-type(#{$nth}n+#{$nth}) {
-    @include margin-clear;
-  }
-}
-
+// clear a margin
 @mixin margin-clear {
   margin-right: 0;
 
@@ -52,6 +27,19 @@ $grid-columns: get-dividers($columns);
   }
 }
 
+// define clearing after columns rules
+//
+@mixin clear-after($nth) {
+  @include marginify;
+
+  &:nth-of-type(#{$nth}n+#{$nth}) {
+    @include margin-clear;
+  }
+
+  &:last-child {
+    @include margin-clear;
+  }
+}
 
 // Make a grid element
 //
@@ -68,76 +56,56 @@ $grid-columns: get-dividers($columns);
   }
 }
 
-// Generate placeholders for all columns
+// Basic grid width calculator
 //
-@for $i from 1 through $columns {
-  // check, if column size is among dividers
-  $index: index($grid-columns, $i);
+@function calc-width(
+  $nth,
+  $col: $columns
+  ) {
+  @return ((100% - ($col - 1) * $grid-gutter) / $col) * $nth + $grid-gutter * ($nth - 1);
+}
 
-  %s-#{$i}-#{$columns} {
+// Calculate width and margins for grid column
+//
+@mixin set-column-width($column-count) {
+  @include clear-after($column-count);
+  width: (100% - ($column-count - 1) * $grid-gutter) / $column-count;
+}
 
-    @include gridify;
+// same size grid elements
+// define how many per row
+//
+@mixin per-row(
+  $column-wide,
+  $column-normal: $column-wide,
+  $column-small: $column-wide,
+  $column-mobile: 1
+  ) {
+  @include gridify;
 
-    // if column is irregular size (is not among dividers), calculate it's size
-    @if $index == null {
-      @include calc-size-column($i);
-      @include marginify;
-    } @else {
+  @include breakpoint(normal-up) {
+    @include set-column-width($column-wide);
+  }
 
-    // if column is of regular size, define it's sizes, and clearing rules
+  @include breakpoint(normal) {
+    @include set-column-width($column-normal);
+  }
 
-      $in-a-row: $columns / $i;                       // for 1/12 column: 12
+  @include breakpoint(small-down) {
+    @include set-column-width($column-small);
+  }
 
-      @include calc-size-column($i);
-      @include marginify;
-      @include clear-after($in-a-row);
-
-      // calculate sizes for normal and small screen sizes
-      //
-      $column-dividers: get-dividers($in-a-row);      // for 1/12 column: 12, 6, 4, 3, 2, 1;
-      $dividers-count: length($column-dividers);      // for 1/12 column: 6;
-      $normal-in-a-row: null;
-      $small-in-a-row: null;
-
-      @if $dividers-count > 2 {
-        $normal-in-a-row:  nth($column-dividers, 2);
-        $small-in-a-row:  nth($column-dividers, 3);
-      } @elseif $dividers-count == 2 {
-        $normal-in-a-row:  nth($column-dividers, 1);
-        $small-in-a-row:  nth($column-dividers, 2);
-      } @else {
-        $normal-in-a-row: nth($column-dividers, 1);
-        $small-in-a-row:  nth($column-dividers, 1);
-      }
-
-      // assigning sizes and clearing rules
-
-      @include breakpoint(normal) {
-        $normal-width: $columns / $normal-in-a-row;
-        @include calc-size-column($normal-width);
-        @include marginify;
-        @include clear-after($normal-in-a-row);
-      }
-
-      @include breakpoint(small) {
-        $small-width: $columns / $small-in-a-row;
-        @include calc-size-column($small-width);
-        @include marginify;
-        @include clear-after($small-in-a-row);
-      }
-
-      @include breakpoint(mobile) {
-        @include margin-clear;
-        width: 100%;
-      }
-    }
+  @include breakpoint(mobile) {
+    @include set-column-width($column-mobile);
   }
 }
+
 
 // simple grid column sizing mixin
 // use:
 // @include grid(7 true, 6 true, 6 true, 12);
 // where number is a column count, and true or false is for grid margin
+// setting 0 will hide the column on that screen size
 
 @mixin grid(
   $size--wide,
@@ -147,8 +115,12 @@ $grid-columns: get-dividers($columns);
   ) {
 
   @include gridify;
-  @include calc-size-column(nth($size--wide, 1));
   @include marginify;
+  width: calc-width(nth($size--wide, 1));
+
+  @if $size--wide == 0 {
+    display: none;
+  }
 
   @if length($size--wide) > 1 {
     @if nth($size--wide, 2) == false {
@@ -157,40 +129,129 @@ $grid-columns: get-dividers($columns);
   }
 
   @include breakpoint(normal) {
-    @include calc-size-column(nth($size--normal, 1));
+    width: calc-width(nth($size--normal, 1));
 
     @if length($size--normal) > 1 {
       @if nth($size--normal, 2) == false {
         @include margin-clear;
       }
     }
+
+    @if $size--normal == 0 {
+      display: none;
+    }
   }
 
   @include breakpoint(small) {
-    @include calc-size-column(nth($size--small, 1));
+    width: calc-width(nth($size--small, 1));
 
     @if length($size--small) > 1 {
       @if nth($size--small, 2) == false {
         @include margin-clear;
       }
     }
+
+    @if $size--small == 0 {
+      display: none;
+    }
   }
 
   @include breakpoint(mobile) {
-    @include calc-size-column(nth($size--mobile, 1));
+    width: calc-width(nth($size--mobile, 1));
 
     @if length($size--mobile) > 1 {
       @if nth($size--mobile, 2) == false {
         @include margin-clear;
       }
     }
+
+    @if $size--mobile == 0 {
+      display: none;
+    }
   }
 }
 
 
-// use display:flex container
-// if using a flexbox based grid
+// quantuty query powered grid calculations
+// http://www.quantityqueries.com/
+// for same-size elements based on total amount of items
+//
+@mixin context-aware-sizing(
+  $selector,
+  $max-per-row: 7
+  ) {
+  &:nth-last-child(-n+2):first-child,
+  &:nth-last-child(-n+2):first-child ~ #{$selector} {
+    @include per-row(2, 2, 2);
+  }
 
+  &:nth-last-child(-n+1):first-child,
+  &:nth-last-child(-n+1):first-child ~ #{$selector} {
+    @include per-row(1, 1, 1);
+  }
+
+  &:nth-last-child(n+3):nth-last-child(-n+3):first-child,
+  &:nth-last-child(n+3):nth-last-child(-n+3):first-child ~ #{$selector} {
+    @include per-row(3, 3, 1);
+  }
+
+  &:nth-last-child(n+4):nth-last-child(-n+4):first-child,
+  &:nth-last-child(n+4):nth-last-child(-n+4):first-child ~ #{$selector} {
+    @include per-row(4, 2, 2);
+  }
+
+  &:nth-last-child(n+5):nth-last-child(-n+5):first-child,
+  &:nth-last-child(n+5):nth-last-child(-n+5):first-child ~ #{$selector} {
+    @include per-row(5, 3, 2);
+  }
+
+  @if $max-per-row < 7 {
+    &:nth-last-child(n+6):nth-last-child(-n+6):first-child,
+    &:nth-last-child(n+6):nth-last-child(-n+6):first-child ~ #{$selector} {
+      @include per-row(3, 3, 2);
+    }
+
+    &:nth-last-child(n+7):nth-last-child(-n+7):first-child,
+    &:nth-last-child(n+7):nth-last-child(-n+7):first-child ~ #{$selector} {
+      @include per-row(4, 4, 2);
+    }
+  } @else {
+    &:nth-last-child(n+6):nth-last-child(-n+6):first-child,
+    &:nth-last-child(n+6):nth-last-child(-n+6):first-child ~ #{$selector} {
+      @include per-row(6, 3, 2);
+    }
+
+    &:nth-last-child(n+7):nth-last-child(-n+7):first-child,
+    &:nth-last-child(n+7):nth-last-child(-n+7):first-child ~ #{$selector} {
+      @include per-row(7, 4, 2);
+    }
+  }
+
+  &:nth-last-child(n+8):nth-last-child(-n+8):first-child,
+  &:nth-last-child(n+8):nth-last-child(-n+8):first-child ~ #{$selector} {
+    @include per-row(4, 2, 2);
+  }
+
+  &:nth-last-child(n+9):nth-last-child(-n+9):first-child,
+  &:nth-last-child(n+9):nth-last-child(-n+9):first-child ~ #{$selector} {
+    @include per-row(3, 3, 2);
+  }
+
+  &:nth-last-child(n+10):nth-last-child(-n+10):first-child,
+  &:nth-last-child(n+10):nth-last-child(-n+10):first-child ~ #{$selector} {
+    @include per-row(5, 3, 2);
+  }
+
+  &:nth-last-child(n+11),
+  &:nth-last-child(n+11) ~ #{$selector} {
+    @include per-row(3, 3, 2);
+  }
+}
+
+
+
+// for consistend use of flex and float based grid
+// extend %grid-container for any element containing grid
 
 %grid-container {
   @if $grid-output == flex {
@@ -223,5 +284,42 @@ $grid-columns: get-dividers($columns);
 
   } @else if $grid-output == float {
     @include clearfix;
+  }
+}
+
+
+// Calculate how many equal columns can fit in each row? e.g. 12, 6, 4, 3, 2, 1;
+$grid-columns: get-dividers($columns);
+
+// Generate placeholders for all columns
+//
+@for $i from 1 through $columns {
+  $index: index($grid-columns, $i);
+  $col-size: $columns / $i;
+
+  %s-#{$i}-#{$columns} {
+
+    @if $index == null {
+      @include per-row($col-size)
+    } @else {
+      // calculate sizes for normal and small screen sizes
+      $column-dividers: get-dividers($col-size);             // for 1/12 column: 12, 6, 4, 3, 2, 1;
+      $dividers-count: length($column-dividers);      // for 1/12 column: 6;
+      $normal-in-a-row: null;
+      $small-in-a-row: null;
+
+      @if $dividers-count > 2 {
+        $normal-in-a-row:  nth($column-dividers, 2);
+        $small-in-a-row:  nth($column-dividers, 3);
+      } @elseif $dividers-count == 2 {
+        $normal-in-a-row:  nth($column-dividers, 1);
+        $small-in-a-row:  nth($column-dividers, 2);
+      } @else {
+        $normal-in-a-row: nth($column-dividers, 1);
+        $small-in-a-row:  nth($column-dividers, 1);
+      }
+
+      @include per-row($col-size, $normal-in-a-row, $small-in-a-row);
+  }
   }
 }
