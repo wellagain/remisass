@@ -20,10 +20,11 @@
 				<section class="list-container">
 					<ul class="feature-list">
 						<li><strong>Semantics first</strong>: no need to compile what you never use: <code>%placeholders</code> insdead of outputed <code>.class</code>;</li>
-						<li><strong>Pre-build placeholders</strong> for grid sizes (e.g. <code>%s-2-12</code>, meaning 2 columns of 12), buttons and form elements;</li>
-						<li>Generate grid placeholders for <strong>your own grid</strong>, for any column numbers you want (fancy <code>%s-3-6</code>? Easy!);</li>
-						<li><strong>Intelligent grid behaviour</strong> for smaller screens (e.g. 12 columns become 6, then 4, then 1 when resizing);</li>
+						<li><strong>Total control of your grid</strong> with <code>$columns</code> and <code>$grid-gutter</code> variables in settings.</li>
 						<li>Choose how your grid is outputed, using <strong>inline-block</strong> (default), <strong>flexbox</strong> or <strong>floats</strong> as your grid output setting;</li>
+						<li>Set your element grid size for all screens with one line of include: <code>grid(3 gap, 6 gap, 12)</code></li>
+						<li>Intuitive control over repeating same-size elements: use <code>per-row(12, 6, 3, 2)</code> to make 12 colums collapsing to 6 on tablets, 3 on landscape and 2 on portrait mobile;</li>
+						<li>Smart context-aware mixin for automatic grid calculations of same-size elements, based on <strong>quantity queries</strong>;</li>
 						<li>Normalize, centered content, sticky footer, responsive tables and other layout snippets available;
 						<li>Use icons from available icon sets as easy as <span class="feature-list__icon">icon(heart)</span>;</li>
 						<li>Dealing with <strong>vendor prefixes</strong> without post-processor? Use mixins for css3 features or build your own for as many vendors as you need to.</li>
