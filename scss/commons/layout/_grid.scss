@@ -16,6 +16,10 @@ $grid-output:               inline-block !default;
   } @else if $grid-output == float {
     margin-right: #{$grid-gutter};
   }
+
+  &:last-child {
+    @include margin-clear;
+  }
 }
 
 // clear a margin
@@ -33,10 +37,6 @@ $grid-output:               inline-block !default;
   @include marginify;
 
   &:nth-of-type(#{$nth}n+#{$nth}) {
-    @include margin-clear;
-  }
-
-  &:last-child {
     @include margin-clear;
   }
 }
