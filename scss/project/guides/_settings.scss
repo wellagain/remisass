@@ -5,7 +5,7 @@
 // 'float' results in grid outputed as floating boxes
 // 'flex' results in grid container being flex
 
-$grid-output:               flex;        // inline-block / float / flex
+$grid-output:               inline-block;        // inline-block / float / flex
 
 
 // Specify any column number, grid placeholder names will be generated accordingly

@@ -89,6 +89,17 @@ p {
   }
 }
 
+.smart__container {
+  > * {
+    @include context-aware-sizing(div, 6, 4);
+  }
+}
+
+.smart {
+
+  @extend %block;
+}
+
 .mixed-sizies {
   @extend %grid-container !optional;
 }
