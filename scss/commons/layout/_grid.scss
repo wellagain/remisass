@@ -169,11 +169,14 @@ $grid-output:               inline-block !default;
 // quantuty query powered grid calculations
 // http://www.quantityqueries.com/
 // for same-size elements based on total amount of items
+// works with $grid-output: inline-block;
 //
 @mixin context-aware-sizing(
   $selector,
-  $max-per-row: 7
+  $max-per-row: 7,
+  $default-per-row: 4
   ) {
+
   &:nth-last-child(-n+2):first-child,
   &:nth-last-child(-n+2):first-child ~ #{$selector} {
     @include per-row(2, 2, 2);
@@ -238,7 +241,7 @@ $grid-output:               inline-block !default;
 
   &:nth-last-child(n+11),
   &:nth-last-child(n+11) ~ #{$selector} {
-    @include per-row(3, 3, 2);
+    @include per-row($default-per-row, $default-per-row, 2);
   }
 }
 
