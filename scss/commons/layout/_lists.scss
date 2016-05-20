@@ -36,3 +36,26 @@
   }
 }
 
+@mixin list-numbered(
+  $color: inherit
+  ) {
+
+  margin: .5em 0 1em;
+  padding-right: 0;
+  counter-reset: numbered-counter;
+
+  li {
+    margin: .7em 0;
+    padding-left: 1.5em;
+    list-style-type: none;
+
+    &::before {
+      display: block;
+      float: left;
+      margin: 0 .5em 0 -1.45em;
+      color: $color;
+      content: counter(numbered-counter)'.';
+      counter-increment: numbered-counter;
+    }
+  }
+}
