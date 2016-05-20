@@ -10,13 +10,15 @@ Semantic responsive SCSS grid framework for modern browsers
 Key features
 ------------
 - **Semantics first**: no need to compile what you never use: `%placeholders` insdead of outputed `.class`;
-- **Pre-build placeholders** for grid sizes (e.g. `%s-2-12`, meaning 2 columns of 12), buttons and form elements;
-- Generate grid placeholders for **your own grid**, for any column numbers you want (fancy `%s-3-6`? Easy!);
-- **Intelligent grid behaviour** for smaller screens (e.g. 12 columns become 6, then 4, then 1 when resizing);
+- **Total control of your grid** with `$columns` and `$grid-gutter` variables in settings;
 - Choose how your grid is outputed, using **inline-block** (default), **flexbox** or **floats** as your grid output setting;
+- Set your element grid size for all screens with one line of include: `grid(3 gap, 6 gap, 12)`;
+- Intuitive control over repeating same-size elements: use `per-row(12, 6, 3, 2)` to make 12 colums collapsing to 6 on tablets, 3 on landscape and 2 on portrait mobile;
+- Smart context-aware mixin for automatic grid calculations of same-size elements, based on `quantity queries`;
 - Normalize, centered content, sticky footer, responsive tables and other layout snippets available;
-- Use icons from available 4 icon sets as easy as icon(heart);
+- Use icons from available 4 icon sets as easy as `content: icon(heart)`;
 - Dealing with **vendor prefixes** without post-processor? Use mixins for css3 features or build your own for as many vendors as you need to.
+
 
 
 See [demo page](http://work.wellagain.lt/remisass/) for visual presentation.
