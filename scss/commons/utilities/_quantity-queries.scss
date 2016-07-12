@@ -1,0 +1,47 @@
+// Quantity queries mixin
+// accepts comparison rule "equal", "less" or "more"
+// If no selector added, any element is selected
+//
+// Use:
+// @include qq(5, less, div) {
+//    color: $white;
+//  }
+// Outputs:
+// .test:nth-last-child(-n + 5):first-child,
+// .test:nth-last-child(-n + 5):first-child ~ div {
+//  color: white;
+// }
+
+@mixin qq(
+    $number,
+    $rule: unquote('equal'), // equal / less / more
+    $selector: unquote('*')
+  ) {
+
+  @if ($rule == equal) {
+    &:nth-last-child(#{$number}):first-child {
+      &,
+      & ~ #{$selector} {
+        @content;
+      }
+    }
+  }
+
+  @if ($rule == less) {
+    &:nth-last-child(-n + #{$number}):first-child {
+      &,
+      & ~ #{$selector} {
+        @content;
+      }
+    }
+  }
+
+  @if ($rule == more) {
+    &:nth-last-child(n + #{$number}):first-child {
+      &,
+      & ~ #{$selector} {
+        @content;
+      }
+    }
+  }
+}
