@@ -11,6 +11,6 @@
     src: url('#{$font-url}.eot?#iefix') format('embedded-opentype'),
          url('#{$font-url}.woff?#{$version}') format('woff'),
          url('#{$font-url}.ttf?#{$version}') format('truetype'),
-         url('#{$font-url}.svg#{$name}') format('svg');
+         url('#{$font-url}.svg#{$version}##{$name}') format('svg');
   }
 }
