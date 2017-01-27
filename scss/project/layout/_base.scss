@@ -82,6 +82,15 @@ p {
 .features__form {
   @extend %block, %form--half;
   @include grid(4, 6, 5, 12);
+  position: relative;
+
+  &::before {
+    @include triangle(left, 50% 100% auto auto, $input-bg--disabled);
+  }
+
+  &::after {
+    @include triangle(bottom, 100% 50% auto auto, $input-bg--disabled);
+  }
 
   form {
     @extend %grid-container !optional;

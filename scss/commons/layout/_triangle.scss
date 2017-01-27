@@ -1,0 +1,52 @@
+// return opposite direction of top right bottom left center args
+
+@function opposite-direction($directions) {
+  $opposite-directions: ();
+  $direction-map: (
+    'top':    'bottom',
+    'right':  'left',
+    'bottom': 'top',
+    'left':   'right',
+  );
+
+  @each $direction in $directions {
+    $direction: to-lower-case($direction);
+
+    @if map-has-key($direction-map, $direction) {
+      $opposite-directions: append($opposite-directions, unquote(map-get($direction-map, $direction)));
+    } @else {
+      @warn "No opposite direction can be found for `#{$direction}`. Direction omitted.";
+    }
+  }
+
+  @return $opposite-directions;
+}
+
+// show an arrow
+
+@mixin triangle(
+  $direction,
+  $position,
+  $color,
+  $h-size: 1em,
+  $w-size: 1em
+  ) {
+  @include position(absolute, $position);
+  content: ' ';
+  z-index: 2;
+  width: 0;
+  height: 0;
+
+  border-#{opposite-direction($direction)}: $h-size solid $color;
+  $perpendicular-border: $w-size solid $transparent;
+
+  @if $direction == top or $direction == bottom {
+    margin-right: $w-size * -1;
+    border-right: $perpendicular-border;
+    border-left: $perpendicular-border;
+  } @else if $direction == right or $direction == left {
+    margin-top: $h-size * -1;
+    border-top: $perpendicular-border;
+    border-bottom: $perpendicular-border;
+  }
+}
