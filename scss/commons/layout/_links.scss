@@ -10,7 +10,12 @@
   }
 
   &:hover,
+  &:focus,
   &:active {
     color: lighten($color, 15%);
+  }
+
+  &:focus {
+    outline: 0;
   }
 }
