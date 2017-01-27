@@ -6,7 +6,7 @@ body {
   @include font--normal;
 }
 
-a {
+a[href]:not([class]) {
   @include link($col-link);
 }
 
