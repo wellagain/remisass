@@ -112,7 +112,8 @@
 
 // implementation
 .bt--primary {
-  @extend %button-m, %button-primary-color;
+  @extend %button-m;
+  @extend %button-primary-color;
 
   &:disabled {
     @extend %button-disabled-color;
@@ -120,7 +121,8 @@
 }
 
 .bt--secondary {
-  @extend %button-m, %button-secondary-color;
+  @extend %button-m;
+  @extend %button-secondary-color;
 
   &:disabled {
     @extend %button-disabled-color;
@@ -128,7 +130,8 @@
 }
 
 .bt--cta {
-  @extend %button-xl, %button-primary-color;
+  @extend %button-xl;
+  @extend %button-primary-color;
 
   &:disabled {
     @extend %button-disabled-color;
@@ -136,7 +139,8 @@
 }
 
 .bt--silent {
-  @extend %button-s, %button-secondary-color;
+  @extend %button-s;
+  @extend %button-secondary-color;
 
   &:disabled {
     @extend %button-disabled-color;

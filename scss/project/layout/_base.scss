@@ -80,7 +80,8 @@ p {
 }
 
 .features__form {
-  @extend %block, %form--half;
+  @extend %block;
+  @extend %form--half;
   @include grid(4, 6, 5, 12);
   position: relative;
 
