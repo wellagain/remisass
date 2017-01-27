@@ -18,12 +18,12 @@ $columns:                   12;
 $grid-gutter:                2%;
 
 // fallback those suporting browsers with no calc() support, you'll need to adjust it visually
-$grid-gutter--falback:       1.1%;
+$grid-gutter--falback:       $grid-gutter / 1.4;
 
 
 // if $grid-output is set to inline-block
-// use $inline-block-gap value for whitespace removal between inline-block elements
-$inline-block-gap:          .25rem;
+// $inline-block-gap value is used for whitespace removal between inline-block elements
+$inline-block-gap:          .278rem;
 
 // falback for those who don't support rem
 $inline-block-gap-flb:      3px;
@@ -34,4 +34,4 @@ $base-font-size:            16;
 
 
 // prevent your page from growing bigger than a certain size when screen is huge
-$max-page-width:            1200px;
+$max-page-width:            1200px !default;
