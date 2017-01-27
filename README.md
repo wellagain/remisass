@@ -29,10 +29,10 @@ Structure
  - `css3` -  Not using autoprefixer? Use these one-liners for css3 features
  - `layout` - layout-specific snippets, reset, grid and helpers
  - `utilities` - utilities (math) and shorthands
-- `css` -  files for css compiling (table of contents). The order of includes is important.
 - `project` - project-specific styles
  - `guides` - Colors, sizes, typography and RWD breakpoints
  - `layout` - All components for your project's layout
+- `app.scss` - file for css compiling (table of contents). The order of includes is important.
 
 
 Give it a try
