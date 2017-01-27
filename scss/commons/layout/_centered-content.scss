@@ -1,3 +1,33 @@
+@mixin centered-block(
+  $element-width,
+  $max-element-width: $element-width,
+  $element-width--normal: $element-width,
+  $element-width--small: $element-width
+  ) {
+  margin-right: auto;
+  margin-left: auto;
+  width: $element-width;
+  max-width: $max-element-width;
+  text-align: left;
+
+  @include breakpoint(normal) {
+    width: $element-width--normal;
+    max-width: none;
+  }
+
+  @include breakpoint(small) {
+    width: $element-width--small;
+    max-width: none;
+  }
+
+  @include breakpoint(mobile) {
+    padding-right: 1em;
+    padding-left: 1em;
+    width: 100%;
+    max-width: none;
+  }
+}
+
 // An element withing wrap container is centered and has it's own width
 // use:
 // @include centered-content(100%, 650px, 1200px);
@@ -17,26 +47,6 @@
   }
 
   #{$element} {
-    margin: 0 auto;
-    width: $element-width;
-    max-width: $max-element-width;
-    text-align: left;
-
-    @include breakpoint(normal) {
-      width: $element-width--normal;
-      max-width: none;
-    }
-
-    @include breakpoint(small) {
-      width: $element-width--small;
-      max-width: none;
-    }
-
-    @include breakpoint(mobile) {
-      padding-right: 1em;
-      padding-left: 1em;
-      width: 100%;
-      max-width: none;
-    }
+    @include centered-block($element-width, $max-element-width, $element-width--normal, $element-width--small);
   }
 }
