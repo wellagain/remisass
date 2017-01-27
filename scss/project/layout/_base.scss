@@ -1,10 +1,9 @@
 // your basic layout styles here, like
 
-@include font-reset;
+@include font-reset(16);
 
 body {
   @include font--normal;
-  @include rem(font-size, to-rem(14.4));
 }
 
 a {

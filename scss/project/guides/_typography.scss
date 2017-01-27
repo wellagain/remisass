@@ -4,10 +4,10 @@
   $default-size: 16;
 
   html {
-    font-size: $body-size / $default-size * 100%; // 14px
+    @include rem(font-size, to-rem($body-size));
 
-    @include breakpoint(small-down) {
-      font-size: $body-size / $default-size * 92.8571429%; // 13px
+    @include breakpoint(normal) {
+      font-size: .9em;
     }
   }
 }
