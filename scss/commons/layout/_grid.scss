@@ -285,6 +285,8 @@ $grid-output:               inline-block !default;
 
   } @else if $grid-output == float {
     @include clearfix;
+  } @else {
+    font-size: 1rem;
   }
 }
 
