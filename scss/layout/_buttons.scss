@@ -28,13 +28,9 @@
     $typography-color: $black,
     $hoverable: true
   ) {
-
-  @include box-shadow((
-    0 4px 0 0 darken($color, 10%),
-    0 2px 0 1px transparentize(darken($color, 30%), .9)
-  ));
-
   margin-bottom: .5em;
+  box-shadow: 0 4px 0 0 darken($color, 10%),
+    0 2px 0 1px transparentize(darken($color, 30%), .9);
   border: 0;
   background: $color;
   color: $typography-color;
@@ -42,21 +38,16 @@
   @if $hoverable == true {
     &:hover {
       @include gradient(lighten($color, 5%), $color);
-      @include box-shadow((
-        0 4px 0 0 darken($color, 15%),
-        0 5px 1px 1px transparentize(darken($color, 30%), .8)
-      ));
+      box-shadow: 0 4px 0 0 darken($color, 15%),
+        0 5px 1px 1px transparentize(darken($color, 30%), .8);
       color: lighten($typography-color, 5%);
     }
 
     &:active {
-      @include box-shadow((
-        0 3px 0 0 darken($color, 10%),
-        0 4px 1px 1px transparentize(darken($color, 30%), .8)
-      ));
-
       top: 1px;
       outline: none;
+      box-shadow: 0 3px 0 0 darken($color, 10%),
+        0 4px 1px 1px transparentize(darken($color, 30%), .8);
       background: $color;
     }
 
@@ -67,13 +58,10 @@
     &:hover,
     &:active,
     &:focus {
-      @include box-shadow((
-        0 4px 0 0 darken($color, 10%),
-        0 2px 0 1px transparentize(darken($color, 30%), .9)
-      ));
-
       top: 0;
       border: 0;
+      box-shadow: 0 4px 0 0 darken($color, 10%),
+        0 2px 0 1px transparentize(darken($color, 30%), .9);
       background: $color;
       background-image: none;
       cursor: default;

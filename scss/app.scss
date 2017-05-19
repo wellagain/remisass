@@ -1,46 +1,40 @@
-@import 'commons/utilities/browserize';
+@import 'commons/utilities/settings';
+@import 'guides/swatches';
+@import 'guides/responsive';
+
 @import 'commons/utilities/rem';
-@import 'commons/utilities/position';
 @import 'commons/utilities/quantity-queries';
+@import 'commons/utilities/font-face';
+@import 'commons/utilities/icons';
+@import 'commons/utilities/position';
 @import 'commons/utilities/display';
 @import 'commons/utilities/float';
 @import 'commons/utilities/debug';
-@import 'commons/utilities/font-face';
-@import 'commons/utilities/icons';
+
 @import 'commons/layout/normalize';
-
-@import 'project/guides/settings';
-@import 'project/guides/swatches';
-@import 'project/guides/responsive';
 @import 'commons/layout/grid';
-
-@import 'commons/css3/box-shadow';
-@import 'commons/css3/text-shadow';
-@import 'commons/css3/gradient';
-@import 'commons/css3/transition';
-@import 'commons/css3/animation';
-@import 'commons/css3/word-break';
-@import 'commons/css3/columns';
-
-@import 'project/guides/typography';
-@import 'project/guides/icons_typicons';
-
-@import 'commons/layout/js-utils';
-@import 'commons/layout/triangle';
 @import 'commons/layout/lists';
 @import 'commons/layout/links';
 @import 'commons/layout/tables';
+@import 'commons/layout/js-utils';
+@import 'commons/layout/triangle';
 @import 'commons/layout/centered-content';
 @import 'commons/layout/sticky_footer';
+@import 'commons/layout/animation';
+@import 'commons/layout/gradient';
 
-@import 'project/layout/elements';
-@import 'project/layout/buttons';
-@import 'project/layout/header';
-@import 'project/layout/footer';
-@import 'project/layout/base';
-@import 'project/layout/forms';
-@import 'project/layout/tables';
+
+@import 'guides/typography';
+@import 'guides/icons_typicons';
+
+@import 'layout/elements';
+@import 'layout/buttons';
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/base';
+@import 'layout/forms';
+@import 'layout/tables';
 
 @media print {
-  @import 'project/layout/print';
+  @import 'layout/print';
 }

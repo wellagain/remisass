@@ -49,12 +49,10 @@
   $color-to: lighten($black, 100 - 8);
 
   @include gradient($color-from, $color-to);
-  @include box-shadow((
-    0 0 0 1px transparentize(darken($color-to, 40%), .8) inset
-  ));
-  @include text-color(lighten($black, 30%));
 
+  box-shadow: 0 0 0 1px transparentize(darken($color-to, 40%), .8) inset;
   border-radius: .5em;
+  color: lighten($black, 30%);
 
   @include breakpoint(widescreen) {
     padding: .5em 1em;

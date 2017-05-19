@@ -17,7 +17,6 @@ Key features
 - Smart context-aware mixin for automatic grid calculations of same-size elements, based on `quantity queries`;
 - Normalize, centered content, sticky footer, responsive tables and other layout snippets available;
 - Use icons from available 4 icon sets as easy as `content: icon(heart)`;
-- Dealing with **vendor prefixes** without post-processor? Use mixins for css3 features or build your own for as many vendors as you need to.
 
 
 
@@ -26,12 +25,10 @@ See [demo page](http://work.wellagain.lt/remisass/) for visual presentation.
 Structure
 ---------
 - `commons` - reusable partials
- - `css3` -  Not using autoprefixer? Use these one-liners for css3 features
  - `layout` - layout-specific snippets, reset, grid and helpers
  - `utilities` - utilities (math) and shorthands
-- `project` - project-specific styles
- - `guides` - Colors, sizes, typography and RWD breakpoints
- - `layout` - All components for your project's layout
+- `guides` - Colors, sizes, typography and RWD breakpoints
+- `layout` - All components for your project's layout
 - `app.scss` - file for css compiling (table of contents). The order of includes is important.
 
 
@@ -42,8 +39,7 @@ To start using, make sure you have SASS Sass 3.4.1 (Selective Steve) or higher i
 Use sass watch in `scss` folder for outputing in `css` folder:
 
 compile compressed:
-`sass --watch .:../ --style compressed`
+`sass --watch scss:css --style compressed`
 
 For more information on SASS read http://sass-lang.com/
 
-Put all project-specific styles in `project` folder, but edit `commons` on your own risk!
