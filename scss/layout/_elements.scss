@@ -49,9 +49,8 @@
   $color-to: lighten($black, 100 - 8);
 
   @include gradient($color-from, $color-to);
-
-  box-shadow: 0 0 0 1px transparentize(darken($color-to, 40%), .8) inset;
   border-radius: .5em;
+  box-shadow: 0 0 0 1px transparentize(darken($color-to, 40%), .8) inset;
   color: lighten($black, 30%);
 
   @include breakpoint(widescreen) {
