@@ -27,14 +27,14 @@
 @import 'guides/typography';
 @import 'guides/icons_typicons';
 
-@import 'layout/elements';
-@import 'layout/buttons';
-@import 'layout/header';
-@import 'layout/footer';
-@import 'layout/base';
-@import 'layout/forms';
-@import 'layout/tables';
+@import 'layout/elements/elements';
+@import 'layout/elements/buttons';
+@import 'layout/elements/header';
+@import 'layout/elements/footer';
+@import 'layout/views/base';
+@import 'layout/elements/forms';
+@import 'layout/elements/tables';
 
 @media print {
-  @import 'layout/print';
+  @import 'layout/views/print';
 }
