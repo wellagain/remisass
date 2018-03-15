@@ -29,6 +29,8 @@ Structure
  - `utilities` - utilities (math) and shorthands
 - `guides` - Colors, sizes, typography and RWD breakpoints
 - `layout` - All components for your project's layout
+ - `elements` - Common layout elements (header, footer, etc)
+ - `views` - Specific page views
 - `app.scss` - file for css compiling (table of contents). The order of includes is important.
 
 
