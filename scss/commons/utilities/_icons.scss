@@ -19,3 +19,18 @@
   @warn "Unknown `#{$key}` in $icons.";
   @return null;
 }
+
+
+// classes output
+
+@mixin output-icons() {
+  [class*='ico-']::before {
+    @extend %icon;
+  }
+
+  @each $icon, $value in $icons {
+    .ico-#{$icon}::before {
+      content: icon($icon);
+    }
+  }
+}
