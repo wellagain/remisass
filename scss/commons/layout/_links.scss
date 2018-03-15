@@ -2,7 +2,10 @@
 // use:
 // @include link($red);
 
-@mixin link($color) {
+@mixin link(
+  $color,
+  $hover: $color
+  ) {
   color: $color;
 
   &:visited {
@@ -12,7 +15,11 @@
   &:hover,
   &:focus,
   &:active {
-    color: lighten($color, 15%);
+    @if($hover != $color) {
+      color: $hover;
+    } @else {
+      color: lighten($hover, 15%);
+    }
   }
 
   &:focus {
