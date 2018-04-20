@@ -1,16 +1,3 @@
-%icon {
-  display: inline-block;
-  vertical-align: baseline;
-  text-align: center;
-  text-decoration: none;
-  text-rendering: optimizeLegibility;
-  font-family: 'icon';
-  font-weight: normal;
-  -webkit-font-smoothing: antialiased;
-  font-style: normal;
-  speak: none;
-}
-
 @function icon($key) {
   @if map-has-key($icons, $key) {
     @return map-get($icons, $key);
@@ -21,7 +8,7 @@
 }
 
 
-// classes output
+// generate all icons as classes
 
 @mixin output-icons() {
   [class*='ico-']::before {
@@ -33,4 +20,20 @@
       content: icon($icon);
     }
   }
+}
+
+
+// icon placeholder
+
+%icon {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  text-decoration: none;
+  text-rendering: optimizeLegibility;
+  font-family: 'icon';
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  font-style: normal;
+  speak: none;
 }
