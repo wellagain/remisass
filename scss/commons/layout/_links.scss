@@ -4,8 +4,11 @@
 
 @mixin link(
   $color,
-  $hover: $color
-  ) {
+  $hover: $color,
+  $underline: underline,
+  $underline-hover: $underline
+) {
+  text-decoration: $underline;
   color: $color;
 
   &:visited {
@@ -15,11 +18,13 @@
   &:hover,
   &:focus,
   &:active {
-    @if($hover != $color) {
+    @if ($hover != $color) {
       color: $hover;
     } @else {
       color: lighten($hover, 15%);
     }
+
+    text-decoration: $underline-hover;
   }
 
   &:focus {
