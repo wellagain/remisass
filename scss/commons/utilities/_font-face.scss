@@ -1,18 +1,42 @@
+$font-extensions: woff2 woff ttf; // possible formats eot, woff2, woff, otf, ttf, svg
+
 @mixin font-face(
   $font-url,
   $version,
   $name,
   $weight: unquote('normal'),
-  $style: unquote('normal')
-  ) {
+  $style: unquote('normal'),
+  $extensions: $font-extensions
+) {
   @font-face {
+    $url: local($name);
+
+    $mods: (
+      eot: '?' + $version,
+      woff2: '?' + $version,
+      woff: '?' + $version,
+      otf: '?' + $version,
+      ttf: '?' + $version,
+      svg: '?' + $version + '#' + str-replace($name, ' ', '_')
+    );
+
+    $font-formats: (
+      woff: 'woff',
+      otf: 'opentype',
+      ttf: 'truetype',
+      svg: 'svg'
+    );
+
+    @each $extension in $extensions {
+      $mod: if(map-has-key($mods, $extension), map-get($mods, $extension), $extension);
+      $font-format: if(map-has-key($font-formats, $extension), map-get($font-formats, $extension), $extension);
+
+      $url: append($url, url(quote($font-url + '.' + $extension + $mod)) format(quote($font-format)), comma);
+    }
+
     font-family: quote($name);
     font-weight: $weight;
     font-style: $style;
-    src: url('#{$font-url}.eot?#{$version}');
-    src: url('#{$font-url}.eot?#iefix') format('embedded-opentype'),
-         url('#{$font-url}.woff?#{$version}') format('woff'),
-         url('#{$font-url}.ttf?#{$version}') format('truetype'),
-         url('#{$font-url}.svg?#{$version}##{$name}') format('svg');
+    src: $url;
   }
 }
