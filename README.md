@@ -24,13 +24,13 @@ See [demo page](http://work.wellagain.lt/remisass/) for visual presentation.
 
 Structure
 ---------
-- `commons` - reusable partials
- - `layout` - layout-specific snippets, reset, grid and helpers
- - `utilities` - utilities (math) and shorthands
-- `guides` - Colors, sizes, typography and RWD breakpoints
+- `commons` - reusable partials, common for different projects
+  - `layout` - layout-specific snippets, reset, grid and helpers
+  - `utilities` - utilities (math) and shorthand mixins
+- `guides` - Project-specific brand colors, sizes, typography and RWD breakpoints
 - `layout` - All components for your project's layout
- - `elements` - Common layout elements (header, footer, etc)
- - `views` - Specific page views
+  - `elements` - Common layout elements (header, footer, etc)
+  - `views` - Specific page views
 - `app.scss` - file for css compiling (table of contents). The order of includes is important.
 
 
